@@ -1,0 +1,64 @@
+
+//
+//  TBRJL-Prefix.pch
+//  TBRJL
+//
+//  Created by 程三 on 15/5/31.
+//  Copyright (c) 2015年 程三. All rights reserved.
+//
+
+#ifndef TBRJL_TBRJL_Prefix_pch
+#define TBRJL_TBRJL_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+
+#endif
+
+//正式地址：http://fjisip.yxybb.com/
+//测试地址：http://59.173.241.186:8042/LODP/
+//周文海：http://192.168.20.134:8080/BBTone/
+#define ServiceURL [NSString stringWithFormat:@"%@",@"http://59.173.241.186:8042/LODP/"];
+#define UpdateURL [NSString stringWithFormat:@"%@",@"http://fjisip.yxybb.com/"];
+
+#define RGB(a,b,c)  [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:1];
+
+#define PATH [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject]
+//Leap后台配置的APP名称
+#define LeapAPPName [NSString stringWithFormat:@"%@",@"BBT_IOS"];
+//APP的中文名称
+#define APPCNName [NSString stringWithFormat:@"%@",@"福建投保人记录系统"];
+//APP的英文名称
+#define APPENName [NSString stringWithFormat:@"%@",@"BBT_IOS"];
+//版本号
+#define VersionCode [NSString stringWithFormat:@"%@",@"1"];
+//版本号描述
+#define VersionName [NSString stringWithFormat:@"%@",@"V1.0.0"];
+
+//获取设备的物理高度
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//获取设备的物理宽度
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+
+//状态栏高度
+#define StatusBarHeight 20;
+
+//标题栏高度
+#define TitleBarHeight 44;
+
+
+//存放用户信息的目录
+#define UserInfoDic [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"userInfo"];
+//存放公司的信息目录
+#define ComparyInfoDic [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"comparyInfo"];
+//存放照片目录
+#define photoInfoDic [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"photoInfo"];
+//存放ZIP包目录
+#define photoZipDic [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+
+//  存放暂存的数据
+#define ZcDataPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"ZCSj.data"]
