@@ -294,4 +294,11 @@
     [textField resignFirstResponder];
     return true;
 }
+
+
+-(void)setBgColor:(UIColor *)color{
+    textBtn.backgroundColor = color;
+//    [textBtn setImage:[UIImage imageNamed:@"select_compary_icon.png"] forState:UIControlStateNormal];
+
+}
 @end

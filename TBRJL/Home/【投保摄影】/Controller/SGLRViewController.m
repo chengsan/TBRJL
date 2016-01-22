@@ -8,6 +8,8 @@
 
 #import "SGLRViewController.h"
 #import "TitleDropDown.h"
+#import "ChooseView.h"
+#import "CHButton.h"
 @interface SGLRViewController()
 @property (nonatomic ,strong) UIButton *yesBtn;
 
@@ -19,10 +21,35 @@
 
 @property (nonatomic ,strong) UIView *safepnameView;
 
+@property (nonatomic ,strong)ChooseView *chooseView;
+
+@property (nonatomic ,strong)CHButton *btn;
 
 @end
 
 @implementation SGLRViewController
+- (ChooseView *)chooseView{
+    if (!_chooseView) {
+        _chooseView = [[ChooseView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth *0.8, ScreenHeight*0.8)];
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        _chooseView.center = window.center;
+        _chooseView.layer.cornerRadius = 2;
+        _chooseView.layer.masksToBounds = YES;
+        _chooseView.hidden = YES;
+        _chooseView.dataSoures = @[@"闽",@"京",@"津",@"沪",@"渝",@"蒙",@"新",@"藏",
+                                   @"宁",@"桂",@"港",@"澳",@"黑",@"吉",@"辽",@"晋",
+                                   @"冀",@"青",@"鲁",@"豫",@"苏",@"皖",@"浙",@"赣",
+                                   @"湘",@"鄂",@"粤",@"琼",@"甘",@"陕",@"黔",@"滇",
+                                   @"川"];
+        __weak typeof(self) weakSelf = self;
+        _chooseView.block = ^(NSString *title){
+
+            weakSelf.btn.label.text = title;
+        };
+        [window addSubview:_chooseView];
+    }
+    return _chooseView;
+}
 
 
 -(void)viewDidLoad
@@ -31,6 +58,7 @@
     self.title = @"手工录入";
     self.view.backgroundColor = [UIColor whiteColor];
     [self _initView];
+   
     //类型：0 新建／1:缓存／2:补拍／3:补录  填充数据
     if(currentType == 1 || currentType == 2 || currentType == 3)
     {
@@ -47,11 +75,10 @@
     scrollView.left = 0;
     scrollView.width = ScreenWidth;
     //该60为底部按钮的高度
-    scrollView.height = ScreenHeight - 20 - 44 - nextHeight;
+    scrollView.height = ScreenHeight - 20 - 44  - nextHeight;
     scrollView.scrollEnabled = YES;
     scrollView.backgroundColor = RGB(235, 235, 241);
     [self.view addSubview:scrollView];
-    
     //UIScrollView里面内容的总高度
     int totalHeight = 0;
     //标题统一的宽度和高度
@@ -441,14 +468,31 @@
         pcarnoTitle.textAlignment = NSTextAlignmentCenter;
         [pcarnoView addSubview:pcarnoTitle];
         
-        pcarnoTextView = [[UITextField alloc] initWithFrame:CGRectMake(safecostTitle.right, 0, ScreenWidth - width, height)];
+       //--------------------车牌号简称类型----------------
+        
+        NSString *carno = (NSString *)[safeInfo objectForKey:@"pcarno"];
+        
+        CHButton *btn = [[CHButton alloc] initWithFrame:CGRectMake(pcarnoTitle.right+1, 0, 60, height)];
+        if (carno != nil) {
+             btn.label.text = [carno substringToIndex:1];//截取掉下标1之前的字符串
+        }
+       __weak typeof(self) weakSelf = self;
+        btn.btnBlock = ^{
+            [weakSelf changeCarno];
+        };
+        
+        [pcarnoView addSubview:btn];
+        self.btn = btn;
+//
+        
+        pcarnoTextView = [[UITextField alloc] initWithFrame:CGRectMake(btn.right, 0, ScreenWidth -CGRectGetMaxX(btn.frame), height)];
         pcarnoTextView.delegate = self;
         pcarnoTextView.textAlignment = NSTextAlignmentCenter;
         pcarnoTextView.textColor = [UIColor blackColor];
         pcarnoTextView.font = [UIFont systemFontOfSize:14];
         pcarnoTextView.backgroundColor = [UIColor whiteColor];
 //        pcarnoTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-        pcarnoTextView.text = (NSString *)[safeInfo objectForKey:@"pcarno"];
+        pcarnoTextView.text = [carno substringFromIndex:1];
         [pcarnoView addSubview:pcarnoTextView];
         
         //---------------------车架号------------------------
@@ -594,6 +638,15 @@
     if (currentType == 3 && photoArray == nil) {
         [nextBtn setTitle:@"发送" forState:UIControlStateNormal];
     }
+}
+
+
+//  选择车牌号简称
+-(void)changeCarno{
+    NSLog(@"点击了");
+
+    [self.chooseView presentToWindowWithDuration:0.5];
+    
 }
 
 //填充数据
@@ -815,11 +868,11 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
             return false;
         }
         
-//        BOOL isAllow = [self checkPrint:txt withRule:@"^[0-9]+$"];
-//        if (!isAllow) {
-//            [self showAlertNotice:@"保额只能是数字"];
-//            return false;
-//        }
+        BOOL isAllow = [PublicClass checkPrint:txt withRule:@"^[0-9]+([.]{0,1}[0-9]+){0,1}$"];
+        if (!isAllow) {
+            [self showAlertNotice:@"保额只能是数字"];
+            return false;
+        }
 
         [safeInfo setValue:txt forKey:@"safecost"];
     }
@@ -836,11 +889,11 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
             return false;
         }
         
-//        BOOL isAllow = [self checkPrint:txt withRule:@"^[0-9]+$"];
-//        if (!isAllow) {
-//            [self showAlertNotice:@"保额只能是数字"];
-//            return false;
-//        }
+        BOOL isAllow = [PublicClass checkPrint:txt withRule:@"^[0-9]+([.]{0,1}[0-9]+){0,1}$"];
+        if (!isAllow) {
+            [self showAlertNotice:@"保额只能是数字"];
+            return false;
+        }
 
         [safeInfo setValue:txt forKey:@"psafepay"];
     }
@@ -886,12 +939,14 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
     if(nil != pcarnoTextView)
     {
         txt = pcarnoTextView.text;
+        
+        NSString *title = [NSString stringWithFormat:@"%@%@",self.btn.label.text,txt];
         if(txt == nil || [@"" isEqualToString:txt])
         {
             [self showAlertNotice:@"车牌号不能为空"];
             return false;
         }
-        [safeInfo setValue:txt forKey:@"pcarno"];
+        [safeInfo setValue:title forKey:@"pcarno"];
     }
     txt = nil;
     
@@ -1174,6 +1229,7 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
 #pragma mark TitleDropDown delegate
 -(void)titleDropDownDidSelected:(TitleDropDown *)dropDown index:(NSInteger)index
 {
+    NSLog(@"111");
     NSString *string = nil;
     
     switch (index)
@@ -1221,6 +1277,7 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
         
     }
 }
+
 
 
 

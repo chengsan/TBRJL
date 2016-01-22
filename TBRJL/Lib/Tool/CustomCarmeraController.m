@@ -73,6 +73,12 @@
     
     //在viewWillAppear方法里执行加载预览图层的方法
     [self setUpCameraLayer];
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(ScreenWidth-40, 0, 40, 30)];
+    [btn setImage:[UIImage imageNamed:@"change_camera"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(toggleCamera) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    
      self.title = self.titleName;
     if(_waterTextColor == nil)
     {

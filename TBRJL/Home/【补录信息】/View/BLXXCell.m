@@ -126,7 +126,7 @@
     snameLabel.frame = CGRectMake(CGRectGetMaxX(personLabel.frame), kindLabel.bottom, 100, KHeight);
     
     numLabel.frame = CGRectMake(LeftMargin, personLabel.bottom,60, KHeight);
-    safenoLabel.frame = CGRectMake(CGRectGetMaxX(numLabel.frame), personLabel.bottom, 100, KHeight);
+    safenoLabel.frame = CGRectMake(CGRectGetMaxX(numLabel.frame), personLabel.bottom, ScreenWidth - CGRectGetMaxX(numLabel.frame), KHeight);
     
 
     float marg = (ScreenWidth - KHeight * 3 - 2* 40)/2;

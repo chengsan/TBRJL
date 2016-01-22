@@ -14,6 +14,7 @@
 #import "Globle.h"
 #import "Util.h"
 #import "MBProgressHUD+PKX.h"
+#import "QuestionViewController.h"
 @interface SetViewController ()
 @property (nonatomic ,strong) UILabel *rightLabel;
 @end
@@ -191,6 +192,32 @@
     aboutLabel.font = [UIFont systemFontOfSize:15];
     [aboutView addSubview:aboutLabel];
 
+    //－－－－－－－－－－－－－常见问题－－－－－－－－－－－－
+    UIButton *questionView = [UIButton buttonWithType:UIButtonTypeCustom];
+    questionView.frame = CGRectMake(0, aboutView.bottom + 20, ScreenWidth, 50);
+    [questionView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
+    questionView.tag = 103;
+    [questionView addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:questionView];
+    
+    UIImageView *questionImgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"my_panel_about_icon.png"]];
+    questionImgView.frame = CGRectZero;
+    questionImgView.width = iconWidth;
+    questionImgView.height = iconWidth;
+    questionImgView.left = 20;
+    questionImgView.top = (questionView.height - questionImgView.height)/2;
+    [questionView addSubview:questionImgView];
+    
+    UILabel *questionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    questionLabel.height = 20;
+    questionLabel.left = questionImgView.right + 10;
+    questionLabel.width = questionView.width - questionLabel.left;
+    questionLabel.top = (questionView.height - questionLabel.height)/2;
+    questionLabel.text = @"常见问题";
+    questionLabel.textColor = [UIColor blackColor];
+    questionLabel.font = [UIFont systemFontOfSize:15];
+    [questionView addSubview:questionLabel];
+    
 }
 
 -(void)btnAction:(UIButton *)btn
@@ -213,12 +240,15 @@
             [MBProgressHUD hideHUD];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"您目前的状态是离线，请在有网的状态下登陆尝试更新." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
-
+      
         }else{
             //        更新配置文件
             [self updateComparnyInfo:areaid cardNo:cardno];
         }
        
+    }else if(btn.tag == 103){    //  关于
+        QuestionViewController *questionVc = [[QuestionViewController alloc] init];
+        [self.navigationController pushViewController:questionVc animated:YES];
     }
     
 }

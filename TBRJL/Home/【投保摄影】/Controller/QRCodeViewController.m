@@ -92,7 +92,7 @@
     nextBtn.left = (ScreenWidth - nextBtn.width)/2;
     nextBtn.top = (nextBtnView.height - nextBtn.height)/2;
     //设置不可点击
-//    nextBtn.enabled = NO;
+    nextBtn.enabled = NO;
     
     UIImage *img = [UIImage imageNamed:@"login_submit_normal.png"];
     img = [img stretchableImageWithLeftCapWidth:20 topCapHeight:0];

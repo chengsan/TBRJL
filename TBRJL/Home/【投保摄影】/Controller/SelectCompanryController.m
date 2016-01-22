@@ -26,6 +26,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+     _nextBtn.enabled = NO;
+    
     
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -236,7 +238,7 @@
             break;
         }
         case 111:
-        {
+        {          
             if(way == 0)
             {
                 QRCodeViewController *qrCodeVc = [[QRCodeViewController alloc] init];
@@ -608,4 +610,7 @@
     }
     return photos;
 }
+
+
+
 @end

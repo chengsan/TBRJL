@@ -158,6 +158,7 @@
     if (!result) return;
     NSLog(@"%s",__func__);
    [self.capture stop];
+    [self.capture stop];
 //       NSString *formatString = [self barcodeFormatToString:result.barcodeFormat];
 //    NSString *display = [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@", formatString, result.text];
 //    [self.decodedLabel performSelectorOnMainThread:@selector(setText:) withObject:display waitUntilDone:YES];

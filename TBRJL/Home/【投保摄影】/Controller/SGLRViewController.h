@@ -37,6 +37,8 @@
     TitleDropDown *safepnameDropDown;
     //被保险人证件类型
     NSString *psafeType;
+//     车牌号
+    TitleDropDown *carnoDropDown;
     //保费
     UITextField *safepayTextView;
     //保额

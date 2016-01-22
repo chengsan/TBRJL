@@ -38,4 +38,6 @@
 -(void)setSelectIndex:(int)index;
 //获取输入的内容
 -(NSString *)getTextFieldContent;
+-(void)setBgColor:(UIColor *)color;
+
 @end

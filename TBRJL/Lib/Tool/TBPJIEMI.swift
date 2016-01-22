@@ -44,9 +44,9 @@ class TBPJIEMI : NSObject {
     
     func Rotl(x:UInt32,y:UInt32) -> UInt32
     {
-        var xx:UInt32 = UInt32(x);
-        var yy:UInt32 = UInt32(y);
-        var zz = xx<<yy|xx>>(32 - yy);
+        let xx:UInt32 = UInt32(x);
+        let yy:UInt32 = UInt32(y);
+        let zz = xx<<yy|xx>>(32 - yy);
         return UInt32(zz);
     }
 
@@ -61,9 +61,9 @@ class TBPJIEMI : NSObject {
         var step3 = UInt32(Sbox[Int(A >> 8 & 0xFF)] & 0xFF);
         step3 = step3 << 8;
         
-        var step4 = UInt32(Sbox[Int(A & 0xFF)] & 0xFF);
+        let step4 = UInt32(Sbox[Int(A & 0xFF)] & 0xFF);
         
-        var step5 = step1|step2|step3|step4;
+        let step5 = step1|step2|step3|step4;
         
         return  step5;
     }
@@ -231,8 +231,8 @@ class TBPJIEMI : NSObject {
         if rsstr.hasPrefix("sm4_")
         {
             //var strString = rsstr.substr(4);
-            var strString=(rsstr as NSString).substringFromIndex(4);
-            var restr2 = SMS4().DecodeSMS4(strString, withKey: "ad37d033dac44f6b919ff66a3477613a");
+            let strString=(rsstr as NSString).substringFromIndex(4);
+            let restr2 = SMS4().DecodeSMS4(strString, withKey: "ad37d033dac44f6b919ff66a3477613a");
             if (restr2 == nil)
             {
                 return "";
@@ -243,7 +243,7 @@ class TBPJIEMI : NSObject {
         }else
         {
             // 密文.按8859-1 格式读入 [CChar]
-            var oldstr = rsstr.cStringUsingEncoding(NSISOLatin1StringEncoding);
+            let oldstr = rsstr.cStringUsingEncoding(NSISOLatin1StringEncoding);
             if oldstr == nil
             {
                 return "";
@@ -261,8 +261,8 @@ class TBPJIEMI : NSObject {
                 i++;
             }
             // 按 UTF8 输出
-            var kao = String(CString: rsstrArr,encoding: NSUTF8StringEncoding);
-            println("TBPJIEMI.JIEMI RETURN:\(kao)");
+            let kao = String(CString: rsstrArr,encoding: NSUTF8StringEncoding);
+            print("TBPJIEMI.JIEMI RETURN:\(kao)");
             if kao == nil
             {
                 return "";
