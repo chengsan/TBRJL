@@ -8,6 +8,7 @@
 
 #import "CHButton.h"
 #import "UIView+Extension.h"
+#import "PublicClass.h"
 @interface CHButton ()
 @property (nonatomic ,strong) UIButton *btn;
 
@@ -39,7 +40,9 @@
     UILabel *label = [[UILabel alloc] init];
     label.font = [UIFont systemFontOfSize:14];
     label.backgroundColor = [UIColor lightGrayColor];
+    label.textColor = [PublicClass colorWithHexString:@"#636363"];
     label.textAlignment = NSTextAlignmentCenter;
+   
     label.text = @"闽";
     [btn addSubview:label];
     self.label = label;

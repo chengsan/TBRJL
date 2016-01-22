@@ -145,7 +145,7 @@
     //[safenoTextView setPlaceholder:@"占位符"];
     safenoTextView.delegate = self;
     safenoTextView.textAlignment = NSTextAlignmentCenter;
-    safenoTextView.textColor = [UIColor blackColor];
+    safenoTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
     safenoTextView.font = [UIFont systemFontOfSize:14];
     safenoTextView.backgroundColor = [UIColor whiteColor];
     safenoTextView.keyboardType = UIKeyboardTypeNumberPad;
@@ -168,7 +168,7 @@
     UILabel *safetypeContent = [[UILabel alloc] initWithFrame:CGRectMake(safetypeTitle.right, 0, ScreenWidth - width, height)];
     safetypeContent.font = [UIFont systemFontOfSize:14];
     safetypeContent.backgroundColor = [UIColor whiteColor];
-    safetypeContent.textColor = [UIColor blackColor];
+    safetypeContent.textColor = [PublicClass colorWithHexString:@"#636363"];
     safetypeContent.textAlignment = NSTextAlignmentCenter;
     [safetypeView addSubview:safetypeContent];
     
@@ -243,7 +243,7 @@
     safenameTextView = [[UITextField alloc] initWithFrame:CGRectMake(safenameTitle.right, 0, ScreenWidth - width, height)];
     safenameTextView.delegate = self;
     safenameTextView.textAlignment = NSTextAlignmentCenter;
-    safenameTextView.textColor = [UIColor blackColor];
+    safenameTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
     safenameTextView.font = [UIFont systemFontOfSize:14];
     safenameTextView.backgroundColor = [UIColor whiteColor];
 //    safenameTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -290,7 +290,7 @@
     safepnameTextView = [[UITextField alloc] initWithFrame:CGRectMake(safepnameTitle.right, 0, ScreenWidth - width, height)];
     safepnameTextView.delegate = self;
     safepnameTextView.textAlignment = NSTextAlignmentCenter;
-    safepnameTextView.textColor = [UIColor blackColor];
+    safepnameTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
     safepnameTextView.font = [UIFont systemFontOfSize:14];
     safepnameTextView.backgroundColor = [UIColor whiteColor];
 //    safepnameTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -335,7 +335,7 @@
     safepayTextView = [[UITextField alloc] initWithFrame:CGRectMake(safepayTitle.right, 0, ScreenWidth - width, height)];
     safepayTextView.delegate = self;
     safepayTextView.textAlignment = NSTextAlignmentCenter;
-    safepayTextView.textColor = [UIColor blackColor];
+    safepayTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
     safepayTextView.font = [UIFont systemFontOfSize:14];
     safepayTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     safepayTextView.backgroundColor = [UIColor whiteColor];
@@ -359,7 +359,7 @@
     safecostTextView = [[UITextField alloc] initWithFrame:CGRectMake(safecostTitle.right, 0, ScreenWidth - width, height)];
     safecostTextView.delegate = self;
     safecostTextView.textAlignment = NSTextAlignmentCenter;
-    safecostTextView.textColor = [UIColor blackColor];
+    safecostTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
     safecostTextView.font = [UIFont systemFontOfSize:14];
     safecostTextView.backgroundColor = [UIColor whiteColor];
     safecostTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -384,7 +384,7 @@
     starttimeTextView = [[UITextField alloc] initWithFrame:CGRectMake(safecostTitle.right, 0, ScreenWidth - width - 50, height)];
     starttimeTextView.delegate = self;
     starttimeTextView.textAlignment = NSTextAlignmentCenter;
-    starttimeTextView.textColor = [UIColor blackColor];
+    starttimeTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
     starttimeTextView.font = [UIFont systemFontOfSize:14];
     starttimeTextView.backgroundColor = [UIColor whiteColor];
     starttimeTextView.enabled = false;
@@ -422,7 +422,7 @@
     endtimeTextView = [[UITextField alloc] initWithFrame:CGRectMake(safecostTitle.right, 0, ScreenWidth - width-50 , height)];
     endtimeTextView.delegate = self;
     endtimeTextView.textAlignment = NSTextAlignmentCenter;
-    endtimeTextView.textColor = [UIColor blackColor];
+    endtimeTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
     endtimeTextView.font = [UIFont systemFontOfSize:14];
     endtimeTextView.backgroundColor = [UIColor whiteColor];
     endtimeTextView.enabled = false;
@@ -488,7 +488,7 @@
         pcarnoTextView = [[UITextField alloc] initWithFrame:CGRectMake(btn.right, 0, ScreenWidth -CGRectGetMaxX(btn.frame), height)];
         pcarnoTextView.delegate = self;
         pcarnoTextView.textAlignment = NSTextAlignmentCenter;
-        pcarnoTextView.textColor = [UIColor blackColor];
+        pcarnoTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
         pcarnoTextView.font = [UIFont systemFontOfSize:14];
         pcarnoTextView.backgroundColor = [UIColor whiteColor];
 //        pcarnoTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -511,7 +511,7 @@
         carpwinTextView = [[UITextField alloc] initWithFrame:CGRectMake(safecostTitle.right, 0, ScreenWidth - width, height)];
         carpwinTextView.delegate = self;
         carpwinTextView.textAlignment = NSTextAlignmentCenter;
-        carpwinTextView.textColor = [UIColor blackColor];
+        carpwinTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
         carpwinTextView.font = [UIFont systemFontOfSize:14];
         carpwinTextView.backgroundColor = [UIColor whiteColor];
 //        carpwinTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -584,7 +584,7 @@
         ageTextView = [[UITextField alloc] initWithFrame:CGRectMake(safecostTitle.right, 0, ScreenWidth - width, height)];
         ageTextView.delegate = self;
         ageTextView.textAlignment = NSTextAlignmentCenter;
-        ageTextView.textColor = [UIColor blackColor];
+        ageTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
         ageTextView.font = [UIFont systemFontOfSize:14];
         ageTextView.backgroundColor = [UIColor whiteColor];
         ageTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
@@ -690,7 +690,7 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
     [btn setImage:[UIImage imageNamed:@"right-gou"] forState:UIControlStateSelected];
     [btn setTitle:title forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[PublicClass colorWithHexString:@"#636363"] forState:UIControlStateNormal];
     btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
 }

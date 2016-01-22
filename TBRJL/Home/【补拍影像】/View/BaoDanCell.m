@@ -18,7 +18,7 @@
 
 - (void)awakeFromNib {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-//    self.titleLabel.textColor = [PublicClass colorWithHexString:@"#04a3fe"];
+    self.detailLabel.textColor = [PublicClass colorWithHexString:@"#636363"];
 
 }
 

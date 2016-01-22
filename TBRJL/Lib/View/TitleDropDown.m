@@ -9,7 +9,7 @@
 #import "TitleDropDown.h"
 #import "UIViewExt.h"
 #import "TBRJL-Prefix.pch"
-
+#import "PublicClass.h"
 @implementation TitleDropDown
 
 -(id)initWithFrame:(CGRect)frame
@@ -92,7 +92,7 @@
         contentTextView.font = [UIFont systemFontOfSize:14];
         contentTextView.delegate = self;
         contentTextView.backgroundColor = [UIColor whiteColor];
-        contentTextView.textColor = [UIColor blackColor];
+        contentTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
         contentTextView.left = textBtn.right;
         contentTextView.width = frame.size.width - 90;
         contentTextView.top = 0;
