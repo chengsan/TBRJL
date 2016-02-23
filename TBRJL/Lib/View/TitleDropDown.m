@@ -33,7 +33,7 @@
         showList = NO; //默认不显示下拉框
         
         textBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        textBtn.backgroundColor = [UIColor lightGrayColor];
+        textBtn.backgroundColor = RGB(240, 240, 240);
         textBtn.frame = CGRectMake(0, 0, 90, frame.size.height);
         [textBtn addTarget:self action:@selector(dropdown) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:textBtn];
@@ -68,7 +68,7 @@
         tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 40.0f, frame.size.width, 0)];
         tv.delegate = self;
         tv.dataSource = self;
-        tv.backgroundColor = [UIColor grayColor];
+        tv.backgroundColor = RGB(188, 183, 182);
         tv.separatorColor = [UIColor lightGrayColor];
         tv.hidden = YES;
         [self addSubview:tv];
@@ -206,7 +206,7 @@
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 35)];
         label.tag = 100;
-        label.backgroundColor = [UIColor grayColor];
+        label.backgroundColor = RGB(188, 183, 182);
         label.font = [UIFont systemFontOfSize:16.0f];
         [cell.contentView addSubview:label];
     }

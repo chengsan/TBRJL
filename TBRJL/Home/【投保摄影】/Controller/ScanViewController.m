@@ -29,6 +29,7 @@
 }
 
 - (void)dealloc {
+    NSLog(@"1111");
     [self.capture.layer removeFromSuperlayer];
 }
 
@@ -39,8 +40,8 @@
     self.capture.camera = self.capture.back;
     self.capture.focusMode = AVCaptureFocusModeContinuousAutoFocus;
     self.capture.rotation = 90.0f;
-    
-    self.capture.layer.frame = self.view.bounds;
+    self.capture.delegate = self;
+    self.capture.layer.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 40);
     [self.view.layer addSublayer:self.capture.layer];
     self.scanRectView.layer.borderColor = [UIColor orangeColor].CGColor;
     self.scanRectView.layer.borderWidth = 2;
@@ -55,7 +56,13 @@
     [self.scanRectView addSubview:scanLine];
     self.scanRectView.clipsToBounds = YES;
     self.scanLine = scanLine;
-
+    
+    UIButton *cancelBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, ScreenHeight - 40, ScreenWidth, 40)];
+    cancelBtn.backgroundColor = [UIColor whiteColor];
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:cancelBtn];
 }
 
 -(void)update{
@@ -76,8 +83,8 @@
     [super viewWillAppear:animated];
     //    开启定时器
     [self.link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-    self.capture.delegate = self;
-    self.capture.layer.frame = self.view.bounds;
+//    self.capture.delegate = self;
+//    self.capture.layer.frame = self.view.bounds;
     CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(320 / self.view.frame.size.width, 480 / self.view.frame.size.height);
     self.capture.scanRect = CGRectApplyAffineTransform(self.scanRectView.frame, captureSizeTransform);
 
@@ -85,10 +92,13 @@
 }
 
 
+
+
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
 //    关闭定时器
     [self.link invalidate];
+    [self.capture stop];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -158,7 +168,7 @@
     if (!result) return;
     NSLog(@"%s",__func__);
    [self.capture stop];
-    [self.capture stop];
+//    [self.capture stop];
 //       NSString *formatString = [self barcodeFormatToString:result.barcodeFormat];
 //    NSString *display = [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@", formatString, result.text];
 //    [self.decodedLabel performSelectorOnMainThread:@selector(setText:) withObject:display waitUntilDone:YES];
@@ -173,21 +183,31 @@
     if (self.resultBlock != nil ) {
         self.resultBlock(str);
     }
+//
     
-    [self.navigationController popViewControllerAnimated:YES];
-    
+    [self.capture stop];
+//    self.capture.layer.frame = CGRectMake(0, 0, 0, 1);
+//
     // Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-//    self.capture = nil;
-     return;
-    
+
+    [self.capture stop];
+    [self dismissViewControllerAnimated:NO completion:NULL];
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [self.capture start];
+
+//        [self.navigationController popViewControllerAnimated:YES];
+    
 //    });
+    [self.capture stop];
+    return;
 }
 
 
 
+-(void)cancelBtnClick{
+    [self dismissViewControllerAnimated:NO completion:NULL];
+    
+}
 
 
 @end

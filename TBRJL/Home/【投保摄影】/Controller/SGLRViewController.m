@@ -96,8 +96,8 @@
     
     UILabel *onePersonTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, titleView.height)];
     onePersonTitle.font = [UIFont systemFontOfSize:14];
-    onePersonTitle.backgroundColor = [UIColor lightGrayColor];
-    onePersonTitle.textColor = [UIColor blackColor];
+    onePersonTitle.backgroundColor = RGB(240, 240, 240);
+    onePersonTitle.textColor = RGB(47, 47, 47);
     onePersonTitle.text = @"投保人和被保险人是否为同一人";
     onePersonTitle.textAlignment = NSTextAlignmentCenter;
     onePersonTitle.numberOfLines = 0;
@@ -133,8 +133,8 @@
     
     UILabel *safenoTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     safenoTitle.font = [UIFont systemFontOfSize:14];
-    safenoTitle.backgroundColor = [UIColor lightGrayColor];
-    safenoTitle.textColor = [UIColor blackColor];
+    safenoTitle.backgroundColor = RGB(240, 240, 240);
+    safenoTitle.textColor = RGB(47, 47, 47);
     safenoTitle.text = @"业务流水号";
     safenoTitle.textAlignment = NSTextAlignmentCenter;
     [safenoView addSubview:safenoTitle];
@@ -159,8 +159,8 @@
     
     UILabel *safetypeTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     safetypeTitle.font = [UIFont systemFontOfSize:14];
-    safetypeTitle.backgroundColor = [UIColor lightGrayColor];
-    safetypeTitle.textColor = [UIColor blackColor];
+    safetypeTitle.backgroundColor = RGB(240, 240, 240);
+    safetypeTitle.textColor = RGB(47, 47, 47);
     safetypeTitle.text = @"险种";
     safetypeTitle.textAlignment = NSTextAlignmentCenter;
     [safetypeView addSubview:safetypeTitle];
@@ -234,8 +234,8 @@
     
     UILabel *safenameTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     safenameTitle.font = [UIFont systemFontOfSize:14];
-    safenameTitle.backgroundColor = [UIColor lightGrayColor];
-    safenameTitle.textColor = [UIColor blackColor];
+    safenameTitle.backgroundColor = RGB(240, 240, 240);
+    safenameTitle.textColor = RGB(47, 47, 47);
     safenameTitle.text = @"投保人姓名";
     safenameTitle.textAlignment = NSTextAlignmentCenter;
     [safenameView addSubview:safenameTitle];
@@ -281,8 +281,8 @@
     
     UILabel *safepnameTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     safepnameTitle.font = [UIFont systemFontOfSize:14];
-    safepnameTitle.backgroundColor = [UIColor lightGrayColor];
-    safepnameTitle.textColor = [UIColor blackColor];
+    safepnameTitle.backgroundColor = RGB(240, 240, 240);
+    safepnameTitle.textColor = RGB(47, 47, 47);
     safepnameTitle.text = @"被保险人姓名";
     safepnameTitle.textAlignment = NSTextAlignmentCenter;
     [_safepnameView addSubview:safepnameTitle];
@@ -326,8 +326,8 @@
     
     UILabel *safepayTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     safepayTitle.font = [UIFont systemFontOfSize:14];
-    safepayTitle.backgroundColor = [UIColor lightGrayColor];
-    safepayTitle.textColor = [UIColor blackColor];
+    safepayTitle.backgroundColor = RGB(240, 240, 240);
+    safepayTitle.textColor = RGB(47, 47, 47);
     safepayTitle.text = @"保费";
     safepayTitle.textAlignment = NSTextAlignmentCenter;
     [safepayView addSubview:safepayTitle];
@@ -350,8 +350,8 @@
     
     UILabel *safecostTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     safecostTitle.font = [UIFont systemFontOfSize:14];
-    safecostTitle.backgroundColor = [UIColor lightGrayColor];
-    safecostTitle.textColor = [UIColor blackColor];
+    safecostTitle.backgroundColor = RGB(240, 240, 240);
+    safecostTitle.textColor = RGB(47, 47, 47);
     safecostTitle.text = @"保额";
     safecostTitle.textAlignment = NSTextAlignmentCenter;
     [safecostView addSubview:safecostTitle];
@@ -375,8 +375,8 @@
     
     UILabel *starttimeTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     starttimeTitle.font = [UIFont systemFontOfSize:14];
-    starttimeTitle.backgroundColor = [UIColor lightGrayColor];
-    starttimeTitle.textColor = [UIColor blackColor];
+    starttimeTitle.backgroundColor = RGB(240, 240, 240);
+    starttimeTitle.textColor = RGB(47, 47, 47);
     starttimeTitle.text = @"保险起期";
     starttimeTitle.textAlignment = NSTextAlignmentCenter;
     [starttimeView addSubview:starttimeTitle];
@@ -413,8 +413,8 @@
     }
     UILabel *endtimeTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     endtimeTitle.font = [UIFont systemFontOfSize:14];
-    endtimeTitle.backgroundColor = [UIColor lightGrayColor];
-    endtimeTitle.textColor = [UIColor blackColor];
+    endtimeTitle.backgroundColor = RGB(240, 240, 240);
+    endtimeTitle.textColor = RGB(47, 47, 47);
     endtimeTitle.text = text;
     endtimeTitle.textAlignment = NSTextAlignmentCenter;
     [endtimeView addSubview:endtimeTitle];
@@ -462,8 +462,8 @@
         
         UILabel *pcarnoTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         pcarnoTitle.font = [UIFont systemFontOfSize:14];
-        pcarnoTitle.backgroundColor = [UIColor lightGrayColor];
-        pcarnoTitle.textColor = [UIColor blackColor];
+        pcarnoTitle.backgroundColor = RGB(240, 240, 240);
+        pcarnoTitle.textColor = RGB(47, 47, 47);
         pcarnoTitle.text = @"车牌号";
         pcarnoTitle.textAlignment = NSTextAlignmentCenter;
         [pcarnoView addSubview:pcarnoTitle];
@@ -502,8 +502,8 @@
         
         UILabel *carpwinTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         carpwinTitle.font = [UIFont systemFontOfSize:14];
-        carpwinTitle.backgroundColor = [UIColor lightGrayColor];
-        carpwinTitle.textColor = [UIColor blackColor];
+        carpwinTitle.backgroundColor = RGB(240, 240, 240);
+        carpwinTitle.textColor = RGB(47,47, 47);
         carpwinTitle.text = @"车架号";
         carpwinTitle.textAlignment = NSTextAlignmentCenter;
         [carpwinView addSubview:carpwinTitle];
@@ -532,8 +532,8 @@
         
         UILabel *sexTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         sexTitle.font = [UIFont systemFontOfSize:14];
-        sexTitle.backgroundColor = [UIColor lightGrayColor];
-        sexTitle.textColor = [UIColor blackColor];
+        sexTitle.backgroundColor = RGB(240, 240, 240);
+        sexTitle.textColor = RGB(47, 47, 47);
         sexTitle.text = @"投保人性别";
         sexTitle.textAlignment = NSTextAlignmentCenter;
         [sexView addSubview:sexTitle];
@@ -575,8 +575,8 @@
         
         UILabel *ageTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         ageTitle.font = [UIFont systemFontOfSize:14];
-        ageTitle.backgroundColor = [UIColor lightGrayColor];
-        ageTitle.textColor = [UIColor blackColor];
+        ageTitle.backgroundColor = RGB(240, 240, 240);
+        ageTitle.textColor = RGB(47, 47, 47);
         ageTitle.text = @"投保人年龄";
         ageTitle.textAlignment = NSTextAlignmentCenter;
         [ageView addSubview:ageTitle];
@@ -1257,7 +1257,9 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
     {
         safeType = string;
         if (self.yesBtn.selected) {
+            
             [safepnameDropDown setSelectIndex:index];
+            psafeType = safeType;
         }
     }
     else if(safepnameDropDown == dropDown)

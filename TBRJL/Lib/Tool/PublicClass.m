@@ -99,8 +99,12 @@
     NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:path];
     for (NSString *p in files) {
         NSError *error;
+        if ([p hasPrefix:@"Preferences"]) {
+            return;
+        }
         NSString *Path = [path stringByAppendingPathComponent:p];
         if ([[NSFileManager defaultManager] fileExistsAtPath:Path]) {
+            
             [[NSFileManager defaultManager] removeItemAtPath:Path error:&error];
         }
     }

@@ -9,7 +9,7 @@
 #import "DropDown.h"
 #import "UIViewExt.h"
 #import "TBRJL-Prefix.pch"
-
+#import "PublicClass.h"
 @implementation DropDown
 
 -(id)initWithFrame:(CGRect)frame
@@ -36,7 +36,7 @@
         titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         titleLabel.text = @"标题";
         titleLabel.font = [UIFont systemFontOfSize:14];
-        titleLabel.backgroundColor = [UIColor grayColor];
+        titleLabel.backgroundColor = RGB(240, 240, 240);
         titleLabel.textColor = [UIColor blackColor];
         titleLabel.left = 0;
         titleLabel.width = 100;
@@ -48,7 +48,7 @@
         tv = [[UITableView alloc] initWithFrame:CGRectMake(titleLabel.right, 40.0f, frame.size.width - titleLabel.width, 0)];
         tv.delegate = self;
         tv.dataSource = self;
-        tv.backgroundColor = [UIColor grayColor];
+        tv.backgroundColor = RGB(188, 183, 182);
         tv.separatorColor = [UIColor lightGrayColor];
         tv.hidden = YES;
         [self addSubview:tv];
@@ -69,7 +69,7 @@
         textBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         textBtn.frame = CGRectMake(titleLabel.right, 0, frame.size.width - titleLabel.width, 40.0f);
         [textBtn addTarget:self action:@selector(dropdown) forControlEvents:UIControlEventTouchUpInside];
-        textBtn.backgroundColor = [UIColor lightGrayColor];
+        textBtn.backgroundColor = RGB(255, 255, 255);
          [self addSubview:textBtn];
         
         
@@ -80,7 +80,7 @@
         textLabel.width = textBtn.width - 30;
         textLabel.top = 0;
         textLabel.height = textBtn.height;
-        textLabel.textColor = [UIColor whiteColor];
+        textLabel.textColor = [PublicClass colorWithHexString:@"#636363"];
         textLabel.font = [UIFont systemFontOfSize:14];
         textLabel.tag = 100;
         [textBtn addSubview:textLabel];
@@ -148,6 +148,7 @@
     if(titleLabel != nil)
     {
         titleLabel.text = title;
+        titleLabel.textColor = RGB(17, 17, 17);
     }
 }
 
@@ -210,7 +211,7 @@
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 35)];
         label.tag = 100;
-        label.backgroundColor = [UIColor grayColor];
+        label.backgroundColor = RGB(188, 183, 182);
         label.font = [UIFont systemFontOfSize:16.0f];
         [cell.contentView addSubview:label];
     }
