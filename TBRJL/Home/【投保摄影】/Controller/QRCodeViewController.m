@@ -139,7 +139,6 @@
         scanVc.resultBlock = ^(NSString *result){
             [weakSelf getSafeInfo:result];
         };
-//        [self.navigationController pushViewController:scanVc animated:YES];
         
         [self presentViewController:scanVc animated:YES completion:NULL];
         

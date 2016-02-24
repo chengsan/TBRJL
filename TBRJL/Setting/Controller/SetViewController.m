@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [super setTitle:@"系统设置"];
-    self.view.backgroundColor = [[UIColor alloc] initWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
+    self.view.backgroundColor = RGB(220, 220, 220);
     
     [self _initView];
 }
@@ -58,6 +58,7 @@
     
     //------------------------------用户信息显示-----------------------------------
     UIView *userInfoView = [[UIView alloc] initWithFrame:CGRectZero];
+    userInfoView.backgroundColor = [UIColor whiteColor];
     userInfoView.width = ScreenWidth;
     userInfoView.height = 80;
     userInfoView.left = 0;
@@ -66,7 +67,7 @@
     
     //设置背景
     UIImageView *bg = [[UIImageView alloc] initWithFrame:userInfoView.bounds];
-    bg.image = [UIImage imageNamed:@"tbsy_btn_bg_normal.png"];
+//    bg.image = [UIImage imageNamed:@"tbsy_btn_bg_normal.png"];
     [userInfoView addSubview:bg];
     
     //用户头像
@@ -99,7 +100,7 @@
     orgName.left = userName.left;
     orgName.width = userName.width;
     orgName.height = 20;
-    orgName.text = @"福建三木有限公司";
+    orgName.text = @"福建三木保险代理有限公司";
     orgName.textColor = [UIColor grayColor];
     orgName.font = [UIFont systemFontOfSize:13];
     [userInfoView addSubview:orgName];
@@ -113,7 +114,8 @@
     //－－－－－－－－－－－－－设置－－－－－－－－－－－－
     UIButton *setView = [UIButton buttonWithType:UIButtonTypeCustom];
     setView.frame = CGRectMake(0, userInfoView.bottom + 20, ScreenWidth, 50);
-    [setView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
+    setView.backgroundColor = [UIColor whiteColor];
+//    [setView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
     //[setView setBackgroundImage:[UIImage imageNamed:@"tbsy_btn_bg_selected.png"] forState:UIControlStateHighlighted];
     setView.tag = 100;
     [setView addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -141,7 +143,8 @@
     //－－－－－－－－－－－－－更新配置文件－－－－－－－－－－－－
     UIButton *upadateFileView = [UIButton buttonWithType:UIButtonTypeCustom];
     upadateFileView.frame = CGRectMake(0, setView.bottom + 20, ScreenWidth, 50);
-    [upadateFileView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
+    upadateFileView.backgroundColor = [UIColor whiteColor];
+//    [upadateFileView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
     //[upadateFileView setBackgroundImage:[UIImage imageNamed:@"tbsy_btn_bg_selected.png"] forState:UIControlStateHighlighted];
     upadateFileView.tag = 101;
     [upadateFileView addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -168,7 +171,8 @@
     //－－－－－－－－－－－－－关于－－－－－－－－－－－－
     UIButton *aboutView = [UIButton buttonWithType:UIButtonTypeCustom];
     aboutView.frame = CGRectMake(0, upadateFileView.bottom + 20, ScreenWidth, 50);
-    [aboutView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
+    aboutView.backgroundColor = [UIColor whiteColor];
+//    [aboutView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
     //[aboutView setBackgroundImage:[UIImage imageNamed:@"tbsy_btn_bg_selected.png"] forState:UIControlStateHighlighted];
     aboutView.tag = 102;
     [aboutView addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -195,7 +199,8 @@
     //－－－－－－－－－－－－－常见问题－－－－－－－－－－－－
     UIButton *questionView = [UIButton buttonWithType:UIButtonTypeCustom];
     questionView.frame = CGRectMake(0, aboutView.bottom + 20, ScreenWidth, 50);
-    [questionView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
+    questionView.backgroundColor = [UIColor whiteColor];
+//    [questionView setBackgroundImage:[UIImage imageNamed:@"tbsy_home_btn_bg.png"] forState:UIControlStateNormal];
     questionView.tag = 103;
     [questionView addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:questionView];

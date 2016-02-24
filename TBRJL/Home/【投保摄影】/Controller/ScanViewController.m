@@ -29,7 +29,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"1111");
+
     [self.capture.layer removeFromSuperlayer];
 }
 
@@ -166,39 +166,26 @@
 
 - (void)captureResult:(ZXCapture *)capture result:(ZXResult *)result {
     if (!result) return;
-    NSLog(@"%s",__func__);
    [self.capture stop];
-//    [self.capture stop];
-//       NSString *formatString = [self barcodeFormatToString:result.barcodeFormat];
-//    NSString *display = [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@", formatString, result.text];
-//    [self.decodedLabel performSelectorOnMainThread:@selector(setText:) withObject:display waitUntilDone:YES];
-    
-//    SMS4 *sm4 = [[SMS4 alloc] init];
-//    NSString *str = [sm4 DecodeSMS4:[result.text substringFromIndex:4] withKey:@"ad37d033dac44f6b919ff66a3477613a"];
-    
-   
+
+
     TBPJIEMI* jiem = [TBPJIEMI new];
     NSString* str= [jiem JIEMI:result.text];
     NSLog(@" 解码 %@",str);
     if (self.resultBlock != nil ) {
         self.resultBlock(str);
     }
-//
     
-    [self.capture stop];
-//    self.capture.layer.frame = CGRectMake(0, 0, 0, 1);
-//
     // Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 
-    [self.capture stop];
+
     [self dismissViewControllerAnimated:NO completion:NULL];
+    
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 
-//        [self.navigationController popViewControllerAnimated:YES];
-    
 //    });
-    [self.capture stop];
+
     return;
 }
 

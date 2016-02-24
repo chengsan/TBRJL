@@ -5,7 +5,7 @@
 //  Created by 陈浩 on 16/1/19.
 //  Copyright © 2016年 陈浩. All rights reserved.
 //
-
+ 
 #import "QuestionViewController.h"
 
 @interface QuestionViewController ()
@@ -32,7 +32,7 @@
 //      [super showLoading:YES];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 处理耗时操作的代码块...
-        [super showLoading:YES];
+
         NSURL *url = [[NSURL alloc]initWithString:@"http://fjisip.yxybb.com/LEAP/FAQ.html"];
         [webView loadRequest:[NSURLRequest requestWithURL:url]];
         //通知主线程刷新
@@ -43,6 +43,10 @@
     }); 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [super showLoading:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {
