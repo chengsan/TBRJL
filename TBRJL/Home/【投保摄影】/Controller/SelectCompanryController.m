@@ -18,7 +18,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = RGB(230, 230, 230);
     [super setTitle:@"投保摄影"];
     [self _initView];
     
@@ -66,8 +66,8 @@
     UILabel *comparyCodeTitle = [[UILabel alloc] initWithFrame:CGRectZero];
     comparyCodeTitle.text = @"公司机构代码";
     comparyCodeTitle.font = [UIFont systemFontOfSize:14];
-    comparyCodeTitle.backgroundColor = [UIColor grayColor];
-    comparyCodeTitle.textColor = [UIColor blackColor];
+    comparyCodeTitle.backgroundColor = RGB(240, 240, 240);
+    comparyCodeTitle.textColor = RGB(17, 17, 17);
     comparyCodeTitle.left = 0;
     comparyCodeTitle.width = titleWith;
     comparyCodeTitle.top = _dropDownCompary.bottom + 1;
@@ -77,13 +77,13 @@
     
     
     _comparyCodeName = [[UILabel alloc] initWithFrame:CGRectZero];
-    _comparyCodeName.backgroundColor = [UIColor lightGrayColor];
+    _comparyCodeName.backgroundColor = [UIColor whiteColor];
     _comparyCodeName.left = comparyCodeTitle.right;
     _comparyCodeName.top = _dropDownCompary.bottom + 1;
     _comparyCodeName.width = ScreenWidth - comparyCodeTitle.width;
     _comparyCodeName.height = titleHeight;
     _comparyCodeName.font = [UIFont systemFontOfSize:14];
-    _comparyCodeName.textColor = [UIColor whiteColor];
+    _comparyCodeName.textColor = [PublicClass colorWithHexString:@"#636363"];
     [self.view addSubview:_comparyCodeName];
     
     //=========================险种=========================
@@ -98,7 +98,7 @@
     UILabel *userNameTitle = [[UILabel alloc] initWithFrame:CGRectZero];
     userNameTitle.text = @"业务员姓名";
     userNameTitle.font = [UIFont systemFontOfSize:14];
-    userNameTitle.backgroundColor = [UIColor grayColor];
+    userNameTitle.backgroundColor = RGB(240, 240, 240);
     userNameTitle.textColor = [UIColor blackColor];
     userNameTitle.left = 0;
     userNameTitle.width = titleWith;
@@ -108,13 +108,13 @@
     [self.view addSubview:userNameTitle];
     
     _userNameName = [[UILabel alloc] initWithFrame:CGRectZero];
-    _userNameName.backgroundColor = [UIColor lightGrayColor];
+    _userNameName.backgroundColor = [UIColor whiteColor];
     _userNameName.left = userNameTitle.right;
     _userNameName.top = _dropDownSafeKind.bottom + 1;
     _userNameName.width = ScreenWidth - userNameTitle.width;
     _userNameName.height = titleHeight;
     _userNameName.font = [UIFont systemFontOfSize:14];
-    _userNameName.textColor = [UIColor whiteColor];
+    _userNameName.textColor = [PublicClass colorWithHexString:@"#636363"];
     _userNameName.text = [[Globle getInstance].userInfoDic objectForKey:@"name"];
     [self.view addSubview:_userNameName];
     
@@ -122,7 +122,7 @@
     UILabel *wayTitle = [[UILabel alloc] initWithFrame:CGRectZero];
     wayTitle.text = @"录入方式";
     wayTitle.font = [UIFont systemFontOfSize:14];
-    wayTitle.backgroundColor = [UIColor grayColor];
+    wayTitle.backgroundColor = RGB(240, 240, 240);
     wayTitle.textColor = [UIColor blackColor];
     wayTitle.left = 0;
     wayTitle.width = titleWith;
@@ -132,7 +132,7 @@
     [self.view addSubview:wayTitle];
     
     UIView *wayView = [[UIView alloc] initWithFrame:CGRectZero];
-    wayView.backgroundColor = [UIColor lightGrayColor];
+    wayView.backgroundColor = [UIColor whiteColor];
     wayView.left = wayTitle.right;
     wayView.top = userNameTitle.bottom + 1;
     wayView.height = titleHeight;
@@ -163,7 +163,7 @@
     ewmTitle.height = titleHeight;
     ewmTitle.text = @"二维码";
     ewmTitle.font = [UIFont systemFontOfSize:12];
-    ewmTitle.textColor = [UIColor whiteColor];
+    ewmTitle.textColor = [PublicClass colorWithHexString:@"#636363"];
     [ewmBtn addSubview:ewmTitle];
     
     
@@ -191,7 +191,7 @@
     sgTitle.height = titleHeight;
     sgTitle.text = @"手工";
     sgTitle.font = [UIFont systemFontOfSize:12];
-    sgTitle.textColor = [UIColor whiteColor];
+    sgTitle.textColor = [PublicClass colorWithHexString:@"#636363"];
     [sgBtn addSubview:sgTitle];
     
     

@@ -8,6 +8,8 @@
 
 #import "CHButton.h"
 #import "UIView+Extension.h"
+#import "PublicClass.h"
+#import "TBRJL-Prefix.pch"
 @interface CHButton ()
 @property (nonatomic ,strong) UIButton *btn;
 
@@ -38,14 +40,16 @@
     
     UILabel *label = [[UILabel alloc] init];
     label.font = [UIFont systemFontOfSize:14];
-    label.backgroundColor = [UIColor lightGrayColor];
+    label.backgroundColor = RGB(240, 240, 240)
+    label.textColor = [PublicClass colorWithHexString:@"#636363"];
     label.textAlignment = NSTextAlignmentCenter;
+   
     label.text = @"闽";
     [btn addSubview:label];
     self.label = label;
     
     UIImageView *imgView = [[UIImageView alloc]init];
-    imgView.backgroundColor = [UIColor lightGrayColor];
+    imgView.backgroundColor = RGB(240, 240, 240);
     imgView.image = [UIImage imageNamed:@"select_compary_icon"];
     [btn addSubview:imgView];
     self.imgView = imgView;

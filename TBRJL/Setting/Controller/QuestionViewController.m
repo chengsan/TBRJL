@@ -5,7 +5,7 @@
 //  Created by 陈浩 on 16/1/19.
 //  Copyright © 2016年 陈浩. All rights reserved.
 //
-
+ 
 #import "QuestionViewController.h"
 
 @interface QuestionViewController ()
@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"常见问题";
-    [super showLoading:YES];
+  
     [self setupWebView];
     
 }
@@ -29,9 +29,10 @@
     UIWebView *webView =[[UIWebView alloc] initWithFrame:self.view.bounds];
     
     [self.view addSubview:webView];
-    
+//      [super showLoading:YES];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         // 处理耗时操作的代码块...
+
         NSURL *url = [[NSURL alloc]initWithString:@"http://fjisip.yxybb.com/LEAP/FAQ.html"];
         [webView loadRequest:[NSURLRequest requestWithURL:url]];
         //通知主线程刷新
@@ -42,6 +43,10 @@
     }); 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [super showLoading:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {

@@ -770,9 +770,9 @@
 			isa = PBXGroup;
 			children = (
 				5884856F1C47E0D40081963A /* BaoDanInfoController.h */,
+				588485721C47E0D40081963A /* BPXXViewController.m */,
 				588485701C47E0D40081963A /* BaoDanInfoController.m */,
 				588485711C47E0D40081963A /* BPXXViewController.h */,
-				588485721C47E0D40081963A /* BPXXViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

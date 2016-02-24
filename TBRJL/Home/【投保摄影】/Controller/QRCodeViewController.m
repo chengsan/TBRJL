@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"投保摄影";
-    self.view.backgroundColor = [[UIColor alloc] initWithRed:204/255.0 green:204/255.0 blue:204/255.0 alpha:1];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     //===================扫面二维码按钮=====================
     scanBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -35,6 +35,7 @@
     [self.view addSubview:scanBtn];
     
     UIImageView *cameraIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tbsy_camera_normal.png"]];
+    cameraIcon.backgroundColor = [UIColor clearColor];
     cameraIcon.left = 10;
     cameraIcon.height = 30;
     cameraIcon.top = (scanBtn.height - cameraIcon.height)/2;
@@ -48,7 +49,8 @@
     titleLabel.height = scanBtn.height;
     //titleLabel.textAlignment = NSTextAlignmentCenter | NSTextAlignmentRight;
     titleLabel.text = @"扫描二维码";
-    titleLabel.textColor = [UIColor blackColor];
+    titleLabel.backgroundColor = [UIColor whiteColor];
+    titleLabel.textColor = [PublicClass colorWithHexString:@"#636363"];
     titleLabel.font = [UIFont systemFontOfSize:15];
     [scanBtn addSubview:titleLabel];
     
@@ -56,7 +58,7 @@
     int statusBarHeight = StatusBarHeight;
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, scanBtn.bottom, ScreenWidth, ScreenHeight - scanBtn.height - titleBarHeight - statusBarHeight - 50)];
     scrollView.contentSize = CGSizeMake(ScreenWidth, 350);
-    scrollView.backgroundColor = [UIColor lightGrayColor];
+    scrollView.backgroundColor = RGB(230, 230, 230);
     [self.view addSubview:scrollView];
     
     //显示扫面内容
@@ -64,6 +66,7 @@
     contentLabel.numberOfLines = 0; // z自动换行，最关键的一句
     contentLabel.font = [UIFont systemFontOfSize:16];
     contentLabel.textAlignment = NSTextAlignmentLeft;
+    contentLabel.textColor = RGB(11, 11, 11);
     [scrollView addSubview:contentLabel];
     
     
@@ -136,9 +139,8 @@
         scanVc.resultBlock = ^(NSString *result){
             [weakSelf getSafeInfo:result];
         };
-        [self.navigationController pushViewController:scanVc animated:YES];
         
-        
+        [self presentViewController:scanVc animated:YES completion:NULL];
         
     }
     else if(tag == 101)
