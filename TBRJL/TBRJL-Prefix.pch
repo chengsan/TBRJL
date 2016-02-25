@@ -22,7 +22,7 @@
 //测试地址：http://59.173.241.186:8042/LODP/
 //周文海：http://192.168.20.134:8080/BBTone/
 #define ServiceURL [NSString stringWithFormat:@"%@",@"http://59.173.241.186:8042/LODP/"];
-#define UpdateURL [NSString stringWithFormat:@"%@",@"http://fjisip.yxybb.com/"];
+#define UpdateURL [NSString stringWithFormat:@"%@",@"http://59.173.241.186:8042/LODP/"];
 
 #define RGB(a,b,c)  [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:1];
 
