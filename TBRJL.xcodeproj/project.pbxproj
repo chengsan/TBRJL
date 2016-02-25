@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0EA7B7E00C4B00B61B564BE2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45243DC827BFE3DE816335D9 /* libPods.a */; };
-		588485521C47DEF90081963A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5884854A1C47DEF90081963A /* LoginViewController.m */; };
 		588485531C47DEF90081963A /* SetServiceURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5884854C1C47DEF90081963A /* SetServiceURLViewController.m */; };
 		588485541C47DEF90081963A /* SetServiceURLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5884854D1C47DEF90081963A /* SetServiceURLViewController.xib */; };
 		588485551C47DEF90081963A /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 588485501C47DEF90081963A /* UserInfoModel.m */; };
@@ -122,6 +121,9 @@
 		8762CA991C4F2D6C00D4308B /* CZKeyboardTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8762CA971C4F2D6C00D4308B /* CZKeyboardTool.m */; };
 		8762CA9A1C4F2D6C00D4308B /* CZKeyboardTool.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8762CA981C4F2D6C00D4308B /* CZKeyboardTool.xib */; };
 		8762CAA41C4F6C4400D4308B /* ChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8762CAA31C4F6C4400D4308B /* ChooseView.m */; };
+		8796B8C81C7E95ED00B07494 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8796B8C71C7E95ED00B07494 /* LoginViewController.m */; };
+		8796B8CC1C7E9D6C00B07494 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 8796B8CB1C7E9D6C00B07494 /* close.png */; };
+		87ABC9E21C7D91820058EF28 /* my_panel_question_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 87ABC9E11C7D91820058EF28 /* my_panel_question_icon.png */; };
 		87B9458C1C4E1D80001BC9DB /* BLXXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9458B1C4E1D80001BC9DB /* BLXXViewController.m */; };
 		87B9458F1C4E2414001BC9DB /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9458E1C4E2414001BC9DB /* QuestionViewController.m */; };
 		87B945911C4E3A97001BC9DB /* change_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 87B945901C4E3A97001BC9DB /* change_camera.png */; };
@@ -243,7 +245,6 @@
 		0632AECF242130BFFAEE7C11 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		45243DC827BFE3DE816335D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		588485491C47DEF90081963A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		5884854A1C47DEF90081963A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5884854B1C47DEF90081963A /* SetServiceURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetServiceURLViewController.h; sourceTree = "<group>"; };
 		5884854C1C47DEF90081963A /* SetServiceURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetServiceURLViewController.m; sourceTree = "<group>"; };
 		5884854D1C47DEF90081963A /* SetServiceURLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetServiceURLViewController.xib; sourceTree = "<group>"; };
@@ -399,6 +400,9 @@
 		8762CA981C4F2D6C00D4308B /* CZKeyboardTool.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZKeyboardTool.xib; sourceTree = "<group>"; };
 		8762CAA21C4F6C4400D4308B /* ChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseView.h; sourceTree = "<group>"; };
 		8762CAA31C4F6C4400D4308B /* ChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseView.m; sourceTree = "<group>"; };
+		8796B8C71C7E95ED00B07494 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8796B8CB1C7E9D6C00B07494 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		87ABC9E11C7D91820058EF28 /* my_panel_question_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_panel_question_icon.png; sourceTree = "<group>"; };
 		87B9458A1C4E1D80001BC9DB /* BLXXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLXXViewController.h; sourceTree = "<group>"; };
 		87B9458B1C4E1D80001BC9DB /* BLXXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLXXViewController.m; sourceTree = "<group>"; };
 		87B9458D1C4E2414001BC9DB /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
@@ -672,7 +676,7 @@
 			isa = PBXGroup;
 			children = (
 				588485491C47DEF90081963A /* LoginViewController.h */,
-				5884854A1C47DEF90081963A /* LoginViewController.m */,
+				8796B8C71C7E95ED00B07494 /* LoginViewController.m */,
 				5884854B1C47DEF90081963A /* SetServiceURLViewController.h */,
 				5884854C1C47DEF90081963A /* SetServiceURLViewController.m */,
 				5884854D1C47DEF90081963A /* SetServiceURLViewController.xib */,
@@ -1421,6 +1425,7 @@
 		FE5DC36E1C1EE0F10086D09B /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				8796B8CB1C7E9D6C00B07494 /* close.png */,
 				87B945901C4E3A97001BC9DB /* change_camera.png */,
 				588485E51C47E38E0081963A /* arrow_right@2x.png */,
 				588485E61C47E38E0081963A /* checkbook_green_off.png */,
@@ -1445,6 +1450,7 @@
 				588485F91C47E38E0081963A /* mainpage_create_ofice.png */,
 				588485FA1C47E38E0081963A /* mainpage_create_phone.png */,
 				588485FB1C47E38E0081963A /* mainpage_create_query.png */,
+				87ABC9E11C7D91820058EF28 /* my_panel_question_icon.png */,
 				588485FC1C47E38E0081963A /* mainpage_new_num.png */,
 				588485FD1C47E38E0081963A /* menu_sy_img_selected.png */,
 				588485FE1C47E38E0081963A /* menu_sy_img.png */,
@@ -1603,6 +1609,7 @@
 				5884863E1C47E38E0081963A /* menu_sy_img_selected.png in Resources */,
 				FE5DC1301C1EB0630086D09B /* Main.storyboard in Resources */,
 				588486331C47E38E0081963A /* loginbox_icon01.png in Resources */,
+				8796B8CC1C7E9D6C00B07494 /* close.png in Resources */,
 				588486561C47E38E0081963A /* tbsy_2.png in Resources */,
 				588485C01C47E0D40081963A /* ZCCell.xib in Resources */,
 				588486321C47E38E0081963A /* login_submit_normal.png in Resources */,
@@ -1655,6 +1662,7 @@
 				588486591C47E38E0081963A /* tbsy_back_icon.png in Resources */,
 				5884862E1C47E38E0081963A /* icon.png in Resources */,
 				5884865F1C47E38E0081963A /* tbsy_del_normal.png in Resources */,
+				87ABC9E21C7D91820058EF28 /* my_panel_question_icon.png in Resources */,
 				588486471C47E38E0081963A /* pass_sd.png in Resources */,
 				5884865E1C47E38E0081963A /* tbsy_camera_press.png in Resources */,
 				5884862F1C47E38E0081963A /* login_bg.png in Resources */,
@@ -1732,6 +1740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8796B8C81C7E95ED00B07494 /* LoginViewController.m in Sources */,
 				588485B41C47E0D40081963A /* PhotoTableViewCell.m in Sources */,
 				588485531C47DEF90081963A /* SetServiceURLViewController.m in Sources */,
 				FE5DC3591C1ED8F70086D09B /* ASIInputStream.m in Sources */,
@@ -1761,7 +1770,6 @@
 				FE5DC2401C1EC3010086D09B /* AFURLResponseSerialization.m in Sources */,
 				588485E21C47E1820081963A /* SZSettingSwitch.m in Sources */,
 				FE5DC2B91C1EC4820086D09B /* SearchParameters.m in Sources */,
-				588485521C47DEF90081963A /* LoginViewController.m in Sources */,
 				5884855D1C47DFDF0081963A /* BaseNavigationViewController.m in Sources */,
 				588485641C47E0570081963A /* MainViewController.m in Sources */,
 				FE5DC2D81C1EC4D20086D09B /* NSObject+MJProperty.m in Sources */,

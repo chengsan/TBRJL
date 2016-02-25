@@ -207,6 +207,8 @@
     _nextBtn.top = ScreenHeight - 44 - 20 - 45;
     //设置不可点击
     _nextBtn.enabled = NO;
+    _nextBtn.layer.cornerRadius = 5;
+    _nextBtn.layer.masksToBounds = YES;
     
     UIImage *img = [UIImage imageNamed:@"login_submit_normal.png"];
     img = [img stretchableImageWithLeftCapWidth:20 topCapHeight:0];

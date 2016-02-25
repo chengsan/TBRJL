@@ -27,6 +27,7 @@
 #import "CHSaveDataTool.h"
 #import "MBProgressHUD+PKX.h"
 #import "UIImage+Extension.h"
+#import "QuestionViewController.h"
 
 /**
  * 记住密码
@@ -241,6 +242,15 @@
     [loginBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
     
+    UIButton *questionBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(loginAutoBtn.frame), loginBtn.bottom +20, 80, 40)];
+    [questionBtn setTitle:@"常见问题" forState:UIControlStateNormal];
+    questionBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [questionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [questionBtn addTarget:self action:@selector(questionBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:questionBtn];
+    
+    
+    
     UILabel *createOrg = [[UILabel alloc] initWithFrame:CGRectZero];
     createOrg.left = leftMarg;
     createOrg.right = leftMarg;
@@ -266,6 +276,14 @@
     [self.view addSubview:technicalSupport];
     
 }
+
+
+-(void)questionBtnClick{
+    QuestionViewController *questionVc  = [[QuestionViewController alloc] init];
+    [self presentViewController:questionVc animated:YES completion:NULL];
+    [questionVc dismiss];
+}
+
 
 #pragma mark Action
 -(void)onClick:(UIButton *)btn
@@ -630,7 +648,6 @@
 
     NSLog(@"失去焦点");
 }
-
 
 
 @end
