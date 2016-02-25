@@ -112,6 +112,8 @@
     saveBtn.top = 10;
     saveBtn.width = widthBtn;
     saveBtn.height = 40;
+    saveBtn.layer.cornerRadius = 5;
+    saveBtn.layer.masksToBounds = YES;
     
     //设置不可点击
     //saveBtn.enabled = NO;
@@ -132,7 +134,8 @@
     sendBtn.top = 10;
     sendBtn.width = widthBtn;
     sendBtn.height = 40;
-
+    sendBtn.layer.cornerRadius = 5;
+    sendBtn.layer.masksToBounds = YES;
     //设置不可点击
     //sandBtn.enabled = NO;
     

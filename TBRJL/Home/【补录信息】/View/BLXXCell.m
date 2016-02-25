@@ -123,7 +123,7 @@
     psafetypeLabel.frame = CGRectMake(CGRectGetMaxX(kindLabel.frame), 10, 100, KHeight);
     
     personLabel.frame = CGRectMake(LeftMargin, kindLabel.bottom, 60, KHeight);
-    snameLabel.frame = CGRectMake(CGRectGetMaxX(personLabel.frame), kindLabel.bottom, 100, KHeight);
+    snameLabel.frame = CGRectMake(CGRectGetMaxX(personLabel.frame), kindLabel.bottom, ScreenWidth - CGRectGetMaxX(personLabel.frame), KHeight);
     
     numLabel.frame = CGRectMake(LeftMargin, personLabel.bottom,60, KHeight);
     safenoLabel.frame = CGRectMake(CGRectGetMaxX(numLabel.frame), personLabel.bottom, ScreenWidth - CGRectGetMaxX(numLabel.frame), KHeight);

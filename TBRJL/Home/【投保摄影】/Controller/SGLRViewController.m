@@ -404,7 +404,7 @@
     [scrollView addSubview:endtimeView];
     totalHeight += endtimeView.height;
     
-    NSString *companytype = (NSString *)[safeInfo objectForKey:@"companytype"];
+    NSString *companytype = (NSString *)[safeInfo objectForKey:@"safetype"];
     NSString *text = nil;
     if ([companytype isEqualToString:@"1"]) {     // 财险
         text = @"保险止期";
@@ -624,6 +624,8 @@
     nextBtn.height = 40;
     nextBtn.left = (btnView.width - nextBtn.width)/2;
     nextBtn.top = (btnView.height - nextBtn.height)/2;
+    nextBtn.layer.cornerRadius = 5;
+    nextBtn.layer.masksToBounds = YES;
     
     UIImage *img = [UIImage imageNamed:@"login_submit_normal.png"];
     img = [img stretchableImageWithLeftCapWidth:20 topCapHeight:0];

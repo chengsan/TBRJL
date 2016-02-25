@@ -16,23 +16,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [[UIColor alloc] initWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
+    self.view.backgroundColor = RGB(230, 230, 230);
     self.title = @"关于";
 
     [self initView];
 }
 
 -(void) initView{
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 74, 74)];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
     imgView.image = [UIImage imageNamed:@"icon"];
-    imgView.center = CGPointMake(ScreenWidth /2, ScreenHeight/2 - 64);
+    imgView.center = CGPointMake(ScreenWidth /2, ScreenHeight/2 - 120);
     [self.view addSubview:imgView];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 20)];
     label.center = CGPointMake(ScreenWidth /2, imgView.bottom +20);
     label.textAlignment = NSTextAlignmentCenter;
     label.text=@"福建省投保人记录系统 V1.1.8";
+    label.textColor = [UIColor grayColor];
     [self.view addSubview:label];
+    
+    UILabel *lal = [[UILabel alloc] initWithFrame:CGRectMake(0, ScreenHeight -90, ScreenWidth, 20)];
+
+    lal.textAlignment = NSTextAlignmentCenter;
+    lal.text = @"福建省保险行业协会监制";
+    lal.font = [UIFont systemFontOfSize:14];
+    lal.textColor = [UIColor grayColor];
+    [self.view addSubview:lal];
+    
     
 }
 

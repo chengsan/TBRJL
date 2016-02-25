@@ -66,7 +66,7 @@
     //高亮图片
     NSArray *hightMenuBg = @[@"menu_sy_img_selected.png",@"menu_sz_img_selected.png"];
     //标题
-    NSArray *titles = @[@"办公管理",@"系统设置"];
+    NSArray *titles = @[@"办公管理",@"系统管理"];
 
     
     //按钮数组

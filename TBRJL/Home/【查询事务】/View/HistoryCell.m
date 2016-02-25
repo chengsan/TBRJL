@@ -73,7 +73,7 @@
         
         
         NSString *kind = [data objectForKey:@"safetype"];
-        if([@"1" hasPrefix:kind])
+        if(![@"1" hasPrefix:kind])
         {
             _psafetypeLabel.text = @"寿险";
         }
@@ -101,10 +101,10 @@
     _psafetypeLabel.frame = CGRectMake(CGRectGetMaxX(_kindLabel.frame), 10, 100, height);
     
     _personLabel.frame = CGRectMake(leftMarg, _kindLabel.bottom, 60, height);
-    _snameLabel.frame = CGRectMake(CGRectGetMaxX(_personLabel.frame), _kindLabel.bottom, 100, height);
+    _snameLabel.frame = CGRectMake(CGRectGetMaxX(_personLabel.frame), _kindLabel.bottom, ScreenWidth - CGRectGetMaxX(_personLabel.frame), height);
     
     _numLabel.frame = CGRectMake(leftMarg, _personLabel.bottom,60, height);
-    _safenoLabel.frame = CGRectMake(CGRectGetMaxX(_numLabel.frame), _personLabel.bottom, 100, height);
+    _safenoLabel.frame = CGRectMake(CGRectGetMaxX(_numLabel.frame), _personLabel.bottom, ScreenWidth - CGRectGetMaxX(_numLabel.frame), height);
 }
 
 +(CGFloat)getCellheight:(NSDictionary *)data
