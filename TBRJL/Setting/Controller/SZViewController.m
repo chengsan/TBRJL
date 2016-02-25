@@ -80,7 +80,7 @@
     [_groupArr addObject:group2];
     
     SZSettingLabel *item1000 = [SZSettingLabel itemWithTitle:@"当前版本"];
-    item1000.text = @"V1.1.8";
+    item1000.text = VersionName;
     SZSettingArrow *item1001 = [SZSettingArrow itemWithTitle:@"版本更新"];
     
     item1001.operationBlock = ^{

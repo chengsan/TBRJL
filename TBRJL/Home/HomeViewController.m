@@ -333,7 +333,7 @@
     {
         case 100:
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"福建省保险行业协会友情提示:根据您投保意愿,保险销售人员将对您投保签名进行影像采集;为了保障您的合法权益,所以采集的影像只作为保险投保使用.如有其它行为,请予以拒绝." delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"福建省保险行业协会友情提示:根据您投保意愿,保险销售人员将对您投保签名进行影像采集;为了保障您的合法权益,所以采集的影像只作为保险投保使用.如有其它行为,请予以拒绝." delegate:self cancelButtonTitle:@"不同意" otherButtonTitles:@"同意", nil];
             [alert show];
         }
             break;

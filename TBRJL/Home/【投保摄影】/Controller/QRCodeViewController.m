@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"投保摄影";
+    self.title = @"二维码扫描";
     self.view.backgroundColor = [UIColor whiteColor];
     
     //===================扫面二维码按钮=====================
@@ -48,9 +48,9 @@
     titleLabel.width = ScreenWidth - cameraIcon.width - 10;
     titleLabel.height = scanBtn.height;
     //titleLabel.textAlignment = NSTextAlignmentCenter | NSTextAlignmentRight;
-    titleLabel.text = @"扫描二维码";
+    titleLabel.text = @"扫描保单二维码";
     titleLabel.backgroundColor = [UIColor whiteColor];
-    titleLabel.textColor = [PublicClass colorWithHexString:@"#636363"];
+//    titleLabel.textColor = [PublicClass colorWithHexString:@"#636363"];
     titleLabel.font = [UIFont systemFontOfSize:15];
     [scanBtn addSubview:titleLabel];
     
@@ -96,6 +96,8 @@
     nextBtn.top = (nextBtnView.height - nextBtn.height)/2;
     //设置不可点击
     nextBtn.enabled = NO;
+    nextBtn.layer.cornerRadius = 5;
+    nextBtn.layer.masksToBounds = YES;
     
     UIImage *img = [UIImage imageNamed:@"login_submit_normal.png"];
     img = [img stretchableImageWithLeftCapWidth:20 topCapHeight:0];

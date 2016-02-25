@@ -103,7 +103,7 @@
     snameLabel.frame = CGRectMake(CGRectGetMaxX(personLabel.frame), kindLabel.bottom, 100, height);
     
     numLabel.frame = CGRectMake(leftMarg, personLabel.bottom,60, height);
-    safenoLabel.frame = CGRectMake(CGRectGetMaxX(numLabel.frame), personLabel.bottom, 100, height);
+    safenoLabel.frame = CGRectMake(CGRectGetMaxX(numLabel.frame), personLabel.bottom, 200, height);
     int widthBtn = 40;
     bpBtn.frame = CGRectMake(ScreenWidth - 50 -20, 35, widthBtn, 40);
 }

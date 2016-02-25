@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [super setTitle:@"系统设置"];
+    [super setTitle:@"系统管理"];
     self.view.backgroundColor = RGB(220, 220, 220);
     
     [self _initView];
@@ -100,7 +100,7 @@
     orgName.left = userName.left;
     orgName.width = userName.width;
     orgName.height = 20;
-    orgName.text = @"福建三木保险代理有限公司";
+    orgName.text = @"深圳永兴元保宝网";
     orgName.textColor = [UIColor grayColor];
     orgName.font = [UIFont systemFontOfSize:13];
     [userInfoView addSubview:orgName];
@@ -205,7 +205,7 @@
     [questionView addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:questionView];
     
-    UIImageView *questionImgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"my_panel_about_icon.png"]];
+    UIImageView *questionImgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"my_panel_question_icon.png"]];
     questionImgView.frame = CGRectZero;
     questionImgView.width = iconWidth;
     questionImgView.height = iconWidth;

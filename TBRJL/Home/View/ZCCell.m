@@ -178,9 +178,9 @@
     _safeType.frame = CGRectMake(LeftMargin, 10, 60, KHeight);
     _safeLabel.frame = CGRectMake(CGRectGetMaxX(_safeType.frame), 10, 100, KHeight);
     _sname.frame = CGRectMake(LeftMargin, CGRectGetMaxY(_safeType.frame), 60, KHeight);
-    _snameLabel.frame = CGRectMake(CGRectGetMaxX(_sname.frame), CGRectGetMaxY(_safeType.frame), 100, KHeight);
+    _snameLabel.frame = CGRectMake(CGRectGetMaxX(_sname.frame), CGRectGetMaxY(_safeType.frame), UIScreenW - CGRectGetMaxX(_sname.frame), KHeight);
     _safeno.frame = CGRectMake(LeftMargin, CGRectGetMaxY(_sname.frame),60, KHeight);
-    _safeNoLabel.frame = CGRectMake(CGRectGetMaxX(_safeno.frame), CGRectGetMaxY(_sname.frame), 100, KHeight);
+    _safeNoLabel.frame = CGRectMake(CGRectGetMaxX(_safeno.frame), CGRectGetMaxY(_sname.frame), UIScreenW - CGRectGetMaxX(_safeno.frame) , KHeight);
     
     
     float marg = (UIScreenW - KHeight * 3 - 2* 40)/2;
