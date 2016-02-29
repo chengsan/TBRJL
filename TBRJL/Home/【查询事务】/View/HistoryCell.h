@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TBPUtil.h"
 @interface HistoryCell : UITableViewCell
 
 @property(nonatomic,retain)NSDictionary *data;
