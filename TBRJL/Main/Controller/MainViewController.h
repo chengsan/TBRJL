@@ -17,4 +17,6 @@
 @property(nonatomic,retain)NSMutableArray *btnArray;
 //标题按钮
 @property(nonatomic,retain)NSMutableArray *titleArray;
+
+@property (nonatomic ,strong)UIAlertView *alertView;
 @end

@@ -404,9 +404,10 @@
     [scrollView addSubview:endtimeView];
     totalHeight += endtimeView.height;
     
-    NSString *companytype = (NSString *)[safeInfo objectForKey:@"safetype"];
+    NSString *companytype = (NSString *)[safeInfo objectForKey:@"companytype"];
+    NSString *safetype = (NSString *)[safeInfo objectForKey:@"safetype"];
     NSString *text = nil;
-    if ([companytype isEqualToString:@"1"]) {     // 财险
+    if ([companytype isEqualToString:@"1"] || [safetype isEqualToString:@"1"]) {     // 财险
         text = @"保险止期";
     }else{        //  寿险
         text = @"保险期间";
@@ -440,7 +441,7 @@
     [endtimeBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     [endtimeView addSubview:endtimeBtn];
     
-    if ([companytype isEqualToString:@"1"]) {     // 财险
+    if ([companytype isEqualToString:@"1"] || [safetype isEqualToString:@"1"]) {     // 财险
         endtimeBtn.hidden = NO;
         endtimeTextView.enabled = NO;
     }else{        //  寿险

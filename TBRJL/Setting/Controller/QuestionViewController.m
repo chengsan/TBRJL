@@ -51,6 +51,7 @@
     [btn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
     btn.backgroundColor = [UIColor clearColor];
     [self.webView addSubview:btn];
+ 
 }
 
 -(void)close{
