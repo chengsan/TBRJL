@@ -31,7 +31,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 20)];
     label.center = CGPointMake(ScreenWidth /2, imgView.bottom +20);
     label.textAlignment = NSTextAlignmentCenter;
-    label.text=@"福建省投保人记录系统 V1.1.8";
+    label.text=@"福建省投保人记录系统 v1.98";
     label.textColor = [UIColor grayColor];
     [self.view addSubview:label];
     

@@ -148,7 +148,7 @@
     safenoTextView.textColor = [PublicClass colorWithHexString:@"#636363"];
     safenoTextView.font = [UIFont systemFontOfSize:14];
     safenoTextView.backgroundColor = [UIColor whiteColor];
-    safenoTextView.keyboardType = UIKeyboardTypeNumberPad;
+//    safenoTextView.keyboardType =  UIKeyboardTypeNumbersAndPunctuation;
     safenoTextView.text = (NSString *)[safeInfo objectForKey:@"safeno"];
     [safenoView addSubview:safenoTextView];
     
