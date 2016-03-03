@@ -21,8 +21,8 @@
 //正式地址：http://fjisip.yxybb.com/
 //测试地址：http://59.173.241.186:8042/LODP/
 //周文海：http://192.168.20.134:8080/BBTone/
-#define ServiceURL [NSString stringWithFormat:@"%@",@"http://59.173.241.186:8042/LODP/"];
-#define UpdateURL [NSString stringWithFormat:@"%@",@"http://59.173.241.186:8042/LODP/"];
+#define ServiceURL [NSString stringWithFormat:@"%@",@"http://fjisip.yxybb.com/"];
+#define UpdateURL [NSString stringWithFormat:@"%@",@"http://fjisip.yxybb.com/"];
 
 #define RGB(a,b,c)  [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:1];
 
@@ -34,9 +34,9 @@
 //APP的英文名称
 #define APPENName [NSString stringWithFormat:@"%@",@"BBT_IOS"];
 //版本号
-#define VersionCode [NSString stringWithFormat:@"%@",@"1"];
+#define VersionCode [NSString stringWithFormat:@"%@",@"7"];
 //版本号描述
-#define VersionName [NSString stringWithFormat:@"%@",@"V1.0.0"];
+#define VersionName [NSString stringWithFormat:@"%@",@"V1.97"];
 
 //获取设备的物理高度
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height

@@ -192,78 +192,30 @@
     //进行分解
     if(result != nil )
     {
-        NSArray *array = [result componentsSeparatedByString:@"|"];
         
-        if(array.count == 16)
-        {
-            //进行校验
-            if(currentType == 0 || currentType == 1 || currentType == 2)
-            {
-                if(nil != [array objectAtIndex:1] && ![@"" isEqualToString:[array objectAtIndex:1]] && ![@"null" isEqualToString:[array objectAtIndex:1]])
-                {
-                    if(![[array objectAtIndex:1] isEqualToString:(NSString *)[safeInfo objectForKey:@"safecode"]])
-                    {
-                        [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险险种与二维码不匹配，请检查二维码是否正确"];
-                        return;
-                    }
-                }
-                else
-                {
-                    //产险需要检验
-                    [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险产品与二维码不匹配，请检查二维码是否正确"];
-                    return;
-                }
-            }
-            else
-            {
-                if(safeInfo != nil)
-                {
-                    int companytype = (int)[safeInfo objectForKey:@"companytype"];
-                    //产险需要检验
-                    if(1 == companytype)
-                    {
-                        if(nil != [array objectAtIndex:1] && ![@"" isEqualToString:[array objectAtIndex:1]] && ![@"null" isEqualToString:[array objectAtIndex:1]])
-                        {
-                            if(![[array objectAtIndex:1] isEqualToString:(NSString *)[safeInfo objectForKey:@"safecode"]])
-                            {
-                                [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险产品与二维码不匹配，请检查二维码是否正确"];
-                                return;
-                            }
-                        }
-                        else
-                        {
-                            [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险产品与二维码不匹配，请检查二维码是否正确"];
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        if(nil != [array objectAtIndex:1] && ![@"" isEqualToString:[array objectAtIndex:1]] && ![@"null" isEqualToString:[array objectAtIndex:1]])
-                        {
-                            if([@"101" isEqualToString:[array objectAtIndex:1]] ||
-                               [@"102" isEqualToString:[array objectAtIndex:1]] ||
-                               [@"103" isEqualToString:[array objectAtIndex:1]] ||
-                               [@"104" isEqualToString:[array objectAtIndex:1]])
-                            {
-                                [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险产品与二维码不匹配，请检查二维码是否正确"];
-                                return;
-                            }
-                        }
-                        else
-                        {
-                            [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险产品与二维码不匹配，请检查二维码是否正确"];
-                            return;
-                        }
-                    }
-                }
-            }
+        if (result ==  nil || result.length == 0 || safeInfo == nil) {
+            [self showAlertWithTitle:@"温馨提示" msg:@"二维码扫描无效，请重新扫描"];
+            nextBtn.enabled = NO;
+            return;
+        }else{
+            //         对扫描的结果进行分解
+            NSArray *array = [result componentsSeparatedByString:@"|"];
             
+            if(![[array objectAtIndex:1] isEqualToString:(NSString *)[safeInfo objectForKey:@"safecode"]])
+            {
+                [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险险种与二维码不匹配，请检查二维码是否正确"];
+                return;
+            }
+            //        int companytype = (int)[safeInfo objectForKey:@"companytype"];
+            ////         产险需要检验
+            //        if (companytype == 1) {
+            //
+            //        }
             NSMutableString *newStr = [[NSMutableString alloc] init];
-            //获取二维码数据
             NSString *string = nil;
             
-            //保单号
-            string = [array objectAtIndex:0];
+            //      保单号
+            string  = [array objectAtIndex:0];
             if(string == nil || string.length == 0 || [@"" isEqualToString:string])
             {
                 [self showAlertWithTitle:@"温馨提示" msg:@"二维码中保单号为空"];
@@ -354,12 +306,7 @@
             
             //性别:(1男／0女)
             string = [array objectAtIndex:8];
-            if(string == nil || string.length == 0 || [@"" isEqualToString:string])
-            {
-                [self showAlertWithTitle:@"温馨提示" msg:@"二维码中保单号为空"];
-                return;
-            }
-            else
+            if(![@"" isEqualToString:string])
             {
                 [safeInfo setValue:string forKey:@"sex"];
                 if([@"1" isEqualToString:string])
@@ -378,24 +325,17 @@
             }
             string = nil;
             
-            //年龄
+            //       年龄
             string = [array objectAtIndex:9];
-            if(string == nil || string.length == 0 || [@"" isEqualToString:string])
-            {
-                [self showAlertWithTitle:@"温馨提示" msg:@"二维码中被保险人年龄为空"];
-                return;
-            }
-            else
-            {
+            if (![string isEqualToString:@""]) {
                 [safeInfo setValue:string forKey:@"age"];
                 [newStr appendString:[NSString stringWithFormat:@"\n被保险人年龄:%@",string]];
             }
             string = nil;
             
-            
             //被保险人
             string = [array objectAtIndex:5];
-            if(string == nil || string.length == 0 || [@"" isEqualToString:string])
+            if(string == nil || string.length == 0 || [@"" isEqualToString:string]  )
             {
                 [self showAlertWithTitle:@"温馨提示" msg:@"二维码中被保险人姓名为空"];
                 return;
@@ -422,7 +362,6 @@
             }
             string = nil;
             
-            
             //被保险人证件号
             string = [array objectAtIndex:7];
             if(string == nil || string.length == 0 || [@"" isEqualToString:string])
@@ -448,8 +387,7 @@
             }
             string = nil;
             
-            
-            //保费
+            //      保费
             string = [array objectAtIndex:10];
             if(string == nil || string.length == 0 || [@"" isEqualToString:string])
             {
@@ -463,7 +401,6 @@
                 [newStr appendString:[NSString stringWithFormat:@"\n保费(元):%@",string]];
             }
             string = nil;
-            
             
             //保额
             string = [array objectAtIndex:11];
@@ -508,10 +445,9 @@
             string = nil;
             
             //车险才有的车牌和车架号
-            if([@"001" isEqualToString:(NSString *)[array objectAtIndex:1]])
-            {
-                //车牌
+            if([@"101" isEqualToString:(NSString *)[array objectAtIndex:1]]){
                 string = [array objectAtIndex:14];
+                
                 if(string == nil || string.length == 0 || [@"" isEqualToString:string])
                 {
                     [self showAlertWithTitle:@"温馨提示" msg:@"二维码中车牌为空"];
@@ -530,13 +466,14 @@
                 {
                     [self showAlertWithTitle:@"温馨提示" msg:@"二维码中车架号为空"];
                     return;
-                }
-                else
-                {
+                }else{
+                    
                     [safeInfo setValue:string forKey:@"pwin"];
                     [newStr appendString:[NSString stringWithFormat:@"\n车架号:%@",string]];
                 }
                 string = nil;
+                
+                
             }
             
             if(safeInfo != nil)
@@ -600,16 +537,11 @@
             {
                 contentLabel.text = [NSString stringWithFormat:@"%@",newStr];
             }
-            contentLabel.height = [Util getSizeWithString:newStr textSize:14 width:contentLabel.width].height;
+            contentLabel.height = [Util getSizeWithString:newStr textSize:14 width:contentLabel.width].height + 60;
             if(nil != nextBtn)
             {
                 nextBtn.enabled = YES;
             }
-        }
-        else
-        {
-            [self showAlertWithTitle:@"温馨提示" msg:@"二维码格式不符合要求。"];
-            return;
         }
     }
     
@@ -851,6 +783,7 @@
         
         str = nil;
     }
+    
 }
 
 #pragma mark 判断数据是否符合要求

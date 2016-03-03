@@ -48,6 +48,8 @@
 @interface LoginViewController ()
 @property (nonatomic ,strong) UIButton *remPwdBtn;
 @property (nonatomic ,strong) UIButton *autoLoginBtn;
+
+@property (nonatomic ,strong)UIAlertView *alertView;
 @end
 
 @implementation LoginViewController
@@ -427,7 +429,8 @@
 
 -(void)login:(NSString *)name pass:(NSString *)pass
 {
-    
+    NSString *leapAPPName = LeapAPPName;
+    [self checkVersion:leapAPPName];
    
     //NSString *url = @"http://211.154.145.81:977/restservices/leap/BBTone_LoginIOS/query";
     //NSString *url = @"http://fjisip.yxybb.com/restservices/leap//query";
@@ -446,6 +449,9 @@
         {
             //获取用户信息
             [self getUserInfo:name];
+         
+            
+          
         }
         else
         {
@@ -465,7 +471,8 @@
         return;
     }
     
-      
+    
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:cardNumber forKey:@"cardno"];
     
@@ -486,7 +493,9 @@
             [Util setObject:areaid key:@"areaid"];
             [Globle getInstance].userInfoDic = result;
             [Util setObject:result key:@"userInfo"];
-            
+            NSString *workName = result[@"name"];
+            [Util setObject:workName key:@"workname"];
+            [Util setObject:result[@"orgname"] key:@"orgname"];
             
             NSString *content = [NSString stringWithFormat:@"%@",result];
             
@@ -535,13 +544,13 @@
                 NSLog(@"创建文件失败");
             }
 //            
-//            BOOL b = [content writeToFile:[path stringByAppendingPathComponent:fileName] atomically:YES encoding:NSUTF8StringEncoding error:NULL];
-//            if(!b)
-//            {
-//                UIAlertView *aler = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"用户信息写入失败" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
-//                [aler show];
-//                return;
-//            }
+            BOOL b = [content writeToFile:[path stringByAppendingPathComponent:fileName] atomically:YES encoding:NSUTF8StringEncoding error:NULL];
+            if(!b)
+            {
+                UIAlertView *aler = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"用户信息写入失败" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
+                [aler show];
+                return;
+            }
             
             [self getUserComparnyInfo:[result objectForKey:@"areaid"] cardNo:cardNumber];
             
@@ -648,6 +657,65 @@
 
     NSLog(@"失去焦点");
 }
+
+
+#pragma mark 检测版本号
+-(void)checkVersion:(NSString *)leapAPPname
+{
+    if(leapAPPname != nil)
+    {
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        [params setValue:leapAPPname forKey:@"appname"];
+        
+        [[Globle getInstance].service requestWithServiceName:@"lbcp_getAppVersion" params:params httpMethod:@"POST" resultIsDictionary:true completeBlock:^(id result) {
+            
+            NSLog(@"result:%@",result);
+            
+            NSDictionary *dic = (NSDictionary *)result;
+            if(nil != dic)
+            {
+                [MBProgressHUD hideHUD];
+                //获取本地版本
+                NSString *localVersion = VersionCode;
+                NSLog(@"当前版本号%@",localVersion);
+                int localVersionNUm = (localVersion == nil ? -1 : [localVersion intValue]);
+                //获取服务器版本
+                NSString *serverVersion = [dic valueForKey:@"appversion"];
+                int serverVersionNum = (serverVersion == nil ? -1 : [serverVersion intValue]);
+                //判断是非升级
+                if(localVersionNUm < serverVersionNum)
+                {
+                    NSString *upgrade = [dic valueForKey:@"upgrade"];
+                    if([@"1" isEqualToString:upgrade])    //   强制升级
+                    {
+                        self.alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"有新的版本，请及时更新。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                    }
+                      [self.alertView show];
+                }
+            }
+            
+        }];
+    }
+}
+
+
+#pragma mark - UIAlertView delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView == self.alertView)
+    {
+        if(buttonIndex == 0)
+        {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://59.173.241.186:8042/LODP/LEAP/ios/ios.html"]];
+        }
+        
+        long oldTime = (long)[Util getValue:@"systemTime"];
+        oldTime = oldTime + 24*60*60*1000;
+        [Util setObject:[[NSNumber alloc] initWithLong:oldTime] key:@"systemTime"];
+    }
+}
+
+
 
 
 @end

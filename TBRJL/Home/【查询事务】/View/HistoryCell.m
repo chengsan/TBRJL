@@ -10,6 +10,7 @@
 #import "UIViewExt.h"
 #import "TBRJL-Prefix.pch"
 #import "PublicClass.h"
+
 @implementation HistoryCell
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -19,7 +20,7 @@
     {
         [self _initView];
     }
-    
+
     return self;
 }
 
@@ -71,21 +72,23 @@
     if(data != nil)
     {
         
+//        
+//        NSString *kind = [data objectForKey:@"safetype"];
+//        if(![@"1" hasPrefix:kind])
+//        {
+//            _psafetypeLabel.text = @"寿险";
+//        }
+//        else
+//        {
+//            _psafetypeLabel.text = @"产险";
+//        }
         
-        NSString *kind = [data objectForKey:@"safetype"];
-        if(![@"1" hasPrefix:kind])
-        {
-            _psafetypeLabel.text = @"寿险";
-        }
-        else
-        {
-            _psafetypeLabel.text = @"产险";
-        }
-        
-
+        _psafetypeLabel.text = [TBPUtil getSafeTypeNameByCode:[data objectForKey:@"psafetypes"]];
         _snameLabel.text = [data objectForKey:@"sname"];
         _safenoLabel.text = [data objectForKey:@"safeno"];
         
+    
+     
        
     }
 }

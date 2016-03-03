@@ -305,6 +305,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    
+    
+    
+    
     NSString *isOffline = (NSString *)[Util getValue:@"offline"];
     if ([isOffline isEqualToString:@"1"]) {
         self.rightLabel.text = @"离线登录";
@@ -364,6 +368,9 @@
         
     }
 }
+
+
+
 
 
 // UIAlertView delegate

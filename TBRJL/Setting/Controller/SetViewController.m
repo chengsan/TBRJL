@@ -90,7 +90,8 @@
     userName.left = userIcon.right + 20;
     userName.width = userInfoView.width - userName.left;
     userName.height = 20;
-    userName.text = @"保宝通测试2";
+    
+    userName.text = (NSString *)[Util getValue:@"workname"];
     userName.textColor = [UIColor blackColor];
     userName.font = [UIFont systemFontOfSize:16];
     [userInfoView addSubview:userName];
@@ -100,7 +101,7 @@
     orgName.left = userName.left;
     orgName.width = userName.width;
     orgName.height = 20;
-    orgName.text = @"深圳永兴元保宝网";
+    orgName.text = (NSString *)[Util getValue:@"orgname"];
     orgName.textColor = [UIColor grayColor];
     orgName.font = [UIFont systemFontOfSize:13];
     [userInfoView addSubview:orgName];

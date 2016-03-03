@@ -115,7 +115,7 @@
     _userNameName.height = titleHeight;
     _userNameName.font = [UIFont systemFontOfSize:14];
     _userNameName.textColor = [PublicClass colorWithHexString:@"#636363"];
-    _userNameName.text = [[Globle getInstance].userInfoDic objectForKey:@"name"];
+    _userNameName.text = (NSString *)[Util getValue:@"workname"];
     [self.view addSubview:_userNameName];
     
     //=========================录入方式=========================

@@ -253,7 +253,7 @@
     //--------------------投保人证件类型----------------
     titleDropDown = [[TitleDropDown alloc] initWithFrame:CGRectMake(0, safenameView.bottom + 1, ScreenWidth, height)];
     titleDropDown.dropDownDelagate = self;
-    titleDropDown.contentTextView.keyboardType = UIKeyboardTypeNumberPad;
+//    titleDropDown.contentTextView.keyboardType = UIKeyboardTypeNumberPad;
     titleDropDown.contentTextView.text = cardno;
     NSMutableArray *cardtypeArray = [[NSMutableArray alloc] init];
     [cardtypeArray addObject:@"投保人身份证"];
@@ -300,7 +300,7 @@
     //----------------------被保险人证件类型-----------------------
     safepnameDropDown = [[TitleDropDown alloc] initWithFrame:CGRectMake(0, _safepnameView.bottom + 1, ScreenWidth, height)];
     safepnameDropDown.dropDownDelagate = self;
-    safepnameDropDown.contentTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+//    safepnameDropDown.contentTextView.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     safepnameDropDown.contentTextView.text = pcardno;
     NSMutableArray *pcardtypeArray = [[NSMutableArray alloc] init];
     [pcardtypeArray addObject:@"被保险人身份证"];
@@ -404,9 +404,10 @@
     [scrollView addSubview:endtimeView];
     totalHeight += endtimeView.height;
     
-    NSString *companytype = (NSString *)[safeInfo objectForKey:@"safetype"];
+    NSString *companytype = (NSString *)[safeInfo objectForKey:@"companytype"];
+    NSString *safetype = (NSString *)[safeInfo objectForKey:@"safetype"];
     NSString *text = nil;
-    if ([companytype isEqualToString:@"1"]) {     // 财险
+    if ([companytype isEqualToString:@"1"] || [safetype isEqualToString:@"1"]) {     // 财险
         text = @"保险止期";
     }else{        //  寿险
         text = @"保险期间";
@@ -440,7 +441,7 @@
     [endtimeBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     [endtimeView addSubview:endtimeBtn];
     
-    if ([companytype isEqualToString:@"1"]) {     // 财险
+    if ([companytype isEqualToString:@"1"] || [safetype isEqualToString:@"1"]) {     // 财险
         endtimeBtn.hidden = NO;
         endtimeTextView.enabled = NO;
     }else{        //  寿险

@@ -249,15 +249,11 @@
                 if(localVersionNUm < serverVersionNum)
                 {
                     NSString *upgrade = [dic valueForKey:@"upgrade"];
-                    if([@"1" isEqualToString:upgrade])    //   强制升级
+                    if(![@"1" isEqualToString:upgrade])    //   自选升级
                     {
                         self.alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"有新的版本，请及时更新。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
                     }
-                    else     //  自选升级
-                    {
-                        self.alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"有新的版本，请及时更新。" delegate:self cancelButtonTitle: nil otherButtonTitles:@"确定",@"取消",nil];
-                    }
-                    [self.alertView show];
+                       [self.alertView show];
                     
                 }else{
                     [MBProgressHUD showSuccess:@"当前是最新版本"];
@@ -276,12 +272,12 @@
     {
         if(buttonIndex == 0)
         {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://chengsan.github.io/demo"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://59.173.241.186:8042/LODP/LEAP/ios/ios.html"]];
         }
-        
-        long oldTime = (long)[Util getValue:@"systemTime"];
-        oldTime = oldTime + 24*60*60*1000;
-        [Util setObject:[[NSNumber alloc] initWithLong:oldTime] key:@"systemTime"];
+//
+//        long oldTime = (long)[Util getValue:@"systemTime"];
+//        oldTime = oldTime + 24*60*60*1000;
+//        [Util setObject:[[NSNumber alloc] initWithLong:oldTime] key:@"systemTime"];
     }
 }
 
