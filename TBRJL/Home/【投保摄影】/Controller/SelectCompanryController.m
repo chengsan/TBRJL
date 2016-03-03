@@ -284,7 +284,7 @@
     }
     if(userInfo != nil)
     {
-        NSString *cardNo = [userInfo objectForKey:@"cardno"];
+        NSString *cardNo = (NSString *)[Util getValue:@"username"];
         if(cardNo != nil)
         {
             
@@ -332,7 +332,7 @@
                 return;
             }
             
-            
+    
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"配置文件不存在，请更新配置文件" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: nil];
             [alert show];
         }
