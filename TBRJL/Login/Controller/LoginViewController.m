@@ -450,7 +450,7 @@
             //获取用户信息
             [self getUserInfo:name];
          
-            
+
           
         }
         else
@@ -627,7 +627,7 @@
 //初始化Globle
 -(void)initGloble
 {
-    //     取出url
+    //取出url
     NSString *serviceURL = (NSString *)[Util  getValue:@"serviceURL"];
     if (serviceURL.length == 0 || serviceURL== nil) {
         [Globle getInstance].serviceURL = ServiceURL;
