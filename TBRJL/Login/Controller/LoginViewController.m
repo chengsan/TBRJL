@@ -611,6 +611,8 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"配置信息写入失败" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: nil];
             [alert show];
             return;
+        }else{
+            NSLog(@"配置文件写入成功");
         }
         
 //        保存数据
