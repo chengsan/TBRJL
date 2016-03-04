@@ -647,8 +647,8 @@
 
     position = indexPath.row;
     
-//    if(carmeraController == nil)
-//    {
+    if(carmeraController == nil)
+    {
         carmeraController = [[CustomCarmeraController alloc] init];
         carmeraController.waterText = @"仅供保险投保使用";
         NSLog(@"%@",[bean objectForKey:@"title"]);
@@ -656,7 +656,7 @@
         carmeraController.waterTextColor = [UIColor lightGrayColor];
         carmeraController.waterTextSize = 34;
         carmeraController.delegate = self;
-//    }
+    }
     
     [self.navigationController pushViewController:carmeraController animated:YES];
 }
