@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 @interface SZViewController : BaseViewController
-
+{
+    NSString *cdnpath;
+}
 @end

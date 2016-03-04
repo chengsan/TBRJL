@@ -13,7 +13,8 @@
 {
     BOOL isRemenber;
     BOOL isAutoLogin;
-    FVCustomAlertView *alertView;
+    FVCustomAlertView *_alertView;
+    NSString *cdnpath;
 }
 
 @property(nonatomic,retain) UITextField *userName;

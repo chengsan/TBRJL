@@ -198,7 +198,10 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *name = [defaults objectForKey:CHAccount];
     NSString *pass = [defaults objectForKey:CHPassword];
-    
+    if(nil == name || pass == nil)
+    {
+        return;
+    }
     [params setObject:name forKey:@"cardno"];
     [params setObject:[pass md5] forKey:@"pwd"];
     [[Globle getInstance].service requestWithServiceName:@"BBTone_LoginIOS" params:params httpMethod:@"POST" resultIsDictionary:false completeBlock:^(id result)

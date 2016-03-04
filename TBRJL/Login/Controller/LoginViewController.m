@@ -49,7 +49,7 @@
 @property (nonatomic ,strong) UIButton *remPwdBtn;
 @property (nonatomic ,strong) UIButton *autoLoginBtn;
 
-@property (nonatomic ,strong)UIAlertView *alertView;
+@property (nonatomic ,strong)UIAlertView *myAlertView;
 @end
 
 @implementation LoginViewController
@@ -72,6 +72,9 @@
     self.remPwdBtn.selected = isRemenber;
     isAutoLogin = [CHSaveDataTool boolForkey:@"自动登录"];
     self.autoLoginBtn.selected = isAutoLogin;
+    
+    NSString *leapAPPName = LeapAPPName;
+    [self checkVersion:leapAPPName];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -429,8 +432,6 @@
 
 -(void)login:(NSString *)name pass:(NSString *)pass
 {
-    NSString *leapAPPName = LeapAPPName;
-    [self checkVersion:leapAPPName];
    
     //NSString *url = @"http://211.154.145.81:977/restservices/leap/BBTone_LoginIOS/query";
     //NSString *url = @"http://fjisip.yxybb.com/restservices/leap//query";
@@ -443,7 +444,6 @@
     {
         [MBProgressHUD hideHUD];
         NSString *str = [NSString stringWithFormat:@"%@",result];
-        NSLog(@"result = %@",str);
         
         if([@"true" isEqualToString:str])
         {
@@ -481,7 +481,7 @@
         
         if(result == nil)
         {
-            [alertView dismiss];
+            [_alertView dismiss];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"用户信息获取失败，请检查后台用户信息是否完整" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
             [alert show];
         }
@@ -567,7 +567,7 @@
     
     [[Globle getInstance].service requestWithServiceName:@"BBTone_getConfigData" params:params httpMethod:@"POST" resultIsDictionary:YES completeBlock:^(id result)
     {
-        [alertView dismiss];
+        [_alertView dismiss];
         if(result == nil)
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"获取配置文件失败" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
@@ -595,7 +595,6 @@
                 return;
             }
         }
-        
         NSString *fileName = [NSString stringWithFormat:@"%@",cardno];
         NSString *fullPath = [dicPath stringByAppendingPathComponent:fileName];
         if([fileManager fileExistsAtPath:fullPath])
@@ -683,6 +682,8 @@
                 int localVersionNUm = (localVersion == nil ? -1 : [localVersion intValue]);
                 //获取服务器版本
                 NSString *serverVersion = [dic valueForKey:@"appversion"];
+                NSLog(@"服务器版本%@",serverVersion);
+                cdnpath = [dic valueForKey:@"cdnpath"];
                 int serverVersionNum = (serverVersion == nil ? -1 : [serverVersion intValue]);
                 //判断是非升级
                 if(localVersionNUm < serverVersionNum)
@@ -690,9 +691,18 @@
                     NSString *upgrade = [dic valueForKey:@"upgrade"];
                     if([@"1" isEqualToString:upgrade])    //   强制升级
                     {
-                        self.alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"有新的版本，请及时更新。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                        self.myAlertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"有新的版本，请及时更新。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
                     }
-                      [self.alertView show];
+                    else
+                    {
+                        self.myAlertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"有新的版本，请及时更新。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",@"取消", nil];
+                    }
+                    
+                    if(nil != cdnpath && ![@"" isEqualToString:cdnpath])
+                    {
+                        [self.myAlertView show];
+                    }
+                    
                 }
             }
             
@@ -704,16 +714,13 @@
 #pragma mark - UIAlertView delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(alertView == self.alertView)
+    if(alertView == self.myAlertView)
     {
         if(buttonIndex == 0)
         {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://59.173.241.186:8042/LODP/LEAP/ios/ios.html"]];
+            NSString *urlStr = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@",cdnpath];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
         }
-        
-        long oldTime = (long)[Util getValue:@"systemTime"];
-        oldTime = oldTime + 24*60*60*1000;
-        [Util setObject:[[NSNumber alloc] initWithLong:oldTime] key:@"systemTime"];
     }
 }
 
