@@ -670,11 +670,11 @@
         if(nil != photoDic)
         {
             NSString *filename = (NSString *)[photoDic objectForKey:@"filename"];
-            if(filename == nil || filename.length == 0)
-            {
+//            if(filename == nil || filename.length == 0)
+//            {
                 NSDictionary *timeDic = [Util getCurrentTime];
                 filename = [NSString stringWithFormat:@"%@%@%@%@%@%@.jpg",[timeDic objectForKey:@"year"],[timeDic objectForKey:@"month"],[timeDic objectForKey:@"day"],[timeDic objectForKey:@"hour"],[timeDic objectForKey:@"minute"],[timeDic objectForKey:@"second"]];
-            }
+//            }
         
             BOOL b = [Util saveImgToDic:photoDicPath fileName:filename UIImage:image];
             
