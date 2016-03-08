@@ -647,8 +647,8 @@
 
     position = indexPath.row;
     
-//    if(carmeraController == nil)
-//    {
+    if(carmeraController == nil)
+    {
         carmeraController = [[CustomCarmeraController alloc] init];
         carmeraController.waterText = @"仅供保险投保使用";
         NSLog(@"%@",[bean objectForKey:@"title"]);
@@ -656,7 +656,7 @@
         carmeraController.waterTextColor = [UIColor lightGrayColor];
         carmeraController.waterTextSize = 34;
         carmeraController.delegate = self;
-//    }
+    }
     
     [self.navigationController pushViewController:carmeraController animated:YES];
 }
@@ -670,11 +670,11 @@
         if(nil != photoDic)
         {
             NSString *filename = (NSString *)[photoDic objectForKey:@"filename"];
-            if(filename == nil || filename.length == 0)
-            {
+//            if(filename == nil || filename.length == 0)
+//            {
                 NSDictionary *timeDic = [Util getCurrentTime];
                 filename = [NSString stringWithFormat:@"%@%@%@%@%@%@.jpg",[timeDic objectForKey:@"year"],[timeDic objectForKey:@"month"],[timeDic objectForKey:@"day"],[timeDic objectForKey:@"hour"],[timeDic objectForKey:@"minute"],[timeDic objectForKey:@"second"]];
-            }
+//            }
         
             BOOL b = [Util saveImgToDic:photoDicPath fileName:filename UIImage:image];
             

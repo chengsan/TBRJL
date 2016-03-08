@@ -602,23 +602,31 @@
             [fileManager removeItemAtPath:fullPath error:nil];
         }
         
-        BOOL b = [array writeToFile:fullPath atomically:YES];
+      
         
-        
-        if(!b)
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"配置信息写入失败" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: nil];
-            [alert show];
-            return;
-        }else{
-            NSLog(@"配置文件写入成功");
-        }
-        
-//        保存数据
-        [self saveUserData];
-        
-        MainViewController *mainCTRL = [[MainViewController alloc] init];
-        self.view.window.rootViewController = mainCTRL;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+              BOOL b = [array writeToFile:fullPath atomically:YES];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if(!b)
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"配置信息写入失败" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: nil];
+                    [alert show];
+                    return;
+                }else{
+                    NSLog(@"配置文件写入成功");
+                    
+                    //        保存数据
+                    [self saveUserData];
+                    
+                    MainViewController *mainCTRL = [[MainViewController alloc] init];
+                    self.view.window.rootViewController = mainCTRL;
+                }
+            });
+            
+        });
+
     }];
     
 }

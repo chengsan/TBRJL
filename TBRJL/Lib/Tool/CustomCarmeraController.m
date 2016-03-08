@@ -20,6 +20,7 @@
     {
        
         [self initialSession];
+        
     }
     
     return self;
@@ -127,6 +128,7 @@
     self.againButton.left = (ScreenWidth - btnWidth *3)/4;
     self.againButton.width = btnWidth;
     self.againButton.height = btnWidth;
+    self.againButton.enabled = NO;
     [self.againButton setTitle:@"重拍" forState:UIControlStateNormal];
     self.againButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.againButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -157,6 +159,7 @@
     self.okButton.left = self.shutterButton.right + (ScreenWidth - btnWidth *3)/4;
     self.okButton.width = btnWidth;
     self.okButton.height = btnWidth;
+    self.okButton.enabled = NO;
     [self.okButton setTitle:@"确定" forState:UIControlStateNormal];
     self.okButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.okButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -177,6 +180,8 @@
         {
             [self.photoImgView setImage:nil];
             self.photoImgView.hidden = YES;
+            self.againButton.enabled = NO;
+            self.okButton.enabled = NO;
         }
         
         _shutterButton.enabled = YES;
@@ -184,6 +189,9 @@
     else if(btn == self.shutterButton)
     {
         [self shutterCamera];
+        self.okButton.enabled = YES;
+        self.againButton.enabled = YES;
+        self.shutterButton.enabled = NO;
     }
     else if(btn == self.okButton)
     {

@@ -74,6 +74,7 @@
 
 -(void)setData:(EntityBean *)data
 {
+    NSLog(@" ....%@",[data getDic]);
     NSLog(@"  cell  ===   %@",data);
     if(nil != [data objectForKey:@"photoname"])
     {
@@ -119,9 +120,12 @@
     }
     
     NSString *filename = (NSString *)[data objectForKey:@"filename"];
+    NSLog(@"filename的名字%@",filename);
     if(nil != filename && filename.length > 0)
     {
         NSString *path = (NSString *)[data objectForKey:@"path"];
+        
+        NSLog(@"获取路径path = %@",path);
         if(path != nil && path.length > 0)
         {
             NSString *fullPath = [path stringByAppendingPathComponent:filename];
