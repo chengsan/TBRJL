@@ -275,7 +275,8 @@
     
     //获取保单号和用户ID
     NSString *safeno = (NSString *)[safeInfo objectForKey:@"safeno"];
-    NSString *userid = (NSString *)[[Globle getInstance].userInfoDic objectForKey:@"id"];
+    NSString *userid = (NSString *)[Util getValue:@"id"];
+   
     if(safeno == nil || [@"" isEqualToString:safeno] ||
        userid == nil || [@"" isEqualToString:userid])
     {
@@ -686,6 +687,7 @@
             {
                 NSLog(@"影像保存成功。。。");
                 
+                NSLog(@" 图片存储的地址  %@",photoDicPath);
                 [photoDic setValue:filename forKey:@"filename"];
                 [photoDic setValue:photoDicPath forKey:@"path"];
              

@@ -387,7 +387,8 @@
 //  获取需要补拍的人数
 -(void )getBuPaiCount{
     //获取登录人的id
-    NSString *userid = [[Globle getInstance].userInfoDic objectForKey:@"id"];
+    NSString *userid = (NSString *)[Util getValue:@"id"];
+    NSLog(@" -----  %@",userid);
     SearchParameters *search = [[SearchParameters alloc] init];
     [search setFillCodeValue:@"true"];
     [search addParameter:@"userid" value:userid flag:11];
@@ -416,7 +417,7 @@
 //   获取需要补录的人数
 -(void)getBuluCount{
     //获取用户id
-    NSString *userId = [[Globle getInstance].userInfoDic objectForKey:@"id"];
+    NSString *userId = (NSString *)[Util getValue:@"id"];
     SearchParameters *search = [[SearchParameters alloc] init];
     [search setFillCodeValue:@"true"];
     [search addParameter:@"userid" value:userId flag:11];
