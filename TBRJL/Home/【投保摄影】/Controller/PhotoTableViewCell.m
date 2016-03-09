@@ -74,8 +74,6 @@
 
 -(void)setData:(EntityBean *)data
 {
-    NSLog(@" ....%@",[data getDic]);
-    NSLog(@"  cell  ===   %@",data);
     if(nil != [data objectForKey:@"photoname"])
     {
         titleLabel.text = (NSString *)[data objectForKey:@"photoname"];
@@ -129,6 +127,7 @@
         if(path != nil && path.length > 0)
         {
             NSString *fullPath = [path stringByAppendingPathComponent:filename];
+            NSLog(@" 文件夹的路径  %@",fullPath);
             if([[NSFileManager defaultManager] fileExistsAtPath:fullPath])
             {
                 if(nil != photoImageView)

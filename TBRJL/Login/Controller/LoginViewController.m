@@ -488,14 +488,18 @@
         else
         {
             NSLog(@"%@",result);
-            NSString *areaid = result[@"areaid"];
-            [Util setObject:cardNumber key:@"username"];
-            [Util setObject:areaid key:@"areaid"];
+           
             [Globle getInstance].userInfoDic = result;
+            
+            [Util setObject:cardNumber key:@"username"];
+             NSString *areaid = result[@"areaid"];
+            [Util setObject:areaid key:@"areaid"];
             [Util setObject:result key:@"userInfo"];
             NSString *workName = result[@"name"];
             [Util setObject:workName key:@"workname"];
             [Util setObject:result[@"orgname"] key:@"orgname"];
+            [Util setObject:result[@"id"] key:@"id"];
+            
             
             NSString *content = [NSString stringWithFormat:@"%@",result];
             
