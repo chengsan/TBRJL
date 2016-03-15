@@ -13,6 +13,7 @@
 #import "SearchParameters.h"
 #import "EntityBean.h"
 #import "AFURLSessionManager.h"
+#import "Util.h"
 
 @implementation AFNetWorkService
 
@@ -26,7 +27,7 @@
     
     
     //拼接URL
-    NSString *url = [NSString stringWithFormat:@"%@restservices/leap/%@/query",[Globle getInstance].serviceURL,serviceName];
+    NSString *url = [NSString stringWithFormat:@"%@restservices/leap/%@/query",[Util getValue:@"serviceURL"],serviceName];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     if(!resultIsDictionary)

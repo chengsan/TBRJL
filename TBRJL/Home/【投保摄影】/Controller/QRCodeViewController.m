@@ -124,16 +124,11 @@
 }
 -(void)onClick:(UIButton *)btn
 {
-//    if(nil != nextBtn)
-//    {
-//        nextBtn.enabled = NO;
-//    }
-//    
+
     NSInteger tag = btn.tag;
     
-    if(tag == 100)
+    if(tag == 100)     //  扫描
     {
-        NSLog(@"开始扫描");
         //==================使用原生扫码界面======================
         
         ScanViewController *scanVc = [[ScanViewController alloc] init];
@@ -206,11 +201,7 @@
                 [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险险种与二维码不匹配，请检查二维码是否正确"];
                 return;
             }
-            //        int companytype = (int)[safeInfo objectForKey:@"companytype"];
-            ////         产险需要检验
-            //        if (companytype == 1) {
-            //
-            //        }
+   
             NSMutableString *newStr = [[NSMutableString alloc] init];
             NSString *string = nil;
             

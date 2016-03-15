@@ -33,14 +33,7 @@
  * 记住密码
  */
 #define CHRmbPassword @"CHRmbPassword"
-/**
- * 账号
- */
-#define CHAccount @"CHAccount"
-/**
- * 密码
- */
-#define CHPassword @"CHPassword"
+
 /**
  * 是否自动登录
  */

@@ -13,14 +13,7 @@
 #import "CHSaveDataTool.h"
 #import "NSString+NSStringMD5.h"
 
-/**
- * 账号
- */
-#define CHAccount @"CHAccount"
-/**
- * 密码
- */
-#define CHPassword @"CHPassword"
+
 @interface AppDelegate ()
 @property (nonatomic ,assign) BOOL isOffline;   // 是否离线
 @property (nonatomic ,strong) NSTimer *timer;   //  定时器
@@ -70,7 +63,7 @@
                 break;
             case AFNetworkReachabilityStatusNotReachable:
                 NSLog(@"没有网");
-                                 
+                
                 [Util setObject:@"1" key:@"offline"];
                 break;
                 

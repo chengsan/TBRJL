@@ -18,6 +18,7 @@
 }
 @property(nonatomic ,strong)UILabel *titleLabel;
 @property (nonatomic ,strong)UILabel *markLabel;
+@property (nonatomic ,copy) NSString *filePath;
 -(void)setData:(EntityBean *)data;
 -(void)setCurrentType:(int)type;
 @end
