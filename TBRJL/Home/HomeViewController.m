@@ -461,8 +461,7 @@
 -(void)login:(NSString *)name pass:(NSString *)pass
 {
     
-    //NSString *url = @"http://211.154.145.81:977/restservices/leap/BBTone_LoginIOS/query";
-    //NSString *url = @"http://fjisip.yxybb.com/restservices/leap//query";
+
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:name forKey:@"cardno"];
     [params setObject:[pass md5] forKey:@"pwd"];
@@ -491,8 +490,6 @@
     {
         return;
     }
-    
-    
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:cardNumber forKey:@"cardno"];

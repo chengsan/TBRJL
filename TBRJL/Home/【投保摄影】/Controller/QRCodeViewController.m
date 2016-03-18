@@ -87,8 +87,7 @@
     {
         [nextBtn setTitle:@"下一步" forState:UIControlStateNormal];
     }
-    
-    nextBtn.tag = 101;
+                nextBtn.tag = 101;
     nextBtn.frame = CGRectZero;
     nextBtn.width = 200;
     nextBtn.height = 40;
@@ -304,15 +303,11 @@
                 {
                     [newStr appendString:[NSString stringWithFormat:@"\n投保人性别:男"]];
                 }
-                else if([@"0" isEqualToString:string])
+                else
                 {
                     [newStr appendString:[NSString stringWithFormat:@"\n投保人性别:女"]];
                 }
-                else
-                {
-                    [self showAlertWithTitle:@"温馨提示" msg:@"二维码中性别数据不符合要求"];
-                    return;
-                }
+               
             }
             string = nil;
             

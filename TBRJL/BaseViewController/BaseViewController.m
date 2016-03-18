@@ -356,9 +356,6 @@
             [bean setValue:[rs stringForColumn:@"isqrcode"] forKey:@"isqrcode"];
             [bean setValue:[rs stringForColumn:@"time"] forKey:@"time"];
             
-           
-            
-            
             NSString *age = [rs stringForColumn:@"age"];
             if (![age isEqualToString:@"(null)"]) {
                 [bean setValue:age forKey:@"age"];
