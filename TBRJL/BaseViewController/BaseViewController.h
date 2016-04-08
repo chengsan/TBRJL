@@ -62,7 +62,7 @@
 /**
  *  从数据库获取保单数据
  */
--(NSMutableArray *)getPolicyData;
+-(NSMutableArray *)getPolicyDataWithUserID:(NSString *)userid;
 
 /**
  *  根据创建的时间找到所对应的数据表

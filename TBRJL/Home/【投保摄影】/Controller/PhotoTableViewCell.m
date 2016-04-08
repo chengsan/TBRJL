@@ -121,12 +121,11 @@
     NSLog(@"filename的名字%@",filename);
     if(nil != filename && filename.length > 0)
     {
-        NSString *path = (NSString *)[data objectForKey:@"path"];
+        NSLog(@"获取路径path = %@",self.filePath);
         
-        NSLog(@"获取路径path = %@",path);
-        if(path != nil && path.length > 0)
+        if(self.filePath != nil && self.filePath.length > 0)
         {
-            NSString *fullPath = [path stringByAppendingPathComponent:filename];
+            NSString *fullPath = [self.filePath stringByAppendingPathComponent:filename];
             NSLog(@" 文件夹的路径  %@",fullPath);
             if([[NSFileManager defaultManager] fileExistsAtPath:fullPath])
             {

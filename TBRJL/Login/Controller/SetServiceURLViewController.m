@@ -42,14 +42,13 @@
     
     
 //     设备号
-    self.deviceLabel.text = [[UIDevice currentDevice] model];
+//    self.deviceLabel.text = [[UIDevice currentDevice] model];
+    self.deviceLabel.text = [[UIDevice currentDevice] systemVersion];
     
     
     
 //      版本号
-//    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-//    NSString *verison = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-//    self.versionLabel.text =  [NSString stringWithFormat:@"V%@",verison];
+
     self.versionLabel.text = VersionName;
     [self initData];
     

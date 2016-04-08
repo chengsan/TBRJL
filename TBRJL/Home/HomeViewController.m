@@ -17,6 +17,8 @@
 #import "ZCViewController.h"
 #import "SearchParameters.h"
 #import "QueryViewController.h"
+#import "NSString+NSStringMD5.h"
+
 @interface HomeViewController ()
 @property (nonatomic ,strong)UIButton *zcswIcon;
 @property (nonatomic ,strong)UIButton *bpyxIcon;
@@ -316,13 +318,14 @@
     }else{
         self.rightLabel.text = @"在线登陆";
         self.rightLabel.textColor = [UIColor redColor];
+        [self login:(NSString *)[Util getValue:CHAccount] pass:(NSString *)[Util getValue:CHPassword]];
     }
     
     
     
     [self getBuPaiCount];
     [self getBuluCount];
-    NSMutableArray *arr = [self getPolicyData];
+    NSMutableArray *arr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
     [self setBtn:_zcswIcon WithCount:arr.count];
     
     
@@ -388,7 +391,6 @@
 -(void )getBuPaiCount{
     //获取登录人的id
     NSString *userid = (NSString *)[Util getValue:@"id"];
-    NSLog(@" -----  %@",userid);
     SearchParameters *search = [[SearchParameters alloc] init];
     [search setFillCodeValue:@"true"];
     [search addParameter:@"userid" value:userid flag:11];
@@ -404,7 +406,6 @@
     
     
     [[Globle getInstance].service requestWithServiceName:@"BBTone_getDataList" params:params httpMethod:@"POST" resultIsDictionary:true completeBlock:^(id result) {
-        
         NSDictionary *dict = result;
         NSArray *arr = [dict objectForKey:@"result"];
         
@@ -433,7 +434,6 @@
     
     [[Globle getInstance].service requestWithServiceName:@"BBTone_getDataList" params:params httpMethod:@"POST" resultIsDictionary:true completeBlock:^(id result)
      {
-//         NSLog(@"  补录 %@",result);
          NSDictionary *dict = result;
          NSArray *arr = [dict objectForKey:@"result"];
          [self setBtn:_blxxIcon WithCount:arr.count];
@@ -455,5 +455,63 @@
         btn.hidden = YES;
     }
 }
+
+
+
+-(void)login:(NSString *)name pass:(NSString *)pass
+{
+    
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:name forKey:@"cardno"];
+    [params setObject:[pass md5] forKey:@"pwd"];
+    
+    
+    [[Globle getInstance].service requestWithServiceName:@"BBTone_LoginIOS" params:params httpMethod:@"POST" resultIsDictionary:false completeBlock:^(id result)
+     {
+         [MBProgressHUD hideHUD];
+         NSString *str = [NSString stringWithFormat:@"%@",result];
+         
+         if([@"true" isEqualToString:str])
+         {
+//             获取用户信息
+             [self getUserInfo:name];
+         }
+       
+     }];
+    
+}
+
+
+-(void)getUserInfo:(NSString *)cardNumber
+{
+    
+    if(cardNumber == nil || cardNumber.length == 0)
+    {
+        return;
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:cardNumber forKey:@"cardno"];
+    
+    [[Globle getInstance].service requestWithServiceName:@"BBTone_getUserInfo" params:params httpMethod:@"POST" resultIsDictionary:true completeBlock:^(id result)
+     {
+            NSLog(@"%@",result);
+             
+             [Globle getInstance].userInfoDic = result;
+//
+//             [Util setObject:cardNumber key:@"username"];
+//             NSString *areaid = result[@"areaid"];
+//             [Util setObject:areaid key:@"areaid"];
+//             [Util setObject:result key:@"userInfo"];
+//             NSString *workName = result[@"name"];
+//             [Util setObject:workName key:@"workname"];
+//             [Util setObject:result[@"orgname"] key:@"orgname"];
+//             [Util setObject:result[@"id"] key:@"id"];
+         
+     }];
+}
+
+                     
 
 @end

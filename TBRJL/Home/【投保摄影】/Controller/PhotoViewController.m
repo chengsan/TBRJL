@@ -44,15 +44,19 @@
     [super setTitle:@"投保摄影"];
     [self _initView];
     
-    NSLog(@" currentType   %d",currentType);
     
     //获取图片存放的目录
     if(currentType == 1)
     {
          //缓存就从保单对象中拿
         self.creatTime = (NSString *)[safeInfo objectForKey:@"creattime"];
-        photoDicPath = (NSString *)[safeInfo objectForKey:@"photoDicPath"];
-       
+//        photoDicPath = (NSString *)[safeInfo objectForKey:@"photoDicPath"];
+        NSString *time = (NSString *)[safeInfo objectForKey:@"time"];
+        NSString *photoPath = photoInfoDic;
+        NSLog(@"目录名%@",time);
+        photoDicPath = [photoPath stringByAppendingPathComponent:time];
+        NSLog(@"  地址 %@",photoDicPath);
+        
     }
     else{
     
@@ -68,7 +72,9 @@
         //新建、补录和补拍就新建
         photoDicPath = photoInfoDic;
         NSDictionary *timeDic = [Util getCurrentTime];
-        photoDicPath = [photoDicPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@%@%@%@%@",[timeDic objectForKey:@"year"],[timeDic objectForKey:@"month"],[timeDic objectForKey:@"day"],[timeDic objectForKey:@"hour"],[timeDic objectForKey:@"minute"],[timeDic objectForKey:@"second"]]];
+        NSString *time = [NSString stringWithFormat:@"%@%@%@%@%@%@",[timeDic objectForKey:@"year"],[timeDic objectForKey:@"month"],[timeDic objectForKey:@"day"],[timeDic objectForKey:@"hour"],[timeDic objectForKey:@"minute"],[timeDic objectForKey:@"second"]];
+        [safeInfo setValue:time forKey:@"time"];
+        photoDicPath = [photoDicPath stringByAppendingPathComponent:time];
         
     }
     
@@ -191,7 +197,6 @@
                     photoModel.title = dic[@"title"];
                     photoModel.updater = dic[@"updater"];
                     photoModel.updatetime = dic[@"updatetime"];
-                    
                     BOOL rst =  [self updatePolicyImage:photoModel withCreatTime:self.currentTime];
                     
                     if (!rst) {
@@ -574,8 +579,9 @@
         {
             if([@"1" isEqualToString:(NSString *)[myDic objectForKey:@"nullable"]])
             {
-                NSString *path = (NSString *)[myDic objectForKey:@"path"];
-                if(nil == path || [@"" isEqualToString:path])
+//                NSString *path = (NSString *)[myDic objectForKey:@"path"];
+                NSLog(@"---%@",photoDicPath);
+                if(photoDicPath == nil || [@"" isEqualToString:photoDicPath])
                 {
                     return false;
                 }
@@ -583,7 +589,7 @@
                 {
                     //判断文件是否存在
                     NSString *filename = (NSString *)[myDic objectForKey:@"filename"];
-                    if(![[NSFileManager defaultManager] fileExistsAtPath:[path stringByAppendingPathComponent:filename]])
+                    if(![[NSFileManager defaultManager] fileExistsAtPath:[photoDicPath stringByAppendingPathComponent:filename]])
                     {
                         return false;
                     }
@@ -614,7 +620,7 @@
 -(void)setCurrentType:(int)type
 {
     currentType = type;
-    NSLog(@"%d",currentType);
+
 }
 
 #pragma mark UITableView delegate
@@ -633,6 +639,7 @@
     }
     
     EntityBean *bean = [photoArray objectAtIndex:indexPath.row];
+    photoCell.filePath = photoDicPath;
     [photoCell setData:bean];
     [photoCell setCurrentType:currentType];
     return photoCell;
@@ -652,7 +659,6 @@
     {
         carmeraController = [[CustomCarmeraController alloc] init];
         carmeraController.waterText = @"仅供保险投保使用";
-        NSLog(@"%@",[bean objectForKey:@"title"]);
         carmeraController.titleName = (NSString *)[bean objectForKey:@"title"];
         carmeraController.waterTextColor = [UIColor lightGrayColor];
         carmeraController.waterTextSize = 34;
@@ -667,14 +673,14 @@
     if(photoArray != nil && photoArray.count > position && position >= 0)
     {
         EntityBean *photoDic = [photoArray objectAtIndex:position];
-        NSLog(@"%@",[photoDic objectForKey:@"filename"]) ;
+  
         if(nil != photoDic)
         {
-            NSString *filename = (NSString *)[photoDic objectForKey:@"filename"];
+//            NSString *filename = (NSString *)[photoDic objectForKey:@"filename"];
 //            if(filename == nil || filename.length == 0)
 //            {
                 NSDictionary *timeDic = [Util getCurrentTime];
-                filename = [NSString stringWithFormat:@"%@%@%@%@%@%@.jpg",[timeDic objectForKey:@"year"],[timeDic objectForKey:@"month"],[timeDic objectForKey:@"day"],[timeDic objectForKey:@"hour"],[timeDic objectForKey:@"minute"],[timeDic objectForKey:@"second"]];
+               NSString *filename = [NSString stringWithFormat:@"%@%@%@%@%@%@.jpg",[timeDic objectForKey:@"year"],[timeDic objectForKey:@"month"],[timeDic objectForKey:@"day"],[timeDic objectForKey:@"hour"],[timeDic objectForKey:@"minute"],[timeDic objectForKey:@"second"]];
 //            }
         
             BOOL b = [Util saveImgToDic:photoDicPath fileName:filename UIImage:image];
@@ -719,6 +725,7 @@
     NSDictionary *dict = [safeInfo getDic];
     NSLog(@" 暂存保单数据   %@",dict);
     PolicyModel *model = [[PolicyModel alloc] init];
+    model.userid = (NSString *)[Util getValue:CHAccount];
     model.age = dict[@"age"];
     model.areaid = dict[@"areaid"];
     model.cardno = dict[@"cardno"];
@@ -745,6 +752,7 @@
     model.pwin = dict[@"pwin"];
     model.isread = dict[@"isread"];
     model.isqrcode = dict[@"isqrcode"];
+    model.time = dict[@"time"];
     model.photoDicPath = photoDicPath;
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];

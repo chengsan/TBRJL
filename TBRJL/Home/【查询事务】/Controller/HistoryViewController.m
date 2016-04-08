@@ -149,7 +149,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"%d",indexPath.row);
     BaoDanInfoController *bdInfoVc = [[BaoDanInfoController alloc] init];
     bdInfoVc.dict = _array[indexPath.row];
     [self.navigationController pushViewController:bdInfoVc animated:YES];

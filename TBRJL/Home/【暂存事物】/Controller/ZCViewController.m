@@ -43,15 +43,13 @@
     [super viewDidLoad];
     self.title = @"暂存事务";
     [self.policyArr removeAllObjects];
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSLog(@"%@",doc);
-    
+  
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
 //     获取保单数据
-    self.policyArr = [self getPolicyData];
+    self.policyArr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
     if (self.policyArr.count == 0) {
         [super showNotice:true];
     }
@@ -60,12 +58,12 @@
 
 
 //   删除存储到本地的图片
--(void)deletePolicyImageWithCreatTime:(NSString *)creatTime{
+-(void)deletePolicyImageWithCreatTime:(NSString *)creatTime fileName:(NSString *)fileName{
     
     self.photoArr = [self getImagePathWithCreatTime:creatTime];
     NSFileManager *manager = [NSFileManager defaultManager];
-    for (EntityBean *bean in self.photoArr) {
-       NSString *path =  (NSString *)[bean objectForKey:@"path"];
+    NSString *photoDic = photoInfoDic;
+       NSString *path =  [photoDic stringByAppendingPathComponent:fileName];
        NSLog(@"图片存储的地址%@",path);
        BOOL isDel =  [manager removeItemAtPath:path error:nil];
         if (isDel) {
@@ -73,7 +71,7 @@
         }else{
             NSLog(@"删除失败");
         }
-    }
+    
 }
 
 
@@ -100,13 +98,15 @@
 
 #pragma mark - ZCCellDelegate
 -(void)didBtnClickWithTag:(NSInteger)tag Type:(ZCCellBtnType)type{
+    
     if (type == ZCCellBtnTypePolicy) {     //编辑保单
+        
         SGLRViewController *sglrVC = [[SGLRViewController alloc] init];
-         EntityBean *safeInfo = self.policyArr[tag];
+        EntityBean *safeInfo = self.policyArr[tag];
         NSString *creatTime = (NSString *)[safeInfo objectForKey:@"creattime"];
         NSLog(@"跳转界面的创建时间%@",creatTime);
         [self.photoArr removeAllObjects];
-        self.photoArr = [self getImagePathWithCreatTime:creatTime];
+         self.photoArr = [self getImagePathWithCreatTime:creatTime];
         
         [sglrVC setSafeInfo:safeInfo];
         [sglrVC setCurrentType:1];
@@ -151,15 +151,15 @@
         NSString *creatTime = (NSString *)[self.bean objectForKey:@"creattime"];
    //   删除保单
        BOOL isDelPolicy = [self deleteTableByCreatTime:creatTime TableName:@"policy"];
-//        先删除存储的图片
-        [self deletePolicyImageWithCreatTime:creatTime];
-//      删除保单图片数据
+   //  先删除存储的图片
+        [self deletePolicyImageWithCreatTime:creatTime fileName:(NSString *)[self.bean objectForKey:@"time"]];
+    //   删除保单图片数据
        BOOL isDelPolicyImage = [self deleteTableByCreatTime:creatTime TableName:@"policyimage"];
         
         if (isDelPolicy && isDelPolicyImage) {
                 [MBProgressHUD showSuccess:@"删除成功"];
                 self.policyArr = nil;
-               self.policyArr =  [self getPolicyData];
+               self.policyArr =  [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
                 [self.tableView reloadData];
             }else{
                 [MBProgressHUD showError:@"删除失败"];
@@ -168,9 +168,6 @@
 }
 
 
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    NSLog(@"2222");
-//}
 
 @end
 

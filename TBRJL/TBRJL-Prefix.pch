@@ -36,7 +36,7 @@
 //版本号
 #define VersionCode [NSString stringWithFormat:@"%@",@"9"];
 //版本号描述
-#define VersionName [NSString stringWithFormat:@"%@",@"V2.02"]
+#define VersionName [NSString stringWithFormat:@"%@",@"V2.03"]
 
 //获取设备的物理高度
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -50,6 +50,14 @@
 //标题栏高度
 #define TitleBarHeight 44;
 
+/**
+ * 账号
+ */
+#define CHAccount @"CHAccount"
+/**
+ * 密码
+ */
+#define CHPassword @"CHPassword"
 
 //存放用户信息的目录
 #define UserInfoDic [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"userInfo"];

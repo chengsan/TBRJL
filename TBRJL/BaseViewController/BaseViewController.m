@@ -243,7 +243,7 @@
     if ([self.db open]) {
         if (![self isTableExistWithTableName:@"policy"]) {
             
-            NSString *policy = @"create table policy(age text,areaid text,cardno text,cardtype text,companycode text,companyname text,companyno text,companytype text,pcardno text,pcardtype text,pname text,psafedate text,psafedateend text,psafepay text,psafetypes text,safecode text,safecost text,safeno text,safetype integer,sex text,sname text,syscode text,pcarno text,pwin text,creattime text,photoDicPath text,isread text,isqrcode text)";
+            NSString *policy = @"create table policy(userid text,age text,areaid text,cardno text,cardtype text,companycode text,companyname text,companyno text,companytype text,pcardno text,pcardtype text,pname text,psafedate text,psafedateend text,psafepay text,psafetypes text,safecode text,safecost text,safeno text,safetype integer,sex text,sname text,syscode text,pcarno text,pwin text,creattime text,photoDicPath text,isread text,isqrcode text,time text)";
             BOOL res = [self.db executeUpdate:policy];
             if (!res) {
                 NSLog(@"----创建失败");
@@ -311,7 +311,7 @@
         [self creatDataBase];
     }
     if ([self.db open]) {
-        NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO policy(age,areaid,cardno,cardtype,companycode,companyname,companyno,companytype,pcardno,pcardtype,pname,psafedate,psafedateend,psafepay,psafetypes,safecode,safecost,safeno,safetype,sex,sname,syscode,pcarno,pwin,creattime,photoDicPath,isread,isqrcode) VALUES('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%zd','%@','%@','%@','%@','%@','%@','%@','%@','%@')",model.age,model.areaid,model.cardno,model.cardtype,model.companycode,model.companyname,model.companyno,model.companytype,model.pcardno,model.pcardtype,model.pname,model.psafedate,model.psafedateend,model.psafepay,model.psafetypes,model.safecode,model.safecost,model.safeno,model.safetype,model.sex,model.sname,model.syscode,model.pcarno,model.pwin,model.creatTime,model.photoDicPath,model.isread,model.isqrcode];
+        NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO policy(userid,age,areaid,cardno,cardtype,companycode,companyname,companyno,companytype,pcardno,pcardtype,pname,psafedate,psafedateend,psafepay,psafetypes,safecode,safecost,safeno,safetype,sex,sname,syscode,pcarno,pwin,creattime,photoDicPath,isread,isqrcode,time) VALUES('%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@','%zd','%@','%@','%@','%@','%@','%@','%@','%@','%@','%@')",model.userid,model.age,model.areaid,model.cardno,model.cardtype,model.companycode,model.companyname,model.companyno,model.companytype,model.pcardno,model.pcardtype,model.pname,model.psafedate,model.psafedateend,model.psafepay,model.psafetypes,model.safecode,model.safecost,model.safeno,model.safetype,model.sex,model.sname,model.syscode,model.pcarno,model.pwin,model.creatTime,model.photoDicPath,model.isread,model.isqrcode,model.time];
         BOOL res = [self.db executeUpdate:sqlInsert];
         return res;
     }
@@ -321,13 +321,14 @@
 
 
 #pragma mark - 从数据库获取保单数据
--(NSMutableArray *)getPolicyData{
+-(NSMutableArray *)getPolicyDataWithUserID:(NSString *)userid{
     
     if (!self.db) {
         [self creatDataBase];
     }
     if ([self.db open]) {
-        NSString *nameSql = @"select * from policy";
+
+        NSString *nameSql = [NSString stringWithFormat:@"select * from policy where userid = %@",userid];
         FMResultSet *rs = [self.db executeQuery:nameSql];
         NSMutableArray *arrM = [NSMutableArray array];
         while ([rs next]) {
@@ -353,9 +354,7 @@
             [bean setValue:[rs stringForColumn:@"safetype"] forKey:@"safetype"];
             [bean setValue:[rs stringForColumn:@"isread"] forKey:@"isread"];
             [bean setValue:[rs stringForColumn:@"isqrcode"] forKey:@"isqrcode"];
-            
-           
-            
+            [bean setValue:[rs stringForColumn:@"time"] forKey:@"time"];
             
             NSString *age = [rs stringForColumn:@"age"];
             if (![age isEqualToString:@"(null)"]) {

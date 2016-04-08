@@ -135,6 +135,7 @@
     if(![fileManager fileExistsAtPath:dicPath])
     {
         BOOL success = [fileManager createDirectoryAtPath:dicPath withIntermediateDirectories:YES attributes:nil error:NULL];
+        NSLog(@"--------%@",dicPath);
         if(!success)
         {
             return b;

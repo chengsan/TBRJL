@@ -106,6 +106,8 @@
 //险种名称
 @property (nonatomic,strong) NSString* psafetypesName;
 
+@property (nonatomic ,strong) NSString *time;
+
 //退回原因
 @property (nonatomic,strong) NSString* thyy;
 @end
