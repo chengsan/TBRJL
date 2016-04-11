@@ -68,7 +68,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="BMS-Xe-Vc7"/>
                     </constraints>
-                    <state key="normal" title="修改密码" backgroundImage="BB04C812-80AE-4283-902F-159BEE4FAA65">
+                    <state key="normal" title="修改密码" backgroundImage="AB5BF140-1362-496B-A211-B49E7FD41A0C">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -113,7 +113,7 @@
         </view>
     </objects>
     <resources>
-        <image name="BB04C812-80AE-4283-902F-159BEE4FAA65" width="200" height="30">
+        <image name="AB5BF140-1362-496B-A211-B49E7FD41A0C" width="200" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

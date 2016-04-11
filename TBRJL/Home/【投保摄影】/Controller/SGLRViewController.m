@@ -865,9 +865,9 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
     if(nil != safepayTextView)
     {
         txt = safepayTextView.text;
-        if(txt == nil || [@"" isEqualToString:txt])
+        if(txt == nil || [@"" isEqualToString:txt] || [txt isEqualToString:@"0"])
         {
-            [self showAlertNotice:@"保费不能为空"];
+            [self showAlertNotice:@"保费不能为空或为0"];
             return false;
         }
         

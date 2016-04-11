@@ -38,7 +38,6 @@
     
     [self _initView];
 }
-
 -(void)_initView
 {
     //------------------------设置navigationBar---------------------------
@@ -239,7 +238,7 @@
     }else if(btn.tag == 101){
         NSString *cardno = (NSString *)[Util getValue:@"username"];
         NSString *areaid = (NSString *)[Util getValue:@"areaid"];
-        
+        if (cardno == nil || areaid == nil) return;
         [MBProgressHUD showMessage:@"正在更新配置文件"];
         NSString *isOffline = (NSString *)[Util getValue:@"offline"];
         if ([isOffline isEqualToString:@"1"]) {

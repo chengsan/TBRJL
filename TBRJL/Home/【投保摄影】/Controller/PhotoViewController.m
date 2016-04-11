@@ -43,7 +43,7 @@
     [super viewDidLoad];
     [super setTitle:@"投保摄影"];
     [self _initView];
-    
+
     
     //获取图片存放的目录
     if(currentType == 1)
@@ -504,8 +504,8 @@
             NSLog(@"删除照片:%@",[[NSNumber alloc] initWithBool:success]);
             
            // 删除保单表和图片表
-          BOOL isDelPolicy = [self deleteTableByCreatTime:self.creatTime TableName:@"policy"];
-          BOOL isDelPolicyImage =  [self deleteTableByCreatTime:self.creatTime TableName:@"policyimage"];
+            BOOL isDelPolicy = [self deleteTableByCreatTime:self.creatTime TableName:@"policy"];
+            BOOL isDelPolicyImage =  [self deleteTableByCreatTime:self.creatTime TableName:@"policyimage"];
             NSLog(@" 删除保单表 %d   删除图片表%d",isDelPolicy,isDelPolicyImage);
             
             successNotice = [[FVCustomAlertView alloc] init];

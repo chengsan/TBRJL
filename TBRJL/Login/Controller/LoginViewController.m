@@ -442,8 +442,6 @@
         {
             //获取用户信息
             [self getUserInfo:name];
-         
-
           
         }
         else
