@@ -105,7 +105,7 @@
         BaoDanModel *model = [[BaoDanModel alloc] init];
         if ([dict[@"sex"] isEqualToString:@"0"]) {
              model.result =  @"女";
-        }else if([dict[@"sex"] isEqualToString:@"1"]){
+        }else{
             model.result = @"男";
         }
         model.title = @"性别";

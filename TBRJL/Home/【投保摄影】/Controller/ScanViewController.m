@@ -166,7 +166,7 @@
 
 - (void)captureResult:(ZXCapture *)capture result:(ZXResult *)result {
     if (!result) return;
-   [self.capture stop];
+   [self.capture stop]; 
 
 
     TBPJIEMI* jiem = [TBPJIEMI new];

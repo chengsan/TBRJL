@@ -21,6 +21,8 @@
     self.view.backgroundColor = RGB(230, 230, 230);
     [super setTitle:@"投保摄影"];
     [self _initView];
+
+    
     
 }
 -(void)viewWillAppear:(BOOL)animated

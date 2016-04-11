@@ -303,9 +303,12 @@
                 {
                     [newStr appendString:[NSString stringWithFormat:@"\n投保人性别:男"]];
                 }
-                else
+                else if([@"0" isEqualToString:string])
                 {
                     [newStr appendString:[NSString stringWithFormat:@"\n投保人性别:女"]];
+                    
+                }else{
+                    [newStr appendString:[NSString stringWithFormat:@"\n投保人性别:未知"]];
                 }
                
             }
@@ -683,18 +686,15 @@
         //性别：1 （1男0女）
         if([self dataIsOK:txt])
         {
-            if([@"2" isEqualToString:txt])
+            if([@"0" isEqualToString:txt])
             {
                 [str appendString:[NSString stringWithFormat:@"\n投保人性别：女"]];
             }
-            else if([@"1"  isEqualToString:txt])
+            else
             {
                 [str appendString:[NSString stringWithFormat:@"\n投保人性别：男"]];
             }
-            else
-            {
-                [str appendString:[NSString stringWithFormat:@"\n投保人性别：未知"]];
-            }
+           
         }
         txt = nil;
         
