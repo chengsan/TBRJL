@@ -8,9 +8,8 @@
 
 #import "BaoDanCell.h"
 #import "PublicClass.h"
+#import "UIViewExt.h"
 @interface BaoDanCell()
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 
 
 @end
@@ -25,7 +24,6 @@
 +(instancetype)cellForTableView:(UITableView *)tableView{
  
     BaoDanCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"BaoDanCell" owner:self options:nil]lastObject];
-    
     return cell;
 }
 
@@ -35,6 +33,9 @@
     _model = model;
     if ([model.title isEqualToString:@"补拍原因"] || [model.title isEqualToString:@"补录原因"]) {
         self.detailLabel.textColor = [UIColor redColor];
+//      
+//        CGSize size = [model.result sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:_detailLabel.font, NSFontAttributeName,nil]];
+//        self.height = size.height;
     }
     self.titleLabel.text = model.title;
     self.detailLabel.text = model.result;
@@ -46,4 +47,14 @@
     // Configure the view for the selected state
 }
 
+//-(void)layoutSubviews{
+//    if ([self.titleLabel.text isEqualToString:@"补拍原因"] || [self.titleLabel.text isEqualToString:@"补录原因"]) {
+//       self.detailLabel.numberOfLines = 0;
+//       CGSize size = [self.detailLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:_detailLabel.font, NSFontAttributeName,nil]];
+//        
+//
+//    
+//    
+////
+//}
 @end

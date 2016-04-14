@@ -865,15 +865,15 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
     if(nil != safepayTextView)
     {
         txt = safepayTextView.text;
-        if(txt == nil || [@"" isEqualToString:txt] || [txt isEqualToString:@"0"])
+        if(txt == nil || [@"" isEqualToString:txt]|| [@"0" isEqualToString:txt] || [@"0.00" isEqualToString:txt] )
         {
-            [self showAlertNotice:@"保费不能为空或为0"];
+            [self showAlertNotice:@"保费不能为空或0"];
             return false;
         }
         
         BOOL isAllow = [PublicClass checkPrint:txt withRule:@"^[0-9]+([.]{0,1}[0-9]+){0,1}$"];
         if (!isAllow) {
-            [self showAlertNotice:@"保额只能是数字"];
+            [self showAlertNotice:@"保费只能是数字"];
             return false;
         }
 
@@ -886,9 +886,9 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
     {
         txt = safecostTextView.text;
         
-        if(txt == nil || [@"" isEqualToString:txt])
+        if(txt == nil || [@"" isEqualToString:txt] || [@"0" isEqualToString:txt] || [@"0.00" isEqualToString:txt])
         {
-            [self showAlertNotice:@"保额不能为空"];
+            [self showAlertNotice:@"保额不能为空或0"];
             return false;
         }
         
