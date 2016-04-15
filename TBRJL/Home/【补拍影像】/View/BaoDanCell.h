@@ -11,4 +11,7 @@
 @interface BaoDanCell : UITableViewCell
 @property (nonatomic ,strong) BaoDanModel *model;
 +(instancetype)cellForTableView:(UITableView *)tableView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+
 @end
