@@ -382,6 +382,8 @@
     [defaults setBool:self.autoLoginBtn.selected forKey:@"自动登录"];
     [defaults setBool:self.remPwdBtn.selected forKey:@"记住密码"];
     [defaults setObject:self.userName.text forKey:CHAccount];
+    NSString *userid = [self.userName.text substringToIndex:17];
+    [defaults setObject:userid forKey:@"userid"];
     [defaults setObject:self.passName.text forKey:CHPassword];
     [defaults setBool:_isLogin forKey:@"register"];
     
