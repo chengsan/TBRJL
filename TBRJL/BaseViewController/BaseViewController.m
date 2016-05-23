@@ -230,13 +230,13 @@
     NSString *cardno = (NSString *)[Util getValue:@"username"];
     NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *fileName = [doc stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlt",cardno]];
+    NSLog(@"%@",fileName);
     self.db = [FMDatabase databaseWithPath:fileName];
 }
 
 //  创建保单表
 -(void)creatPolicy{
-    
-    if (!self.db) {
+         if (!self.db) {
         [self creatDataBase];
     }
     [self.db setShouldCacheStatements:YES];
@@ -319,6 +319,72 @@
 
 }
 
+//#pragma mark - 从数据库获取保单数据
+//-(NSMutableArray *)getPolicyData{
+//    
+//    if (!self.db) {
+//        [self creatDataBase];
+//    }
+//    if ([self.db open]) {
+//        
+//        NSString *nameSql = @"select * from policy";
+//        FMResultSet *rs = [self.db executeQuery:nameSql];
+//        NSMutableArray *arrM = [NSMutableArray array];
+//        while ([rs next]) {
+//            EntityBean *bean = [[EntityBean alloc]init];
+//            
+//            [bean setValue:[rs stringForColumn:@"areaid"] forKey:@"areaid"];
+//            [bean setValue:[rs stringForColumn:@"cardno"] forKey:@"cardno"];
+//            [bean setValue:[rs stringForColumn:@"cardtype"] forKey:@"cardtype"];
+//            [bean setValue:[rs stringForColumn:@"companycode"] forKey:@"companycode"];
+//            [bean setValue:[rs stringForColumn:@"companyname"] forKey:@"companyname"];
+//            [bean setValue:[rs stringForColumn:@"companyno"] forKey:@"companyno"];
+//            [bean setValue:[rs stringForColumn:@"companytype"] forKey:@"companytype"];
+//            [bean setValue:[rs stringForColumn:@"pcardno"] forKey:@"pcardno"];
+//            [bean setValue:[rs stringForColumn:@"pcardtype"] forKey:@"pcardtype"];
+//            [bean setValue:[rs stringForColumn:@"pname"] forKey:@"pname"];
+//            [bean setValue:[rs stringForColumn:@"psafedate"] forKey:@"psafedate"];
+//            [bean setValue:[rs stringForColumn:@"psafedateend"] forKey:@"psafedateend"];
+//            [bean setValue:[rs stringForColumn:@"psafepay"] forKey:@"psafepay"];
+//            [bean setValue:[rs stringForColumn:@"psafetypes"] forKey:@"psafetypes"];
+//            [bean setValue:[rs stringForColumn:@"psafetypes"] forKey:@"safecode"];
+//            [bean setValue:[rs stringForColumn:@"safecost"] forKey:@"safecost"];
+//            [bean setValue:[rs stringForColumn:@"safeno"] forKey:@"safeno"];
+//            [bean setValue:[rs stringForColumn:@"safetype"] forKey:@"safetype"];
+//            [bean setValue:[rs stringForColumn:@"isread"] forKey:@"isread"];
+//            [bean setValue:[rs stringForColumn:@"isqrcode"] forKey:@"isqrcode"];
+//            [bean setValue:[rs stringForColumn:@"time"] forKey:@"time"];
+//            
+//            NSString *age = [rs stringForColumn:@"age"];
+//            if (![age isEqualToString:@"(null)"]) {
+//                [bean setValue:age forKey:@"age"];
+//            }
+//            NSString *sex = [rs stringForColumn:@"sex"];
+//            if (![sex isEqualToString:@"(null)"]) {
+//                [bean setValue:sex forKey:@"sex"];
+//            }
+//            NSString *pcarno = [rs stringForColumn:@"pcarno"];
+//            if (![pcarno isEqualToString:@"(null)"]) {
+//                [bean setValue:pcarno forKey:@"pcarno"];
+//            }
+//            NSString *pwin = [rs stringForColumn:@"pwin"];
+//            if (![pwin isEqualToString:@"(null)"]) {
+//                [bean setValue:pwin forKey:@"pwin"];
+//            }
+//            [bean setValue:[rs stringForColumn:@"sname"] forKey:@"sname"];
+//            [bean setValue:[rs stringForColumn:@"safecode"] forKey:@"safecode"];
+//            [bean setValue:[rs stringForColumn:@"syscode"] forKey:@"syscode"];
+//            [bean setValue:[rs stringForColumn:@"creattime"] forKey:@"creattime"];
+//            [bean setValue:[rs stringForColumn:@"photoDicPath"] forKey:@"photoDicPath"];
+//            [bean setValue:[rs stringForColumn:@"companycode"] forKey:@"companycode"];
+//            [bean setValue:[rs stringForColumn:@"companycode"] forKey:@"companycode"];
+//            NSLog(@"创建的时间是%@",[bean objectForKey:@"creattime"]);
+//            [arrM addObject:bean];
+//        }
+//        return arrM;
+//    }
+//    return nil;
+//}
 
 #pragma mark - 从数据库获取保单数据
 -(NSMutableArray *)getPolicyDataWithUserID:(NSString *)userid{

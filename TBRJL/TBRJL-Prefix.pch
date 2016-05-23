@@ -34,7 +34,7 @@
 //APP的英文名称
 #define APPENName [NSString stringWithFormat:@"%@",@"BBT_IOS"];
 //版本号
-#define VersionCode [NSString stringWithFormat:@"%@",@"10"];
+#define VersionCode [NSString stringWithFormat:@"%@",@"11"];
 //版本号描述
 #define VersionName [NSString stringWithFormat:@"%@",@"V2.03"]
 
