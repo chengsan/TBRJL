@@ -19,7 +19,7 @@
 #endif
 
 //正式地址：http://fjisip.yxybb.com/
-//测试地址：http://59.173.241.186:8042/LODP/
+//测试地址：http://211.154.145.81:977/
 //周文海：http://192.168.20.134:8080/BBTone/
 #define ServiceURL [NSString stringWithFormat:@"%@",@"http://fjisip.yxybb.com/"];
 #define UpdateURL [NSString stringWithFormat:@"%@",@"http://fjisip.yxybb.com/"];
@@ -34,9 +34,9 @@
 //APP的英文名称
 #define APPENName [NSString stringWithFormat:@"%@",@"BBT_IOS"];
 //版本号
-#define VersionCode [NSString stringWithFormat:@"%@",@"9"];
+#define VersionCode [NSString stringWithFormat:@"%@",@"11"];
 //版本号描述
-#define VersionName [NSString stringWithFormat:@"%@",@"V2.03"]
+#define VersionName [NSString stringWithFormat:@"%@",@"V2.0.5"]
 
 //获取设备的物理高度
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
