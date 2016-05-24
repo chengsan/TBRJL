@@ -98,7 +98,7 @@
     }
     else
     {
-        //nullable是否必填  1是0否
+        //nullable是否必填
         NSString *nullable = (NSString *)[data objectForKey:@"nullable"];
         if([@"1" isEqualToString:nullable])
         {
@@ -114,7 +114,7 @@
                 markLabel.hidden = YES;
             }
         }
-
+ 
     }
     
     NSString *filename = (NSString *)[data objectForKey:@"filename"];

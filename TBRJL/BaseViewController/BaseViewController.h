@@ -75,7 +75,7 @@
 -(BOOL) deleteTableByCreatTime:(NSString *)creatTime TableName:(NSString*)tableName;
 
 
-
+-(NSMutableArray *)getPolicyData;
 
 
 

@@ -194,8 +194,10 @@
         }else{
             //         对扫描的结果进行分解
             NSArray *array = [result componentsSeparatedByString:@"|"];
+            NSString *safecode = (NSString *)[safeInfo objectForKey:@"psafetypes"];
+          
             
-            if(![[array objectAtIndex:1] isEqualToString:(NSString *)[safeInfo objectForKey:@"safecode"]])
+            if(![[array objectAtIndex:1] isEqualToString:safecode])
             {
                 [self showAlertWithTitle:@"温馨提示" msg:@"选择的保险险种与二维码不匹配，请检查二维码是否正确"];
                 return;
@@ -308,7 +310,7 @@
                     [newStr appendString:[NSString stringWithFormat:@"\n投保人性别:女"]];
                     
                 }else{
-                    [newStr appendString:[NSString stringWithFormat:@"\n投保人性别:未知"]];
+                    [self showAlertWithTitle:@"温馨提示" msg:@"二维码中性别数据有误，请重新生成二维码"];
                 }
                
             }

@@ -49,7 +49,9 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
 //     获取保单数据
-    self.policyArr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
+    self.policyArr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:@"userid"]];
+    NSLog(@"   %zd",self.policyArr.count);
+    NSLog(@"%@",[Util getValue:@"userid"]);
     if (self.policyArr.count == 0) {
         [super showNotice:true];
     }
