@@ -49,14 +49,17 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
 //     获取保单数据
-    self.policyArr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:@"userid"]];
-    NSLog(@"   %zd",self.policyArr.count);
-    NSLog(@"%@",[Util getValue:@"userid"]);
+    
+   self.policyArr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
+    
+    self.policyArr = self.policyArr.count >0?self.policyArr:[self getMatchData];
+
     if (self.policyArr.count == 0) {
         [super showNotice:true];
     }
    
 }
+
 
 
 //   删除存储到本地的图片
@@ -161,7 +164,9 @@
         if (isDelPolicy && isDelPolicyImage) {
                 [MBProgressHUD showSuccess:@"删除成功"];
                 self.policyArr = nil;
-               self.policyArr =  [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
+                self.policyArr =  [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
+                self.policyArr = self.policyArr.count >0?self.policyArr:[self getMatchData];
+            
                 [self.tableView reloadData];
             }else{
                 [MBProgressHUD showError:@"删除失败"];
