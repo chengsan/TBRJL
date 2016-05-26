@@ -18,6 +18,7 @@
 #import "SearchParameters.h"
 #import "QueryViewController.h"
 #import "NSString+NSStringMD5.h"
+#import "EntityBean.h"
 
 @interface HomeViewController ()
 @property (nonatomic ,strong)UIButton *zcswIcon;
@@ -307,10 +308,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    
-    
-    
-    
     NSString *isOffline = (NSString *)[Util getValue:@"offline"];
     if ([isOffline isEqualToString:@"1"]) {
         self.rightLabel.text = @"离线登录";
@@ -321,13 +318,14 @@
         [self login:(NSString *)[Util getValue:CHAccount] pass:(NSString *)[Util getValue:CHPassword]];
     }
     
-    
-    
     [self getBuPaiCount];
     [self getBuluCount];
-    NSMutableArray *arr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:@"userid"]];
-    [self setBtn:_zcswIcon WithCount:arr.count];
     
+    NSMutableArray *arr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
+    
+    arr = arr.count>0?arr: [self getMatchData];
+    
+   [self setBtn:_zcswIcon WithCount:arr.count];
     
     
    }

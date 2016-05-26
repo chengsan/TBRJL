@@ -75,8 +75,9 @@
 -(BOOL) deleteTableByCreatTime:(NSString *)creatTime TableName:(NSString*)tableName;
 
 
--(NSMutableArray *)getPolicyData;
-
-
+/**
+ *  从数据库获取指定数据
+ */
+- (NSMutableArray *)getMatchData;
 
 @end

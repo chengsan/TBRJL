@@ -725,8 +725,8 @@
     NSDictionary *dict = [safeInfo getDic];
     NSLog(@" 暂存保单数据   %@",dict);
     PolicyModel *model = [[PolicyModel alloc] init];
-    model.userid = (NSString *)[Util getValue:@"userid"];
-   
+    model.userid = (NSString *)[Util getValue:CHAccount];
+    NSLog(@"-----------%@",model.userid);
     model.age = dict[@"age"];
     model.areaid = dict[@"areaid"];
     model.cardno = dict[@"cardno"];
