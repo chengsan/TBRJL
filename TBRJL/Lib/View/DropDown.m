@@ -212,7 +212,7 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 35)];
         label.tag = 100;
         label.backgroundColor = RGB(188, 183, 182);
-        label.font = [UIFont systemFontOfSize:16.0f];
+        label.font = [UIFont systemFontOfSize:14.0f];
         [cell.contentView addSubview:label];
     }
     
@@ -240,6 +240,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UILabel *textLabel = (UILabel *)[textBtn viewWithTag:100];
+    textLabel.font = [UIFont systemFontOfSize:14.0f];
     if(textLabel != nil)
     {
         textLabel.text = [tableArray objectAtIndex:[indexPath row]];
