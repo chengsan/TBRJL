@@ -222,10 +222,18 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaoDanCell *cell = [BaoDanCell cellForTableView:tableView];
-
-    return cell.height;
-}
+    
+    
+    BaoDanModel *model = self.arr[indexPath.row];
+    
+    if (model.cellHeight > 44) {
+        
+        return model.cellHeight;
+    }
+    
+    return 44;
+   
+  }
 
 
 //

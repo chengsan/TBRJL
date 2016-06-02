@@ -11,34 +11,45 @@
 #import "UIViewExt.h"
 @interface BaoDanCell()
 
-
+@property (nonatomic ,assign) CGSize cellSize;
 @end
 @implementation BaoDanCell
 
-- (void)awakeFromNib {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-    self.detailLabel.textColor = [PublicClass colorWithHexString:@"#636363"];
 
-}
 
-+(instancetype)cellForTableView:(UITableView *)tableView{
- 
-    BaoDanCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"BaoDanCell" owner:self options:nil]lastObject];
-    return cell;
+-(void)initViews{
+   _titleLabel = [[UILabel alloc] init];
+   _titleLabel.textColor =  [PublicClass colorWithHexString:@"#04a3fe"];
+    _titleLabel.backgroundColor = [UIColor colorWithRed:236/255.0 green:236/255.0 blue:236/255.0 alpha:1];
+    _titleLabel.numberOfLines = 0;
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.font = [UIFont systemFontOfSize:14];
+    
+    
+    _detailLabel = [[UILabel alloc] init];
+    _detailLabel.textColor =  [PublicClass colorWithHexString:@"#636363"];
+    _detailLabel.font = [UIFont systemFontOfSize:14];
+    _detailLabel.numberOfLines = 0;
+    
+    
+    
+    [self addSubview:_titleLabel];
+    [self addSubview:_detailLabel];
 }
 
 
 //    赋值
 -(void)setModel:(BaoDanModel *)model{
     _model = model;
-    if ([model.title isEqualToString:@"补拍原因"] || [model.title isEqualToString:@"补录原因"]) {
+
+    _titleLabel.text = model.title;
+    _detailLabel.text = model.result;
+    if ([_titleLabel.text isEqualToString:@"补拍原因"] || [_titleLabel.text isEqualToString:@"补录原因"]) {
         self.detailLabel.textColor = [UIColor redColor];
-//      
-//        CGSize size = [model.result sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:_detailLabel.font, NSFontAttributeName,nil]];
-//        self.height = size.height;
+     
     }
-    self.titleLabel.text = model.title;
-    self.detailLabel.text = model.result;
+    
+    
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -47,14 +58,36 @@
     // Configure the view for the selected state
 }
 
-//-(void)layoutSubviews{
-//    if ([self.titleLabel.text isEqualToString:@"补拍原因"] || [self.titleLabel.text isEqualToString:@"补录原因"]) {
-//       self.detailLabel.numberOfLines = 0;
-//       CGSize size = [self.detailLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:_detailLabel.font, NSFontAttributeName,nil]];
-//        
-//
-//    
-//    
-////
-//}
++ (instancetype)cellForTableView:(UITableView *)tableView{
+    static NSString *ID = @"BaoDanCell";
+    BaoDanCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[BaoDanCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    return cell;
+}
+
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self initViews];
+    }
+    return self;
+}
+
+
+
+
+
+
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    CGSize  selfSize = self.bounds.size;
+    
+    _titleLabel.frame = CGRectMake(0, 0, 80, selfSize.height);
+    
+    _detailLabel.frame = CGRectMake(85, 0, selfSize.width- 85, selfSize.height);
+}
 @end

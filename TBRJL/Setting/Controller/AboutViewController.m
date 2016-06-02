@@ -21,6 +21,9 @@
     self.title = @"关于";
 
     [self initView];
+    
+    
+    
 }
 
 -(void) initView{

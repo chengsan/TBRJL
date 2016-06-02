@@ -10,4 +10,24 @@
 
 @implementation BaoDanModel
 
+
+
+-(CGFloat)cellHeight{
+ 
+    NSLog(@"%s",__func__);
+    if (!_cellHeight) {
+    
+        CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 85, MAXFLOAT);
+        
+        CGFloat textH = [self.result boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height;
+        _cellHeight = textH;
+        
+    }
+    return _cellHeight;
+}
+
+
+
+
+
 @end

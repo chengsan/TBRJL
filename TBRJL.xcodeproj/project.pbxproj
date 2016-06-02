@@ -116,7 +116,6 @@
 		58B84A211C842024003D4FAE /* BPXXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B84A031C842024003D4FAE /* BPXXViewController.m */; };
 		58B84A221C842024003D4FAE /* BaoDanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B84A061C842024003D4FAE /* BaoDanModel.m */; };
 		58B84A231C842024003D4FAE /* BaoDanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B84A091C842024003D4FAE /* BaoDanCell.m */; };
-		58B84A241C842024003D4FAE /* BaoDanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B84A0A1C842024003D4FAE /* BaoDanCell.xib */; };
 		58B84A251C842024003D4FAE /* BPXXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B84A0C1C842024003D4FAE /* BPXXCell.m */; };
 		58BDA7221C2D431A00DECC85 /* PublicClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BDA7211C2D431A00DECC85 /* PublicClass.m */; };
 		58BDA7251C2D444400DECC85 /* CustomCarmeraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BDA7241C2D444400DECC85 /* CustomCarmeraController.m */; };
@@ -391,7 +390,6 @@
 		58B84A061C842024003D4FAE /* BaoDanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoDanModel.m; sourceTree = "<group>"; };
 		58B84A081C842024003D4FAE /* BaoDanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoDanCell.h; sourceTree = "<group>"; };
 		58B84A091C842024003D4FAE /* BaoDanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoDanCell.m; sourceTree = "<group>"; };
-		58B84A0A1C842024003D4FAE /* BaoDanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaoDanCell.xib; sourceTree = "<group>"; };
 		58B84A0B1C842024003D4FAE /* BPXXCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPXXCell.h; sourceTree = "<group>"; };
 		58B84A0C1C842024003D4FAE /* BPXXCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPXXCell.m; sourceTree = "<group>"; };
 		58BDA7201C2D431A00DECC85 /* PublicClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicClass.h; sourceTree = "<group>"; };
@@ -949,7 +947,6 @@
 			children = (
 				58B84A081C842024003D4FAE /* BaoDanCell.h */,
 				58B84A091C842024003D4FAE /* BaoDanCell.m */,
-				58B84A0A1C842024003D4FAE /* BaoDanCell.xib */,
 				58B84A0B1C842024003D4FAE /* BPXXCell.h */,
 				58B84A0C1C842024003D4FAE /* BPXXCell.m */,
 			);
@@ -1603,7 +1600,6 @@
 				588486511C47E38E0081963A /* shot@2x.png in Resources */,
 				5884863C1C47E38E0081963A /* mainpage_create_query.png in Resources */,
 				588486581C47E38E0081963A /* tbsy_4.png in Resources */,
-				58B84A241C842024003D4FAE /* BaoDanCell.xib in Resources */,
 				5884864C1C47E38E0081963A /* select_compary_icon.png in Resources */,
 				8762CA9A1C4F2D6C00D4308B /* CZKeyboardTool.xib in Resources */,
 				588486461C47E38E0081963A /* navigationbar_background@2x.png in Resources */,
