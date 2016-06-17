@@ -321,8 +321,10 @@
     [self getBuPaiCount];
     [self getBuluCount];
     
-    NSMutableArray *arr = [self getPolicyDataWithUserID:(NSString *)[Util getValue:CHAccount]];
+    NSString *userid = (NSString *)[Util getValue:CHAccount];
     
+    NSMutableArray *arr = [self getPolicyDataWithUserID:userid];
+    //
     arr = arr.count>0?arr: [self getMatchData];
     
    [self setBtn:_zcswIcon WithCount:arr.count];
