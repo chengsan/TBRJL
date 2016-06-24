@@ -32,25 +32,6 @@
     
     
 }
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-//    //将保单信息对象置空
-//    safeInfo = nil;
-//    //将照片数组对象置空
-//    photoArray = nil;
-//    way = 0;
-//    if(nil != _ewmImage)
-//    {
-//        [_ewmImage setImage:[UIImage imageNamed:@"compose_checkbox_checked.png"]];
-//    }
-//    if(nil != _sgImage)
-//    {
-//        [_sgImage setImage:[UIImage imageNamed:@"compose_checkbox.png"]];
-//    }
-
-    [self getData];
-}
 
 -(void)_initView
 {
@@ -242,9 +223,13 @@
             break;
         }
         case 111:
-        {          
+        {
+            [[BaiduMobStat defaultStat] logEvent:@"Insured-photo1" eventLabel:@"投保摄影1"];
+            
             if(way == 0)
             {
+                
+                [[BaiduMobStat defaultStat] logEvent:@"QR-code" eventLabel:@"二维码-投保摄影2"];
                 QRCodeViewController *qrCodeVc = [[QRCodeViewController alloc] init];
                 [safeInfo setValue:@"0" forKey:@"isread"];
                 [safeInfo setValue:@"1" forKey:@"isqrcode"];
@@ -255,6 +240,8 @@
             }
             else if(way == 1)
             {
+                
+                [[BaiduMobStat defaultStat] logEvent:@"manual-input" eventLabel:@"手工录入-投保摄影2"];
                 SGLRViewController *sglrViewController = [[SGLRViewController alloc] init];
                 [safeInfo setValue:@"1" forKey:@"isread"];
                 [safeInfo setValue:@"0" forKey:@"isqrcode"];
@@ -615,6 +602,21 @@
     return photos;
 }
 
+// 进入页面，建议在此处添加
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+    
+    [self getData];
+}
 
+// 退出页面，建议在此处添加
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
+}
 
 @end

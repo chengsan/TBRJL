@@ -154,6 +154,11 @@
 
     //设置选中的页面
     self.selectedIndex = tag;
+    if (tag == 0) {
+        [[BaiduMobStat defaultStat] logEvent:@"Office-management" eventLabel:@"办公管理"];
+    }else if(tag == 1){
+        [[BaiduMobStat defaultStat] logEvent:@"system-management" eventLabel:@"系统管理-办公管理"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
