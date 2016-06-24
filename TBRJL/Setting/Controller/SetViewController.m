@@ -228,10 +228,12 @@
 -(void)btnAction:(UIButton *)btn
 {
     if (btn.tag == 100) {        //  设置
+        [[BaiduMobStat defaultStat] logEvent:@"system-settings" eventLabel:@"设置-系统管理"];
         SZViewController *szVC = [[SZViewController alloc] init];
         [self.navigationController pushViewController:szVC animated:YES];
         
     }else if(btn.tag == 102){    //  关于
+        [[BaiduMobStat defaultStat] logEvent:@"about" eventLabel:@"关于-系统管理"];
         AboutViewController *aboutVc = [[AboutViewController alloc] init];
         [self.navigationController pushViewController:aboutVc animated:YES];
         
@@ -252,6 +254,7 @@
         }
        
     }else if(btn.tag == 103){    //  关于
+        [[BaiduMobStat defaultStat] logEvent:@"common-problem" eventLabel:@"常见问题"];
         QuestionViewController *questionVc = [[QuestionViewController alloc] init];
         [self.navigationController pushViewController:questionVc animated:YES];
     }
@@ -335,5 +338,21 @@
     
 }
 
+
+// 进入页面，建议在此处添加
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+    
+    
+}
+
+// 退出页面，建议在此处添加
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
+}
 
 @end

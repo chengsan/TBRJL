@@ -47,10 +47,7 @@
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-}
+
 
 -(void)_initView
 {
@@ -346,29 +343,33 @@
             break;
         case 101:
         {
+            [[BaiduMobStat defaultStat] logEvent:@"Staging-Services" eventLabel:@"暂存事务-办公管理"];
             ZCViewController *zcVC = [[ZCViewController alloc] init];
             [self.navigationController pushViewController:zcVC animated:YES];
         }
             break;
         case 102:
         {
+            [[BaiduMobStat defaultStat] logEvent:@"Makeup-image" eventLabel:@"补拍影像-办公管理"];
             BPXXViewController *bpxxViewController = [[BPXXViewController alloc] init];
             [self.navigationController pushViewController:bpxxViewController animated:YES];
         }
             break;
         case 103:
         {
+            [[BaiduMobStat defaultStat] logEvent:@"Makeup-information" eventLabel:@"补录信息-办公管理"];
             BLXXViewController *blxxViewController = [[BLXXViewController alloc] init];
             [self.navigationController pushViewController:blxxViewController animated:YES];
         }
             break;
         case 104:
         {
+            [[BaiduMobStat defaultStat] logEvent:@"Query-transaction" eventLabel:@"查询事物-办公管理"];
             QueryViewController *queryVc = [[QueryViewController alloc] init];
             [self.navigationController pushViewController:queryVc animated:YES];
         }
             break;
-        
+            
     }
 }
 
@@ -381,6 +382,7 @@
 {
     if(buttonIndex == 1)
     {
+         [[BaiduMobStat defaultStat] logEvent:@"Insured-photography" eventLabel:@"投保摄影-办公管理"];
         SelectCompanryController *selectCTRL = [[SelectCompanryController alloc] init];
         [self.navigationController pushViewController:selectCTRL animated:YES];
     }
@@ -512,6 +514,21 @@
      }];
 }
 
-                     
+
+// 进入页面，建议在此处添加
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+    
+    
+}
+
+// 退出页面，建议在此处添加
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
+}
 
 @end
