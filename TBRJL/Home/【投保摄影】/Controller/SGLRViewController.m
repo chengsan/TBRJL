@@ -1044,6 +1044,7 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
     }
     else if(tag == 111)
     {
+        [[BaiduMobStat defaultStat] logEvent:@"photography" eventLabel:@"影像拍摄-投保摄影3"];
         //下一步
         BOOL isOK = [self getData];
         
@@ -1284,6 +1285,20 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
 }
 
 
+// 进入页面，建议在此处添加
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+    
+    
+}
 
+// 退出页面，建议在此处添加
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
+}
 
 @end

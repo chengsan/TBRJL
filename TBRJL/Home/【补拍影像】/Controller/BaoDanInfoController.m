@@ -222,10 +222,18 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaoDanCell *cell = [BaoDanCell cellForTableView:tableView];
-
-    return cell.height;
-}
+    
+    
+    BaoDanModel *model = self.arr[indexPath.row];
+    
+    if (model.cellHeight > 44) {
+        
+        return model.cellHeight;
+    }
+    
+    return 44;
+   
+  }
 
 
 //
@@ -244,5 +252,21 @@
     {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+
+// 进入页面，建议在此处添加
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+    
+    
+}
+
+// 退出页面，建议在此处添加
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
 }
 @end

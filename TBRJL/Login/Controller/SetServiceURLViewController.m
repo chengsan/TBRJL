@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.sureBtn.layer.cornerRadius = 5;
     self.sureBtn.layer.masksToBounds = YES;
     self.sureBtn.backgroundColor =  [UIColor colorWithRed:76/255.0 green:129/255.0 blue:190/255.0 alpha:1];
@@ -109,6 +110,9 @@
     }
     [Globle getInstance].updateURL = UpdateURL;
 }
+
+
+
 
 
 

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0EA7B7E00C4B00B61B564BE2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45243DC827BFE3DE816335D9 /* libPods.a */; };
+		2DDA27C31D1D0C61001E8229 /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDA27C21D1D0C61001E8229 /* libBaiduMobStat.a */; };
+		2DDA27C51D1D0CA6001E8229 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDA27C41D1D0CA6001E8229 /* CoreLocation.framework */; };
+		2DDA27C71D1D0CB2001E8229 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDA27C61D1D0CB2001E8229 /* libstdc++.tbd */; };
+		2DDA27C91D1D0CBE001E8229 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDA27C81D1D0CBE001E8229 /* libz.1.2.5.tbd */; };
+		2DDA27CB1D1D0CC4001E8229 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDA27CA1D1D0CC4001E8229 /* JavaScriptCore.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		588485581C47DF9A0081963A /* Globle.m in Sources */ = {isa = PBXBuildFile; fileRef = 588485571C47DF9A0081963A /* Globle.m */; };
 		5884855D1C47DFDF0081963A /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5884855A1C47DFDF0081963A /* BaseNavigationViewController.m */; };
 		5884855E1C47DFDF0081963A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5884855C1C47DFDF0081963A /* BaseViewController.m */; };
@@ -116,7 +121,6 @@
 		58B84A211C842024003D4FAE /* BPXXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B84A031C842024003D4FAE /* BPXXViewController.m */; };
 		58B84A221C842024003D4FAE /* BaoDanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B84A061C842024003D4FAE /* BaoDanModel.m */; };
 		58B84A231C842024003D4FAE /* BaoDanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B84A091C842024003D4FAE /* BaoDanCell.m */; };
-		58B84A241C842024003D4FAE /* BaoDanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B84A0A1C842024003D4FAE /* BaoDanCell.xib */; };
 		58B84A251C842024003D4FAE /* BPXXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B84A0C1C842024003D4FAE /* BPXXCell.m */; };
 		58BDA7221C2D431A00DECC85 /* PublicClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BDA7211C2D431A00DECC85 /* PublicClass.m */; };
 		58BDA7251C2D444400DECC85 /* CustomCarmeraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BDA7241C2D444400DECC85 /* CustomCarmeraController.m */; };
@@ -243,6 +247,12 @@
 /* Begin PBXFileReference section */
 		04DA890255ED058B41490081 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		0632AECF242130BFFAEE7C11 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2DDA27C11D1D0C61001E8229 /* BaiduMobStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
+		2DDA27C21D1D0C61001E8229 /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
+		2DDA27C41D1D0CA6001E8229 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2DDA27C61D1D0CB2001E8229 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		2DDA27C81D1D0CBE001E8229 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		2DDA27CA1D1D0CC4001E8229 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		45243DC827BFE3DE816335D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		588485561C47DF9A0081963A /* Globle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globle.h; sourceTree = "<group>"; };
 		588485571C47DF9A0081963A /* Globle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globle.m; sourceTree = "<group>"; };
@@ -391,7 +401,6 @@
 		58B84A061C842024003D4FAE /* BaoDanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoDanModel.m; sourceTree = "<group>"; };
 		58B84A081C842024003D4FAE /* BaoDanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoDanCell.h; sourceTree = "<group>"; };
 		58B84A091C842024003D4FAE /* BaoDanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoDanCell.m; sourceTree = "<group>"; };
-		58B84A0A1C842024003D4FAE /* BaoDanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaoDanCell.xib; sourceTree = "<group>"; };
 		58B84A0B1C842024003D4FAE /* BPXXCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPXXCell.h; sourceTree = "<group>"; };
 		58B84A0C1C842024003D4FAE /* BPXXCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPXXCell.m; sourceTree = "<group>"; };
 		58BDA7201C2D431A00DECC85 /* PublicClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicClass.h; sourceTree = "<group>"; };
@@ -602,6 +611,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DDA27CB1D1D0CC4001E8229 /* JavaScriptCore.framework in Frameworks */,
+				2DDA27C91D1D0CBE001E8229 /* libz.1.2.5.tbd in Frameworks */,
+				2DDA27C71D1D0CB2001E8229 /* libstdc++.tbd in Frameworks */,
+				2DDA27C51D1D0CA6001E8229 /* CoreLocation.framework in Frameworks */,
+				FE5DC31C1C1ECB320086D09B /* CoreTelephony.framework in Frameworks */,
 				FE3A43121C202B7C006F919C /* Foundation.framework in Frameworks */,
 				FE5DC32E1C1ECB870086D09B /* AVFoundation.framework in Frameworks */,
 				FE5DC3341C1ECBC10086D09B /* libiconv.dylib in Frameworks */,
@@ -615,7 +629,7 @@
 				FE5DC3221C1ECB4B0086D09B /* UIKit.framework in Frameworks */,
 				FE5DC3201C1ECB430086D09B /* CoreGraphics.framework in Frameworks */,
 				FE5DC31E1C1ECB3B0086D09B /* SystemConfiguration.framework in Frameworks */,
-				FE5DC31C1C1ECB320086D09B /* CoreTelephony.framework in Frameworks */,
+				2DDA27C31D1D0C61001E8229 /* libBaiduMobStat.a in Frameworks */,
 				FE5DC31A1C1ECB250086D09B /* CoreFoundation.framework in Frameworks */,
 				FE5DC3181C1ECB090086D09B /* AddressBookUI.framework in Frameworks */,
 				FE5DC3161C1ECB000086D09B /* AddressBook.framework in Frameworks */,
@@ -638,6 +652,12 @@
 		02CFAF0DD6B85799F089B44A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DDA27CA1D1D0CC4001E8229 /* JavaScriptCore.framework */,
+				2DDA27C81D1D0CBE001E8229 /* libz.1.2.5.tbd */,
+				2DDA27C61D1D0CB2001E8229 /* libstdc++.tbd */,
+				2DDA27C41D1D0CA6001E8229 /* CoreLocation.framework */,
+				2DDA27C11D1D0C61001E8229 /* BaiduMobStat.h */,
+				2DDA27C21D1D0C61001E8229 /* libBaiduMobStat.a */,
 				FE3A43111C202B7C006F919C /* Foundation.framework */,
 				FE5DC3331C1ECBC10086D09B /* libiconv.dylib */,
 				FE5DC3311C1ECBAA0086D09B /* libz.dylib */,
@@ -949,7 +969,6 @@
 			children = (
 				58B84A081C842024003D4FAE /* BaoDanCell.h */,
 				58B84A091C842024003D4FAE /* BaoDanCell.m */,
-				58B84A0A1C842024003D4FAE /* BaoDanCell.xib */,
 				58B84A0B1C842024003D4FAE /* BPXXCell.h */,
 				58B84A0C1C842024003D4FAE /* BPXXCell.m */,
 			);
@@ -1603,7 +1622,6 @@
 				588486511C47E38E0081963A /* shot@2x.png in Resources */,
 				5884863C1C47E38E0081963A /* mainpage_create_query.png in Resources */,
 				588486581C47E38E0081963A /* tbsy_4.png in Resources */,
-				58B84A241C842024003D4FAE /* BaoDanCell.xib in Resources */,
 				5884864C1C47E38E0081963A /* select_compary_icon.png in Resources */,
 				8762CA9A1C4F2D6C00D4308B /* CZKeyboardTool.xib in Resources */,
 				588486461C47E38E0081963A /* navigationbar_background@2x.png in Resources */,
@@ -1952,6 +1970,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TBRJL/Lib/Tool",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1975,6 +1994,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TBRJL/Lib/Tool",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

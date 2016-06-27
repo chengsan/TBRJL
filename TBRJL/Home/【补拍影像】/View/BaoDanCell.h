@@ -10,8 +10,13 @@
 #import "BaoDanModel.h"
 @interface BaoDanCell : UITableViewCell
 @property (nonatomic ,strong) BaoDanModel *model;
-+(instancetype)cellForTableView:(UITableView *)tableView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+
+
+
+@property (strong, nonatomic)  UILabel *titleLabel;
+@property (strong, nonatomic)  UILabel *detailLabel;
+
++ (instancetype)cellForTableView:(UITableView *)tableView;
+
 
 @end

@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
 @interface BaoDanModel : NSObject
+
+
+@property (nonatomic ,assign)CGFloat cellHeight;
 
 @property (nonatomic ,strong) NSString *title;
 

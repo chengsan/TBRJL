@@ -70,13 +70,6 @@
     [self checkVersion:leapAPPName];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self loadUserData];
-}
-
-
-
 -(void)_initView
 {
     
@@ -277,6 +270,7 @@
 
 
 -(void)questionBtnClick{
+     [[BaiduMobStat defaultStat] logEvent:@"common-problem" eventLabel:@"常见问题"];
     QuestionViewController *questionVc  = [[QuestionViewController alloc] init];
     [self presentViewController:questionVc animated:YES completion:NULL];
     [questionVc dismiss];
@@ -320,6 +314,7 @@
                 
             case 200:
             {
+                [[BaiduMobStat defaultStat] logEvent:@"Set-app" eventLabel:@"APP设置"];
                 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                 [appDelegate.menuController showRightController:true];
             }
@@ -333,7 +328,9 @@
 
 //   登陆
 -(void)loginBtnClick{
-
+    
+   [[BaiduMobStat defaultStat] logEvent:@"login" eventLabel:@"登陆"];
+    
     self.userNameStr = self.userName.text;
     self.passwordStr = self.passName.text;
     NSString *noticeStr = nil;
@@ -728,6 +725,21 @@
     }
 }
 
+// 进入页面，建议在此处添加
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+    
+    [self loadUserData];
+}
+
+// 退出页面，建议在此处添加
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
+}
 
 
 

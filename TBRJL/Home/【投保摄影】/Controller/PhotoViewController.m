@@ -153,14 +153,7 @@
     
 }
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    //删除ZIP包
-    BOOL success = [Util delForDic:zipPath];
-    
-    NSLog(@"删除ZIP包:%@",[[NSNumber alloc] initWithBool:success]);
-}
+
 
 #pragma mark 按钮回调事件
 -(void)onClick:(UIButton *)btn
@@ -657,16 +650,43 @@
     
     if(carmeraController == nil)
     {
+        NSString *titleName = (NSString *)[bean objectForKey:@"title"];
         carmeraController = [[CustomCarmeraController alloc] init];
         carmeraController.waterText = @"仅供保险投保使用";
-        carmeraController.titleName = (NSString *)[bean objectForKey:@"title"];
+        carmeraController.titleName = titleName;
         carmeraController.waterTextColor = [UIColor lightGrayColor];
         carmeraController.waterTextSize = 34;
         carmeraController.delegate = self;
+        [self setBaiduEventWithTitleName:titleName];
     }
     
     [self.navigationController pushViewController:carmeraController animated:YES];
 }
+
+-(void)setBaiduEventWithTitleName:(NSString *)titleName{
+    if ([titleName isEqualToString:@"投保人亲笔签名"]) {
+        
+        [[BaiduMobStat defaultStat] logEvent:@"Tou-autographed" eventLabel:@"投保人亲笔签名-影像拍摄1"];
+    }else if([titleName isEqualToString:@"投保人亲笔抄录"]){
+        [[BaiduMobStat defaultStat] logEvent:@"Tou-handwritten" eventLabel:@"投保人亲笔抄录-影像拍摄2"];
+    }else if([titleName isEqualToString:@"销售人员与投保人合影自拍"]){
+        [[BaiduMobStat defaultStat] logEvent:@"photos" eventLabel:@"销售人员与投保人合影自拍-影像拍摄3"];
+    }else if([titleName isEqualToString:@"投保人身份证原件正面"]){
+        [[BaiduMobStat defaultStat] logEvent:@"Tou-IDcard1" eventLabel:@"投保人身份证原件正面-影像拍摄4"];
+    }else if([titleName isEqualToString:@"投保人身份证原件反面"]){
+        [[BaiduMobStat defaultStat] logEvent:@"Tou-IDcard0" eventLabel:@"投保人身份证原件反面-影像拍摄5"];
+    }else if([titleName isEqualToString:@"被保险人身份证原件正面"]){
+        [[BaiduMobStat defaultStat] logEvent:@"Bei-IDcard1" eventLabel:@"险人身份证原件正面-影像拍摄6"];
+    }else if([titleName isEqualToString:@"被保险人身份证原件反面"]){
+        [[BaiduMobStat defaultStat] logEvent:@"Bei-IDcard0" eventLabel:@"被保险人身份证原件反面-影像拍摄7"];
+    }else if([titleName isEqualToString:@"被保险人亲笔签名"]){
+        [[BaiduMobStat defaultStat] logEvent:@"Bei-autographed" eventLabel:@"被保险人亲笔签名-影像拍摄8"];
+    }else if([titleName isEqualToString:@"其他照片"]){
+        [[BaiduMobStat defaultStat] logEvent:@"other-photo" eventLabel:@"其他照片-影像拍摄9"];
+    }
+    
+}
+
 
 -(void)DidTakePhotoCustomCarmeraController:(CustomCarmeraController *)customCarmeraController Image:(UIImage *)image
 {
@@ -764,4 +784,26 @@
     return res;
 }
 
+// 进入页面，建议在此处添加
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+    
+    
+}
+
+// 退出页面，建议在此处添加
+- (void)viewDidDisappear:(BOOL)animated {
+
+    [super viewDidDisappear:animated];
+    //删除ZIP包
+    BOOL success = [Util delForDic:zipPath];
+    
+    NSLog(@"删除ZIP包:%@",[[NSNumber alloc] initWithBool:success]);
+    
+    NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
+}
 @end
