@@ -13,6 +13,9 @@
 		2DDA27C71D1D0CB2001E8229 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDA27C61D1D0CB2001E8229 /* libstdc++.tbd */; };
 		2DDA27C91D1D0CBE001E8229 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDA27C81D1D0CBE001E8229 /* libz.1.2.5.tbd */; };
 		2DDA27CB1D1D0CC4001E8229 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDA27CA1D1D0CC4001E8229 /* JavaScriptCore.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5814ACD11D20CDAB00776CCF /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5814ACD01D20CDAB00776CCF /* libiconv.2.4.0.tbd */; };
+		5814ACD31D20CDBD00776CCF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5814ACD21D20CDBD00776CCF /* libz.tbd */; };
+		5814ACD71D20CDEB00776CCF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5814ACD61D20CDEB00776CCF /* libsqlite3.0.tbd */; };
 		588485581C47DF9A0081963A /* Globle.m in Sources */ = {isa = PBXBuildFile; fileRef = 588485571C47DF9A0081963A /* Globle.m */; };
 		5884855D1C47DFDF0081963A /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5884855A1C47DFDF0081963A /* BaseNavigationViewController.m */; };
 		5884855E1C47DFDF0081963A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5884855C1C47DFDF0081963A /* BaseViewController.m */; };
@@ -190,7 +193,6 @@
 		FE5DC2D71C1EC4D20086D09B /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC2CD1C1EC4D20086D09B /* NSObject+MJKeyValue.m */; };
 		FE5DC2D81C1EC4D20086D09B /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC2CF1C1EC4D20086D09B /* NSObject+MJProperty.m */; };
 		FE5DC2D91C1EC4D20086D09B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC2D11C1EC4D20086D09B /* NSString+MJExtension.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FE5DC2E01C1EC57B0086D09B /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5DC2DF1C1EC57B0086D09B /* libsqlite3.0.dylib */; };
 		FE5DC2F11C1EC70F0086D09B /* AFNetWorkService.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC2EF1C1EC70F0086D09B /* AFNetWorkService.m */; };
 		FE5DC2F81C1EC73A0086D09B /* TitleDropDown.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC2F31C1EC73A0086D09B /* TitleDropDown.m */; };
 		FE5DC2F91C1EC73A0086D09B /* FVCustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC2F51C1EC73A0086D09B /* FVCustomAlertView.m */; };
@@ -214,8 +216,6 @@
 		FE5DC32C1C1ECB7E0086D09B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5DC32B1C1ECB7E0086D09B /* QuartzCore.framework */; };
 		FE5DC32E1C1ECB870086D09B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5DC32D1C1ECB870086D09B /* AVFoundation.framework */; };
 		FE5DC3301C1ECB8E0086D09B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5DC32F1C1ECB8E0086D09B /* CFNetwork.framework */; };
-		FE5DC3321C1ECBAA0086D09B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5DC3311C1ECBAA0086D09B /* libz.dylib */; };
-		FE5DC3341C1ECBC10086D09B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5DC3331C1ECBC10086D09B /* libiconv.dylib */; };
 		FE5DC33A1C1ED8140086D09B /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC3391C1ED8140086D09B /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FE5DC3531C1ED8F70086D09B /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC33D1C1ED8F70086D09B /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FE5DC3541C1ED8F70086D09B /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5DC3401C1ED8F70086D09B /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -254,6 +254,9 @@
 		2DDA27C81D1D0CBE001E8229 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
 		2DDA27CA1D1D0CC4001E8229 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		45243DC827BFE3DE816335D9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5814ACD01D20CDAB00776CCF /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
+		5814ACD21D20CDBD00776CCF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5814ACD61D20CDEB00776CCF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		588485561C47DF9A0081963A /* Globle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globle.h; sourceTree = "<group>"; };
 		588485571C47DF9A0081963A /* Globle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globle.m; sourceTree = "<group>"; };
 		588485591C47DFDF0081963A /* BaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
@@ -538,7 +541,6 @@
 		FE5DC2CF1C1EC4D20086D09B /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		FE5DC2D01C1EC4D20086D09B /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		FE5DC2D11C1EC4D20086D09B /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
-		FE5DC2DF1C1EC57B0086D09B /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		FE5DC2EE1C1EC70F0086D09B /* AFNetWorkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetWorkService.h; sourceTree = "<group>"; };
 		FE5DC2EF1C1EC70F0086D09B /* AFNetWorkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetWorkService.m; sourceTree = "<group>"; };
 		FE5DC2F21C1EC73A0086D09B /* TitleDropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleDropDown.h; sourceTree = "<group>"; };
@@ -570,8 +572,6 @@
 		FE5DC32B1C1ECB7E0086D09B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FE5DC32D1C1ECB870086D09B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FE5DC32F1C1ECB8E0086D09B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		FE5DC3311C1ECBAA0086D09B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		FE5DC3331C1ECBC10086D09B /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		FE5DC3381C1ED8140086D09B /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		FE5DC3391C1ED8140086D09B /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		FE5DC33C1C1ED8F70086D09B /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -611,6 +611,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5814ACD71D20CDEB00776CCF /* libsqlite3.0.tbd in Frameworks */,
+				5814ACD31D20CDBD00776CCF /* libz.tbd in Frameworks */,
+				5814ACD11D20CDAB00776CCF /* libiconv.2.4.0.tbd in Frameworks */,
 				2DDA27CB1D1D0CC4001E8229 /* JavaScriptCore.framework in Frameworks */,
 				2DDA27C91D1D0CBE001E8229 /* libz.1.2.5.tbd in Frameworks */,
 				2DDA27C71D1D0CB2001E8229 /* libstdc++.tbd in Frameworks */,
@@ -618,8 +621,6 @@
 				FE5DC31C1C1ECB320086D09B /* CoreTelephony.framework in Frameworks */,
 				FE3A43121C202B7C006F919C /* Foundation.framework in Frameworks */,
 				FE5DC32E1C1ECB870086D09B /* AVFoundation.framework in Frameworks */,
-				FE5DC3341C1ECBC10086D09B /* libiconv.dylib in Frameworks */,
-				FE5DC3321C1ECBAA0086D09B /* libz.dylib in Frameworks */,
 				FE5DC3301C1ECB8E0086D09B /* CFNetwork.framework in Frameworks */,
 				FE5DC32C1C1ECB7E0086D09B /* QuartzCore.framework in Frameworks */,
 				FE5DC32A1C1ECB760086D09B /* CoreMedia.framework in Frameworks */,
@@ -634,7 +635,6 @@
 				FE5DC3181C1ECB090086D09B /* AddressBookUI.framework in Frameworks */,
 				FE5DC3161C1ECB000086D09B /* AddressBook.framework in Frameworks */,
 				FE5DC3141C1ECAEC0086D09B /* AudioToolbox.framework in Frameworks */,
-				FE5DC2E01C1EC57B0086D09B /* libsqlite3.0.dylib in Frameworks */,
 				0EA7B7E00C4B00B61B564BE2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,6 +652,9 @@
 		02CFAF0DD6B85799F089B44A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5814ACD61D20CDEB00776CCF /* libsqlite3.0.tbd */,
+				5814ACD21D20CDBD00776CCF /* libz.tbd */,
+				5814ACD01D20CDAB00776CCF /* libiconv.2.4.0.tbd */,
 				2DDA27CA1D1D0CC4001E8229 /* JavaScriptCore.framework */,
 				2DDA27C81D1D0CBE001E8229 /* libz.1.2.5.tbd */,
 				2DDA27C61D1D0CB2001E8229 /* libstdc++.tbd */,
@@ -659,8 +662,6 @@
 				2DDA27C11D1D0C61001E8229 /* BaiduMobStat.h */,
 				2DDA27C21D1D0C61001E8229 /* libBaiduMobStat.a */,
 				FE3A43111C202B7C006F919C /* Foundation.framework */,
-				FE5DC3331C1ECBC10086D09B /* libiconv.dylib */,
-				FE5DC3311C1ECBAA0086D09B /* libz.dylib */,
 				FE5DC32F1C1ECB8E0086D09B /* CFNetwork.framework */,
 				FE5DC32D1C1ECB870086D09B /* AVFoundation.framework */,
 				FE5DC32B1C1ECB7E0086D09B /* QuartzCore.framework */,
@@ -676,7 +677,6 @@
 				FE5DC3171C1ECB090086D09B /* AddressBookUI.framework */,
 				FE5DC3151C1ECB000086D09B /* AddressBook.framework */,
 				FE5DC3131C1ECAEC0086D09B /* AudioToolbox.framework */,
-				FE5DC2DF1C1EC57B0086D09B /* libsqlite3.0.dylib */,
 				45243DC827BFE3DE816335D9 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1964,6 +1964,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TBRJL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1988,6 +1989,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TBRJL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
