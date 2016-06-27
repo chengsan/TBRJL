@@ -494,7 +494,7 @@
             
             
             NSString *content = [NSString stringWithFormat:@"%@",result];
-            
+
             /*
             //获取Document路径
             NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
