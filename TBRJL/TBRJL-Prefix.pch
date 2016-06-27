@@ -35,9 +35,9 @@
 //APP的英文名称
 #define APPENName [NSString stringWithFormat:@"%@",@"BBT_IOS"];
 //版本号
-#define VersionCode [NSString stringWithFormat:@"%@",@"12"];
+#define VersionCode [NSString stringWithFormat:@"%@",@"13"];
 //版本号描述
-#define VersionName [NSString stringWithFormat:@"%@",@"V2.1.2"]
+#define VersionName [NSString stringWithFormat:@"%@",@"V2.1.3"]
 
 //获取设备的物理高度
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
