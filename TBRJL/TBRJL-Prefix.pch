@@ -15,6 +15,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import "BaiduMobStat.h"
 
 #endif
 
@@ -34,7 +35,7 @@
 //APP的英文名称
 #define APPENName [NSString stringWithFormat:@"%@",@"BBT_IOS"];
 //版本号
-#define VersionCode [NSString stringWithFormat:@"%@",@"11"];
+#define VersionCode [NSString stringWithFormat:@"%@",@"12"];
 //版本号描述
 #define VersionName [NSString stringWithFormat:@"%@",@"V2.03"]
 

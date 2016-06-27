@@ -149,6 +149,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [[BaiduMobStat defaultStat] logEvent:@"Policy-Wording" eventLabel:@"保单内容-查询事务"];
     BaoDanInfoController *bdInfoVc = [[BaoDanInfoController alloc] init];
     bdInfoVc.dict = _array[indexPath.row];
     [self.navigationController pushViewController:bdInfoVc animated:YES];
@@ -171,6 +172,20 @@
     }
 }
 
+// 进入页面，建议在此处添加
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+    
+    
+}
 
+// 退出页面，建议在此处添加
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
+    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
+}
 
 @end
