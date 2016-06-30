@@ -669,6 +669,11 @@
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [params setValue:leapAPPname forKey:@"appname"];
         
+        
+        [[Globle getInstance].service requestWithServiceName:@"" params:params httpMethod:@"" resultIsDictionary:YES completeBlock:^(id result) {
+            
+        }];
+        
         [[Globle getInstance].service requestWithServiceName:@"lbcp_getAppVersion" params:params httpMethod:@"POST" resultIsDictionary:true completeBlock:^(id result) {
             
             NSLog(@"result:%@",result);
