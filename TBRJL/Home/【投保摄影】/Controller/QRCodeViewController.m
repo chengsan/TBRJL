@@ -10,6 +10,7 @@
 #import "PhotoViewController.h"
 #import "SMS4.h"
 #import "ScanViewController.h"
+#import "PublicClass.h"
 @interface QRCodeViewController ()
 
 @end
@@ -279,13 +280,19 @@
             }
             else
             {
-                [safeInfo setValue:string forKey:@"cardno"];
+                
                 
                 //判断是否是身份证，是的话需要校验
                 if([@"01" isEqualToString:((NSString *)[array objectAtIndex:3])])
                 {
                     //校验代码暂时没写
-                    
+                    BOOL isCardno =  [PublicClass checkIdentityCardNo:string];
+                    if (!isCardno) {
+                        
+                        [self showAlertNotice:@"投保人证件号格式不正确"];
+                        return;
+            
+                    }
                     
                     [newStr appendString:[NSString stringWithFormat:@"\n投保人证件号:%@",string]];
                 }
@@ -293,6 +300,7 @@
                 {
                     [newStr appendString:[NSString stringWithFormat:@"\n投保人证件号:%@",string]];
                 }
+                 [safeInfo setValue:string forKey:@"cardno"];
             }
             string = nil;
             
@@ -362,12 +370,18 @@
             }
             else
             {
-                [safeInfo setValue:string forKey:@"pcardno"];
+                
                 //判断是否是身份证，是的话需要校验
                 if([@"01" isEqualToString:((NSString *)[array objectAtIndex:3])])
                 {
+                 
                     //校验代码暂时没写
-                    
+                    BOOL isCardno =  [PublicClass checkIdentityCardNo:string];
+                    if (!isCardno) {
+                        
+                        [self showAlertNotice:@"被投保人证件号格式不正确"];
+                        return;
+                    }
                     
                     [newStr appendString:[NSString stringWithFormat:@"\n被保险人证件号:%@",string]];
                 }
@@ -375,6 +389,7 @@
                 {
                     [newStr appendString:[NSString stringWithFormat:@"\n被保险人证件号:%@",string]];
                 }
+                [safeInfo setValue:string forKey:@"pcardno"];
             }
             string = nil;
             
@@ -773,6 +788,27 @@
     }
     
 }
+
+//显示提示
+-(void)showAlertNotice:(NSString *)string
+{
+    if(nil == string || [@"" isEqualToString:string])
+    {
+        return;
+    }
+    
+    FVCustomAlertView *successNotice = [[FVCustomAlertView alloc] init];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 60)];
+    label.text = string;
+    label.numberOfLines = 0;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:14];
+    label.layer.cornerRadius = 10;
+    
+    [successNotice showAlertWithonView:self.view Width:200 height:60 contentView:label cancelOnTouch:false Duration:2];
+}
+
 
 #pragma mark 判断数据是否符合要求
 -(BOOL)dataIsOK:(NSString *)txt

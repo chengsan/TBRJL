@@ -597,6 +597,9 @@
     if ([sname isEqualToString:pname] && [cardno isEqualToString:pcardno]) {
         self.yesBtn.selected = YES;
         self.noBtn.selected = NO;
+        if (self.yesBtn.selected) {
+            safepnameDropDown.contentTextView.text = titleDropDown.contentTextView.text;
+        }
         _safepnameView.userInteractionEnabled = NO;
         safepnameDropDown.userInteractionEnabled = NO;
         safepnameTextView.backgroundColor = RGB(210, 210, 210);
@@ -1138,6 +1141,8 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
 -(void)setSafeInfo:(EntityBean *)safeInfoBean
 {
     safeInfo = safeInfoBean;
+  
+
     NSLog(@"safeinfo    %@",[safeInfo getDic]);
 }
 
@@ -1233,6 +1238,7 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
 #pragma mark TitleDropDown delegate
 -(void)titleDropDownDidSelected:(TitleDropDown *)dropDown index:(NSInteger)index
 {
+
     NSLog(@"111");
     NSString *string = nil;
     
@@ -1285,12 +1291,28 @@ NSString *pcardtype = (NSString *)[safeInfo objectForKey:@"pcardtype"];
 }
 
 
+
 // 进入页面，建议在此处添加
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
+  
     NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
     [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
     
+//    NSString *sname = (NSString *)[safeInfo objectForKey:@"sname"];
+//    NSString *pname = (NSString *)[safeInfo objectForKey:@"pname"];
+//    NSString *cardno = (NSString *)[safeInfo objectForKey:@"cardno"];
+//    NSString *pcardno = (NSString *)[safeInfo objectForKey:@"pcardno"];
+//    
+//    if ([sname isEqualToString:pname] && [cardno isEqualToString:pcardno]) {
+//       
+//        
+//        self.yesBtn.selected = YES;
+
+        titleDropDown.contentTextView.delegate = self;
+        safepnameDropDown.contentTextView.delegate = self;
+//    }
     
 }
 
